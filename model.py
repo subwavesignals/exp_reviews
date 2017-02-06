@@ -57,7 +57,7 @@ class Game(db.Model):
 
     __tablename__ = "games"
 
-    game_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    game_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(256), nullable=False)
     summary = db.Column(db.Text)
     storyline = db.Column(db.Text)
@@ -82,7 +82,7 @@ class Cover(db.Model):
 
     __tablename__ = "covers"
 
-    cover_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    cover_id = db.Column(db.Integer, primary_key=True)
     url = db.Column(db.String(64), nullable=False)
     width = db.Column(db.Integer, nullable=False)
     height = db.Column(db.Integer, nullable=False)
@@ -99,7 +99,7 @@ class Collection(db.Model):
 
     __tablename__ = "collections"
 
-    collection_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    collection_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), nullable=False)
 
     def __repr__(self):
@@ -114,7 +114,7 @@ class Franchise(db.Model):
 
     __tablename__ = "franchises"
 
-    franchise_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    franchise_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), nullable=False)
 
     def __repr__(self):
@@ -139,7 +139,7 @@ class Genre(db.Model):
 
     __tablename__ = "genres"
 
-    genre_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    genre_id = db.Column(db.Integer, primary_key=True)
     genre = db.Column(db.String(32), nullable=False)
 
     games = db.relationship("Game", secondary="game_genres", backref="genres")
@@ -167,7 +167,7 @@ class Developer(db.Model):
 
     __tablename__ = "developers"
 
-    developer_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    developer_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128), nullable=False)
 
     games = db.relationship("Game", secondary="game_developers", backref="developers")
@@ -195,7 +195,7 @@ class Publisher(db.Model):
 
     __tablename__ = "publishers"
 
-    publisher_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    publisher_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128), nullable=False)
 
     games = db.relationship("Game", secondary="game_publishers", backref="publishers")
@@ -222,7 +222,7 @@ class Video(db.Model):
 
     __tablename__ = "videos"
 
-    video_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    video_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), nullable=False)
     url = db.Column(db.String(64), nullable=False)
 
@@ -251,7 +251,7 @@ class Platform(db.Model):
 
     __tablename__ = "platforms"
 
-    platform_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    platform_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), nullable=False)
 
     games = db.relationship("Game", secondary="game_videos", backref="platforms")
