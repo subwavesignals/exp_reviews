@@ -20,6 +20,12 @@ class User(db.Model):
     age = db.Column(db.Integer, nullable=False)
     gender = db.Column(db.String(5), nullable=False)
 
+    def __repr__(self):
+        """Provide helpful output when printed"""
+
+        u = "<User user_id=%s username=%s email=%s age=%s gender=%s>"
+        return u % (self.user_id, self.username, self.email, self.age, self.gender)
+
 
 class Review(db.Model):
     """Reviews of games; contains score and comment"""
@@ -38,6 +44,12 @@ class Review(db.Model):
 
     user = db.relationship("User", backref="reviews")
     game = db.relationship("Game", backref="reviews")
+
+    def __repr__(self):
+        """Provide helpful output when printed"""
+
+        r = "<Review user_id=%s game_id=%s score=%s datetime=%s>"
+        return r % (self.user_id, self.game_id, self.score, self.review_time)
 
 
 class Game(db.Model):
@@ -58,6 +70,12 @@ class Game(db.Model):
     collection = db.relationship("Collection", backref="games")
     franchise = db.relationship("Franchise", backref="games")
 
+    def __repr__(self):
+        """Provide helpful output when printed"""
+
+        g = "<Game game_id=%s name=%s release_date=%s>"
+        return r % (self.game_id, self.name, self.release_date)
+
 
 class Cover(db.Model):
     """Game cover art image and dimensions"""
@@ -69,6 +87,12 @@ class Cover(db.Model):
     width = db.Column(db.Integer, nullable=False)
     height = db.Column(db.Integer, nullable=False)
 
+    def __repr__(self):
+        """Provide helpful output when printed"""
+
+        c = "<Cover cover_id=%s url=%s>"
+        return c % (self.cover_id, self.url)
+
 
 class Collection(db.Model):
     """Collection data"""
@@ -78,6 +102,12 @@ class Collection(db.Model):
     collection_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     name = db.Column(db.String(64), nullable=False)
 
+    def __repr__(self):
+        """Provide helpful output when printed"""
+
+        c = "<Collection collection_id=%s name=%s>"
+        return c % (self.collection_id, self.name)
+
 
 class Franchise(db.Model):
     """Franchise data"""
@@ -86,6 +116,12 @@ class Franchise(db.Model):
 
     franchise_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     name = db.Column(db.String(64), nullable=False)
+
+    def __repr__(self):
+        """Provide helpful output when printed"""
+
+        f = "<Franchise franchise_id=%s name=%s>"
+        return f % (self.franchise_id, self.name)
 
 
 class GameGenre(db.Model):
@@ -107,6 +143,12 @@ class Genre(db.Model):
     genre = db.Column(db.String(32), nullable=False)
 
     games = db.relationship("Game", secondary="game_genres", backref="genres")
+
+    def __repr__(self):
+        """Provide helpful output when printed"""
+
+        g = "<Genre genre_id=%s genre=%s>"
+        return g % (self.genre_id, self.genre)
 
 
 class GameDeveloper(db.Model):
@@ -130,6 +172,12 @@ class Developer(db.Model):
 
     games = db.relationship("Game", secondary="game_developers", backref="developers")
 
+    def __repr__(self):
+        """Provide helpful output when printed"""
+
+        d = "<Developer developer_id=%s name=%s>"
+        return d % (self.developer_id, self.name)
+
 
 class GamePublisher(db.Model):
     """Association table between games and publishers"""
@@ -151,6 +199,12 @@ class Publisher(db.Model):
     name = db.Column(db.String(128), nullable=False)
 
     games = db.relationship("Game", secondary="game_publishers", backref="publishers")
+
+    def __repr__(self):
+        """Provide helpful output when printed"""
+
+        p = "<Publisher publisher_id=%s name=%s>"
+        return p % (self.publisher_id, self.name)
 
 
 class GameVideo(db.Model):
@@ -174,6 +228,12 @@ class Video(db.Model):
 
     game = db.relationship("Game", secondary="game_videos", backref="videos")
 
+    def __repr__(self):
+        """Provide helpful output when printed"""
+
+        v = "<Video video_id=%s name=%s url=%s>"
+        return v % (self.video_id, self.name, self.url)
+
 
 class GamePlatform(db.Model):
     """Association table between games and platforms"""
@@ -196,6 +256,33 @@ class Platform(db.Model):
 
     games = db.relationship("Game", secondary="game_videos", backref="platforms")
 
+    def __repr__(self):
+        """Provide helpful output when printed"""
 
+        p = "<Platform platform_id=%s name=%s>"
+        return p % (self.platform_id, self.name)
+
+
+##############################################################################
+# Helper functions
+
+
+def connect_to_db(app):
+    """Connect the database to our Flask app."""
+
+    # Configure to use our PstgreSQL database
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///games'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+    db.app = app
+    db.init_app(app)
+
+
+if __name__ == "__main__":
+    # As a convenience, if we run this module interactively, it will leave
+    # you in a state of being able to work with the database directly.
+
+    from server import app
+    connect_to_db(app)
+    print "Connected to DB."
 
 
