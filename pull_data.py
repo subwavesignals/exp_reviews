@@ -4,7 +4,31 @@ import os
 key = os.environ["IGDB_API_KEY"]
 base_url = "https://igdbcom-internet-game-database-v1.p.mashape.com"
 
-def set_games():
+def make_request(url):
+    """Makes request to correct enpoint and for given fields based on url"""
+
+    limit = "&limit=50"
+    
+    offset = "&offset="
+    offset_value = 0
+
+    response_list = []
+    data_left = True
+
+    while data_left:
+        if offset_value + 50 >= 10000:
+            limit = limit[:-2] + str(49)
+        response = unirest.get(url + limit + offset + str(offset_value),
+                               headers={"X-Mashape-Key": key})
+        response_list.extend(response.body)
+        offset_value += 50
+        if len(response.body) < 50:
+            data_left = False
+        print len(response_list)
+
+    return response_list 
+
+def get_games():
     """Return all needed game data for most recent 10,000 in JSON object for seeding"""
 
     endpoint = "/games"
@@ -14,28 +38,9 @@ def set_games():
                   "videos", "cover"]
     fields = "/?fields=" + "%2C".join(field_list) 
 
-    limit = "&limit=50"
-
-    offset = "&offset="
-    offset_value = 0
-
     sort_by = "&order=first_release_date%3Adesc"
 
-    all_games = []
-    games_left = True
-
-    while games_left:
-        if offset_value + 50 >= 10000:
-            limit = "&limit=49"
-        response = unirest.get(base_url + endpoint + fields + limit + offset 
-                               + str(offset_value), headers={"X-Mashape-Key": key})
-        all_games.extend(response.body)
-        offset_value += 50
-        if len(response.body) < 50:
-            games_left = False
-        print len(all_games)
-
-    return all_games
+    return base_url + endpoint + fields + sort_by
 
 
 def get_collections():
@@ -46,25 +51,51 @@ def get_collections():
     field_list = ["id", "name"]
     fields = "/?fields=" + "%2C".join(field_list)
 
-    limit = "&limit=50"
+    return base_url + endpoint + fields
 
-    offset = "&offset="
-    offset_value = 0
 
-    all_collections = []
-    collections_left = True
+def get_franchises():
+    """Return id and name from franchises"""
 
-    while collections_left:
-        response = unirest.get(base_url + endpoint + fields + limit + offset 
-                               + str(offset_value), headers={"X-Mashape-Key": key})
-        all_collections.extend(response.body)
-        offset_value += 50
-        if len(response.body) < 50:
-            collections_left = False
-        print len(all_collections)
+    endpoint = "/franchises"
 
-    return all_collections
+    field_list = ["id", "name"]
+    fields = "/?fields=" + "%2C".join(field_list)
 
+    return base_url + endpoint + fields
+
+
+def get_genres():
+    """Return id and name from genres"""
+
+    endpoint = "/genres"
+
+    field_list = ["id", "name"]
+    fields = "/?fields=" + "%2C".join(field_list)
+
+    return base_url + endpoint + fields
+
+
+def get_platforms():
+    """Return id, name, and games list from platforms"""
+
+    endpoint = "/platforms"
+
+    field_list = ["id", "name", "games"]
+    fields = "/?fields=" + "%2C".join(field_list)
+    
+    return base_url + endpoint + fields
+
+
+def get_videos():
+    """Return name and YouTube slug from videos"""
+
+    endpoint = "/videos"
+
+    field_list = ["name", "slug"]
+    fields = "/?fields=" + "%2C".join(field_list)
+  
+    return base_url + endpoint + fields
 
 
 

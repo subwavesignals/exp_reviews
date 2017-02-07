@@ -207,22 +207,13 @@ class Publisher(db.Model):
         return p % (self.publisher_id, self.name)
 
 
-class GameVideo(db.Model):
-    """Association table bwteen games and videos"""
-
-    __tablename__ = "game_videos"
-
-    gamevideo_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    game_id = db.Column(db.Integer, db.ForeignKey("games.game_id"), nullable=False)
-    video_id = db.Column(db.Integer, db.ForeignKey("videos.vieo_id"), nullable=False)
-
-
 class Video(db.Model):
     """Video table"""
 
     __tablename__ = "videos"
 
     video_id = db.Column(db.Integer, primary_key=True)
+    game_id = db.Column(db.Integer, db.ForeignKey("games.game_id"), nullable=False)
     name = db.Column(db.String(64), nullable=False)
     url = db.Column(db.String(64), nullable=False)
 
@@ -231,8 +222,8 @@ class Video(db.Model):
     def __repr__(self):
         """Provide helpful output when printed"""
 
-        v = "<Video video_id=%s name=%s url=%s>"
-        return v % (self.video_id, self.name, self.url)
+        v = "<Video video_id=%s game_id=%s name=%s url=%s>"
+        return v % (self.video_id, self.game_id, self.name, self.url)
 
 
 class GamePlatform(db.Model):
