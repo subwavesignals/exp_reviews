@@ -24,16 +24,18 @@ def make_request(url):
         offset_value += 50
         if len(response.body) < 50:
             data_left = False
-        print len(response_list)
+        if len(response_list) % 1000 == 0:
+            print len(response_list)
 
     return response_list 
 
-def get_games():
+
+def get_game_url():
     """Return all needed game data for most recent 10,000 in JSON object for seeding"""
 
     endpoint = "/games"
 
-    field_list = ["id", "name", "summary", "storyline", "collection", "franchise",
+    field_list = ["id", "name", "summary", "storyline", "franchise",
                   "developers", "publishers", "genres", "first_release_date",
                   "videos", "cover"]
     fields = "/?fields=" + "%2C".join(field_list) 
@@ -43,18 +45,7 @@ def get_games():
     return base_url + endpoint + fields + sort_by
 
 
-def get_collections():
-    """Return id and name from collections"""
-
-    endpoint = "/collections"
-
-    field_list = ["id", "name"]
-    fields = "/?fields=" + "%2C".join(field_list)
-
-    return base_url + endpoint + fields
-
-
-def get_franchises():
+def get_franchise_url():
     """Return id and name from franchises"""
 
     endpoint = "/franchises"
@@ -65,7 +56,7 @@ def get_franchises():
     return base_url + endpoint + fields
 
 
-def get_genres():
+def get_genre_url():
     """Return id and name from genres"""
 
     endpoint = "/genres"
@@ -76,7 +67,7 @@ def get_genres():
     return base_url + endpoint + fields
 
 
-def get_platforms():
+def get_platform_url():
     """Return id, name, and games list from platforms"""
 
     endpoint = "/platforms"
@@ -87,7 +78,7 @@ def get_platforms():
     return base_url + endpoint + fields
 
 
-def get_videos():
+def get_video_url():
     """Return name and YouTube slug from videos"""
 
     endpoint = "/videos"

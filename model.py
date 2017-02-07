@@ -62,12 +62,8 @@ class Game(db.Model):
     summary = db.Column(db.Text)
     storyline = db.Column(db.Text)
     release_date = db.Column(db.DateTime, nullable=False)
-    cover_id = db.Column(db.Integer, db.ForeignKey("covers.cover_id"))
-    collection_id = db.Column(db.Integer, db.ForeignKey("collections.collection_id"))
-    franchise_id = db.Column(db.Integer, db.ForeignKey("franchise.franchise_id"))
+    franchise_id = db.Column(db.Integer, db.ForeignKey("franchises.franchise_id"))
 
-    cover = db.relationship("Cover", backref="game")
-    collection = db.relationship("Collection", backref="games")
     franchise = db.relationship("Franchise", backref="games")
 
     def __repr__(self):
@@ -82,31 +78,19 @@ class Cover(db.Model):
 
     __tablename__ = "covers"
 
-    cover_id = db.Column(db.Integer, primary_key=True)
-    url = db.Column(db.String(64), nullable=False)
+    cover_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    game_id = db.Column(db.Integer, db.ForeignKey("games.game_id"))
+    url = db.Column(db.String(256), nullable=False)
     width = db.Column(db.Integer, nullable=False)
     height = db.Column(db.Integer, nullable=False)
 
-    def __repr__(self):
-        """Provide helpful output when printed"""
-
-        c = "<Cover cover_id=%s url=%s>"
-        return c % (self.cover_id, self.url)
-
-
-class Collection(db.Model):
-    """Collection data"""
-
-    __tablename__ = "collections"
-
-    collection_id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), nullable=False)
+    game = db.relationship("Game", backref="covers")
 
     def __repr__(self):
         """Provide helpful output when printed"""
 
-        c = "<Collection collection_id=%s name=%s>"
-        return c % (self.collection_id, self.name)
+        c = "<Cover cover_id=%s game_id=%s url=%s>"
+        return c % (self.cover_id, self.game_id, self.url)
 
 
 class Franchise(db.Model):
@@ -115,7 +99,7 @@ class Franchise(db.Model):
     __tablename__ = "franchises"
 
     franchise_id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), nullable=False)
+    name = db.Column(db.String(128), nullable=False)
 
     def __repr__(self):
         """Provide helpful output when printed"""
@@ -217,7 +201,7 @@ class Video(db.Model):
     name = db.Column(db.String(64), nullable=False)
     url = db.Column(db.String(64), nullable=False)
 
-    game = db.relationship("Game", secondary="game_videos", backref="videos")
+    game = db.relationship("Game", backref="videos")
 
     def __repr__(self):
         """Provide helpful output when printed"""
@@ -245,7 +229,7 @@ class Platform(db.Model):
     platform_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), nullable=False)
 
-    games = db.relationship("Game", secondary="game_videos", backref="platforms")
+    games = db.relationship("Game", secondary="game_platforms", backref="platforms")
 
     def __repr__(self):
         """Provide helpful output when printed"""
