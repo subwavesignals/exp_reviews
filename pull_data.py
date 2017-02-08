@@ -35,9 +35,8 @@ def get_game_url():
 
     endpoint = "/games"
 
-    field_list = ["id", "name", "summary", "storyline", "franchise",
-                  "developers", "publishers", "genres", "first_release_date",
-                  "videos", "cover"]
+    field_list = ["id", "name", "summary", "storyline", "franchise", "genres",
+                  "first_release_date", "videos", "cover"]
     fields = "/?fields=" + "%2C".join(field_list) 
 
     sort_by = "&order=first_release_date%3Adesc"
@@ -49,6 +48,17 @@ def get_franchise_url():
     """Return id and name from franchises"""
 
     endpoint = "/franchises"
+
+    field_list = ["id", "name"]
+    fields = "/?fields=" + "%2C".join(field_list)
+
+    return base_url + endpoint + fields
+
+
+def get_companies_url():
+    """Return id and name from companies"""
+
+    endpoint = "/companies"
 
     field_list = ["id", "name"]
     fields = "/?fields=" + "%2C".join(field_list)
@@ -75,17 +85,6 @@ def get_platform_url():
     field_list = ["id", "name", "games"]
     fields = "/?fields=" + "%2C".join(field_list)
     
-    return base_url + endpoint + fields
-
-
-def get_video_url():
-    """Return name and YouTube slug from videos"""
-
-    endpoint = "/videos"
-
-    field_list = ["name", "slug"]
-    fields = "/?fields=" + "%2C".join(field_list)
-  
     return base_url + endpoint + fields
 
 

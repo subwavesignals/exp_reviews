@@ -163,43 +163,14 @@ class Developer(db.Model):
         return d % (self.developer_id, self.name)
 
 
-class GamePublisher(db.Model):
-    """Association table between games and publishers"""
-
-    __tablename__ = "game_publishers"
-
-    gamepub_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    game_id = db.Column(db.Integer, db.ForeignKey("games.game_id"), nullable=False)
-    publisher_id = db.Column(db.Integer, db.ForeignKey("publishers.publisher_id"),
-                             nullable=False)
-
-
-class Publisher(db.Model):
-    """Publisher table"""
-
-    __tablename__ = "publishers"
-
-    publisher_id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(128), nullable=False)
-
-    games = db.relationship("Game", secondary="game_publishers", backref="publishers")
-
-    def __repr__(self):
-        """Provide helpful output when printed"""
-
-        p = "<Publisher publisher_id=%s name=%s>"
-        return p % (self.publisher_id, self.name)
-
-
 class Video(db.Model):
     """Video table"""
 
     __tablename__ = "videos"
 
-    video_id = db.Column(db.Integer, primary_key=True)
+    slug = db.Column(db.String(32), primary_key=True)
     game_id = db.Column(db.Integer, db.ForeignKey("games.game_id"), nullable=False)
     name = db.Column(db.String(64), nullable=False)
-    url = db.Column(db.String(64), nullable=False)
 
     game = db.relationship("Game", backref="videos")
 

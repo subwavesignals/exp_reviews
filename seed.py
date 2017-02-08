@@ -85,7 +85,6 @@ def load_covers(games_list):
     db.session.commit()
 
 
-
 def load_franchises():
     """Loads franchise_id and name into franchises table"""
 
@@ -105,6 +104,10 @@ def load_franchises():
         db.session.add(franchise)
 
     db.session.commit()
+
+
+def load_game_genres():
+    pass
 
 
 def load_genres():
@@ -128,17 +131,18 @@ def load_genres():
     db.session.commit()
 
 
-def load_developers(): #PULL FROM GAMES_LIST
-    """Loads developer_id and name into developers table"""
+def load_game_devs():
+    pass
 
-    dev_url = pull_data.get_developer_url()
-    devs_list = pull_data.make_request(dev_url)
+
+def load_developers(companies_list): 
+    """Loads developer_id and name into developers table"""
 
     print "Developers"
 
     Developer.query.delete()
 
-    for item in devs_list:
+    for item in companies_list:
         developer_id = item["id"]
         name = item["name"]
 
@@ -149,25 +153,8 @@ def load_developers(): #PULL FROM GAMES_LIST
     db.session.commit()
 
 
-def load_publishers(): #PULL FROM GAMES LIST
-    """Loads publisher_id and name into publishers table"""
-
-    pub_url = pull_data.get_publisher_url()
-    pubs_list = pull_data.make_request(pub_url)
-
-    print "Publishers"
-
-    Publisher.query.delete()
-
-    for item in pubs_list:
-        publisher_id = item["id"]
-        name = item["name"]
-
-        publisher = Publisher(publisher_id=publisher_id, name=name)
-
-        db.session.add(publisher)
-
-    db.session.commit()
+def load_game_platforms():
+    pass
 
 
 def load_platforms():
@@ -191,7 +178,6 @@ def load_platforms():
     db.session.commit()
 
 
-
 if __name__ == "__main__":
     connect_to_db(app)
 
@@ -202,21 +188,20 @@ if __name__ == "__main__":
     game_url = pull_data.get_game_url()
     games_list = pull_data.make_request(game_url)
 
+    # Get companies data for developers and publishers tables
+    comp_url = pull_data.get_companies_url()
+    companies_list = pull_data.make_request(comp_url)
+
     # Call load methods in order to not annoy relationships
     load_users()
     load_reviews()
     load_genres()
-    print "Genres loaded"
-    # load_developers()
-    # load_publishers()
+    load_developers(companies_list)
     load_platforms()
-    print "Platforms loaded"
     load_franchises()
-    print "Franchises loaded"
     load_games(games_list)
-    print "Games loaded"
     load_covers(games_list)
-    print "Covers loaded"
+
 
 
 
