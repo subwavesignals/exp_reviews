@@ -19,6 +19,51 @@ app.jinja_env.undefined = StrictUndefined
 ################################################################################
 # Routes
 
+@app.route("/")
+def display_homepage():
+    """Displays the homepage"""
+
+    return render_template("index.html")
+
+
+@app.route("/signup", methods=["GET", "POST"])
+def start_adding_user():
+    """Prompts new user for username, email, and password"""
+
+    return render_template("signup.html")
+
+
+@app.route("/create_profile", methods=["GET", "POST"])
+def finish_adding_user():
+    """Prompts user for personal info after successfully getting username
+
+    Will only display if the username and email the user entered aren't already
+    in the User table
+    """
+
+    return render_template("create_profile.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    """Prompts new user for username, email, and password"""
+
+    return render_template("login.html")
+
+
+@app.route("/logout")
+def logout():
+    """Logs current user out and wipes session"""
+
+    # If no user logged in, don't log out; otherwise clear session
+    if session.get('username'):
+        session.clear()
+        flash("Logged out.")
+    else:
+        flash("No user currently logged in.")
+
+    return redirect("/")
+
 
 ################################################################################
 # Helper Functions
@@ -29,7 +74,7 @@ if __name__ == "__main__":
     app.debug = True
     app.jinja_env.auto_reload = app.debug 
 
-    connect_to_db(app)
+    model.connect_to_db(app)
 
     # Use the DebugToolbar
     DebugToolbarExtension(app)

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}EXP - Log In{% endblock %}
+
+{% block content %}
+
+<h2>Log In</h2>
+
+<form action="/login" method="POST">
+    <label>Username: </label><input type="text" name="username">
+    <label>Password: </label><input type="password" name="password">
+
+    <input type="submit" name="signup" value="Welcome Back">
+</form>
+
+{% endblock %}

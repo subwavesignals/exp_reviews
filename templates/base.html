@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}TITLE ME PLEASE{% endblock %}</title>
+</head>
+<body>
+
+    <!-- Fake Navbar for now -->
+    <h3><a href="/">EXP Reviews</a></h3>
+
+    <ul>
+    {% if session.get("user_id") %}
+        <li><a href="/user/{{ session['user_id'] }}">Profile</a></li>
+        <li><a href="/logout">Log Out</a></li>
+    {% else %}
+        <li><a href="/signup">Sign Up</a></li>
+        <li><a href="/login">Log In</a></li>
+    {% endif %}
+    </ul>
+
+    <hr>
+
+    <!-- Flash message handling -->
+    {% for message in get_flashed_messages() %}
+        {{ message }}
+    {% endfor %}
+
+    {% block content %}Y HAZ NO CONTENT????{% endblock %}
+
+</body>
+</html>

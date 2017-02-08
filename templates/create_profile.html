@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}EXP - Finish Profile{% endblock %}
+
+{% block content %}
+
+<h4>Just a Little More Infor before You Start:</h4>
+
+<form action="/users/{{ session['user_id'] }}" method="POST">
+    <label>First Name: </label><input type="text" name="fname">
+    <label>Last Name: </label><input type="text" name="lname">
+    <label>Age: </label><input type="number" name="age">
+    <select name="gender">
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+        <option value="transwoman">Trans woman</option>
+        <option value="transman">Trans Man</option>
+        <option value="nb_gf">Nonbinary/Genderfluid</option>
+        <option value="prefer_no">Prefer not to specify</option>
+    </select>
+
+    <input type="submit" name="signup" value="Join EXP">
+</form>
+
+{% endblock %}
