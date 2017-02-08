@@ -5,7 +5,7 @@ from jinja2 import StrictUndefined
 from flask import (Flask, render_template, redirect, request, flash, session)
 from flask_debugtoolbar import DebugToolbarExtension
 
-import model
+from model import User, connect_to_db, db
 
 
 app = Flask(__name__)
@@ -27,26 +27,66 @@ def display_homepage():
 
 
 @app.route("/signup", methods=["GET", "POST"])
-def start_adding_user():
-    """Prompts new user for username, email, and password"""
+def signup():
+    """Displays signup form on GET and handles input on POST"""
 
-    return render_template("signup.html")
+    if request.method == "GET":
+        return render_template("signup.html")
+
+    else:
+
+        # Get form inputs
+        username = request.form.get("username")
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        #Validation of username and email happens in the form, so add user
+        user = User(username=username, email=email, password=password)
+
+        db.session.add(user)
+        db.session.commit()
+
+        # Set the session value with the user's ID
+        session["user_id"] = user.user_id
+
+        return redirect("/create_profile")
 
 
 @app.route("/create_profile", methods=["GET", "POST"])
-def finish_adding_user():
-    """Prompts user for personal info after successfully getting username
+def create_profile():
+    """Displays more info form on GET and handles input on POST
 
     Will only display if the username and email the user entered aren't already
     in the User table
     """
 
-    return render_template("create_profile.html")
+    if request.method == "GET":
+        return render_template("create_profile.html")
+
+    else:
+
+        # Get form inputs
+        fname = request.form.get("fname")
+        lname = request.form.get("lname")
+        age = request.form.get("age")
+        gender = request.form.get("gender")
+
+        # Get user in process, add info to DB row
+        user = User.query.filter_by(user_id=session["user_id"]).one()
+        user.fname = fname
+        user.lname = lname
+        user.age = age
+        user.gender = gender
+        db.session.commit()
+
+        flash("Your profile is complete!")
+        return redirect("/")
+
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    """Prompts new user for username, email, and password"""
+    """Displays login form on GET and handles input on POST"""
 
     return render_template("login.html")
 
@@ -56,7 +96,7 @@ def logout():
     """Logs current user out and wipes session"""
 
     # If no user logged in, don't log out; otherwise clear session
-    if session.get('username'):
+    if session.get('user_id'):
         session.clear()
         flash("Logged out.")
     else:
@@ -74,7 +114,7 @@ if __name__ == "__main__":
     app.debug = True
     app.jinja_env.auto_reload = app.debug 
 
-    model.connect_to_db(app)
+    connect_to_db(app)
 
     # Use the DebugToolbar
     DebugToolbarExtension(app)
