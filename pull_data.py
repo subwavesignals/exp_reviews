@@ -24,7 +24,7 @@ def make_request(url):
         offset_value += 50
         if len(response.body) < 50:
             data_left = False
-        if len(response_list) % 1000 == 0:
+        if len(response_list) % 500 == 0:
             print len(response_list)
 
     return response_list 
@@ -55,15 +55,17 @@ def get_franchise_url():
     return base_url + endpoint + fields
 
 
-def get_companies_url():
+def get_company_url(dev_id):
     """Return id and name from companies"""
 
     endpoint = "/companies"
 
-    field_list = ["id", "name"]
-    fields = "/?fields=" + "%2C".join(field_list)
+    search = "/" + str(dev_id)
 
-    return base_url + endpoint + fields
+    field_list = ["name"]
+    fields = "?fields=" + "%2C".join(field_list)
+
+    return base_url + endpoint + search + fields
 
 
 def get_genre_url():

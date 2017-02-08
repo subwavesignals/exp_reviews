@@ -51,7 +51,7 @@ def load_games(games_list):
 
         db.session.add(publisher)
 
-        if (index % 1000 == 0):
+        if (index % 500 == 0):
             db.session.commit()
             print index
 
@@ -77,7 +77,7 @@ def load_covers(games_list):
 
             db.session.add(new_cover)
 
-        if (index % 1000 == 0):
+        if (index % 500 == 0):
             db.session.commit()
             print index
 
@@ -133,13 +133,28 @@ def load_developers(games_list):
 
     Developer.query.delete()
 
+    all_dev_ids = {}
+
     for index, item in enumerate(games_list):
-        developer_id = item["id"]
-        name = item["name"]
+        if item.get("developers"):
+            developers = item["developers"]
+            for developer_id in developers:
+                if developer_id not in all_dev_ids:
+                    all_dev_ids[developer_id] = developer_id
 
-        developer = Developer(developer_id=developer_id, name=name)
+                    company_url = pull_data.get_company_url(developer_id)
+                    company = pull_data.make_request(company_url)
+                    if (company[0].get("name")):
+                        name = company[0]["name"]
 
-        db.session.add(developer)
+                        developer = Developer(developer_id=developer_id, name=name)
+
+                        db.session.add(developer)
+                    else:
+                        print company[0]
+
+        if index % 500 == 0:
+            print index
 
     db.session.commit()
 
@@ -178,7 +193,7 @@ def load_game_genres(games_list):
 
                 db.session.add(game_genre);
 
-        if (index % 1000 == 0):
+        if (index % 500 == 0):
             db.session.commit()
             print index
 
@@ -201,7 +216,7 @@ def load_game_devs(games_list):
 
                 db.session.add(game_dev);
 
-        if (index % 1000 == 0):
+        if (index % 500 == 0):
             db.session.commit()
             print index
 
@@ -224,7 +239,7 @@ def load_game_platforms(platforms_list):
 
                 db.session.add(game_platform);
 
-        if (index % 1000 == 0):
+        if (index % 500 == 0):
             db.session.commit()
             print index
 
@@ -250,7 +265,7 @@ if __name__ == "__main__":
     load_users()
     load_reviews()
     load_genres()
-    load_developers(companies_list)
+    load_developers(games_list)
     load_platforms(platforms_list)
     load_franchises()
     load_games(games_list)
