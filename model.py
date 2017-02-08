@@ -42,6 +42,7 @@ class Review(db.Model):
     review_time = db.Column(db.DateTime, nullable=False,
                             default=datetime.datetime.utcnow)
 
+    # Set middle table relationships to users and games
     user = db.relationship("User", backref="reviews")
     game = db.relationship("Game", backref="reviews")
 
@@ -64,6 +65,7 @@ class Game(db.Model):
     release_date = db.Column(db.DateTime, nullable=False)
     franchise_id = db.Column(db.Integer, db.ForeignKey("franchises.franchise_id"))
 
+    # Set one to many relationship with franchises
     franchise = db.relationship("Franchise", backref="games")
 
     def __repr__(self):
@@ -84,6 +86,7 @@ class Cover(db.Model):
     width = db.Column(db.Integer, nullable=False)
     height = db.Column(db.Integer, nullable=False)
 
+    # Set one to many reltionship with games
     game = db.relationship("Game", backref="covers")
 
     def __repr__(self):
@@ -126,6 +129,7 @@ class Genre(db.Model):
     genre_id = db.Column(db.Integer, primary_key=True)
     genre = db.Column(db.String(32), nullable=False)
 
+    # Set many to many relationship with games using secondary
     games = db.relationship("Game", secondary="game_genres", backref="genres")
 
     def __repr__(self):
@@ -154,6 +158,7 @@ class Developer(db.Model):
     developer_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128), nullable=False)
 
+    # Set many to many relationship with games using secondary
     games = db.relationship("Game", secondary="game_developers", backref="developers")
 
     def __repr__(self):
@@ -172,6 +177,7 @@ class Video(db.Model):
     game_id = db.Column(db.Integer, db.ForeignKey("games.game_id"), nullable=False)
     name = db.Column(db.String(64), nullable=False)
 
+    # Set one to many relationship with games
     game = db.relationship("Game", backref="videos")
 
     def __repr__(self):
@@ -200,6 +206,7 @@ class Platform(db.Model):
     platform_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(64), nullable=False)
 
+    # Set many to many relationship with games using secondary
     games = db.relationship("Game", secondary="game_platforms", backref="platforms")
 
     def __repr__(self):
