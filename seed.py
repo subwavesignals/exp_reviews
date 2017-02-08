@@ -1,8 +1,7 @@
 """Utility file to seed games database from IGDB API and fake user/reviews"""
 
 from sqlalchemy import func
-from model import (User, Review, Game, Franchise, Cover, Video,
-                   GamePlatform, Platform, GamePublisher, Publisher,
+from model import (User, Review, Game, Franchise, Cover, GamePlatform, Platform,
                    GameDeveloper, Developer, GameGenre, Genre)
 
 from model import connect_to_db, db
@@ -106,10 +105,6 @@ def load_franchises():
     db.session.commit()
 
 
-def load_game_genres():
-    pass
-
-
 def load_genres():
     """Loads genre_id and name into genres table"""
 
@@ -131,18 +126,14 @@ def load_genres():
     db.session.commit()
 
 
-def load_game_devs():
-    pass
-
-
-def load_developers(companies_list): 
+def load_developers(games_list): 
     """Loads developer_id and name into developers table"""
 
     print "Developers"
 
     Developer.query.delete()
 
-    for item in companies_list:
+    for index, item in enumerate(games_list):
         developer_id = item["id"]
         name = item["name"]
 
@@ -153,27 +144,89 @@ def load_developers(companies_list):
     db.session.commit()
 
 
-def load_game_platforms():
-    pass
-
-
-def load_platforms():
+def load_platforms(platforms_list):
     """Loads platform_id and name into platforms table"""
-
-    platform_url = pull_data.get_platform_url()
-    platform_list = pull_data.make_request(platform_url)
 
     print "Platforms"
 
     Platform.query.delete()
 
-    for item in platform_list:
+    for item in platforms_list:
         platform_id = item["id"]
         name = item["name"]
 
         platform = Platform(platform_id=platform_id, name=name)
 
         db.session.add(platform)
+
+    db.session.commit()
+
+
+def load_game_genres(games_list):
+    """Load association table game_genre"""
+
+    print "Game Genres"
+
+    GameGenre.query.delete()
+
+    for index, item in enumerate(games_list):
+        game_id = item["id"]
+        if item.get("genres"):
+            genres = item["genres"]
+            for genre in genres:
+                game_genre = GameGenre(game_id=game_id, genre_id=genre)
+
+                db.session.add(game_genre);
+
+        if (index % 1000 == 0):
+            db.session.commit()
+            print index
+
+    db.session.commit()
+
+
+def load_game_devs(games_list):
+    """Load association table game_developers"""
+
+    print "Game Developers"
+
+    GameDeveloper.query.delete()
+
+    for index, item in enumerate(games_list):
+        game_id = item["id"]
+        if item.get("developers"):
+            developers = item["developers"]
+            for developer in developers:
+                game_dev = GameDeveloper(game_id=game_id, developer_id=developer)
+
+                db.session.add(game_dev);
+
+        if (index % 1000 == 0):
+            db.session.commit()
+            print index
+
+    db.session.commit()
+
+
+def load_game_platforms(platforms_list):
+    """Load association table game_developers"""
+
+    print "Game Platforms"
+
+    GamePlatform.query.delete()
+
+    for index, item in enumerate(platforms_list):
+        platform_id = item["id"]
+        if item.get("games"):
+            games = item["games"]
+            for game in games:
+                game_platform = GameDeveloper(platform_id=platform_id, game_id=game)
+
+                db.session.add(game_platform);
+
+        if (index % 1000 == 0):
+            db.session.commit()
+            print index
 
     db.session.commit()
 
@@ -185,22 +238,26 @@ if __name__ == "__main__":
     db.create_all()
 
     # Get games data before seeding since it has data needed for other tables
+    print "Games List"
     game_url = pull_data.get_game_url()
     games_list = pull_data.make_request(game_url)
 
-    # Get companies data for developers and publishers tables
-    comp_url = pull_data.get_companies_url()
-    companies_list = pull_data.make_request(comp_url)
+    print "Platforms List"
+    platform_url = pull_data.get_platform_url()
+    platforms_list = pull_data.make_request(platform_url)
 
     # Call load methods in order to not annoy relationships
     load_users()
     load_reviews()
     load_genres()
     load_developers(companies_list)
-    load_platforms()
+    load_platforms(platforms_list)
     load_franchises()
     load_games(games_list)
     load_covers(games_list)
+    load_game_genres(games_list)
+    load_game_devs(games_list)
+    load_game_platforms(platforms_list)
 
 
 
