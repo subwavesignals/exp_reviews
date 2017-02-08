@@ -17,8 +17,10 @@ class User(db.Model):
     username = db.Column(db.String(32), nullable=False, unique=True)
     email = db.Column(db.String(64), nullable=False, unique=True)
     password = db.Column(db.String(64), nullable=False)
-    age = db.Column(db.Integer, nullable=False)
-    gender = db.Column(db.String(5), nullable=False)
+    fname = db.Column(db.String(16))
+    lname = db.Column(db.String(32))
+    age = db.Column(db.Integer)
+    gender = db.Column(db.String(5))
 
     def __repr__(self):
         """Provide helpful output when printed"""
