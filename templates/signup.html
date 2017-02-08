@@ -7,12 +7,34 @@
 <h2>Sign Up for EXP Reviews</h2>
 
 <form action="/signup" method="POST">
-    <label>Username: </label><input type="text" name="username">
-    <label>Email: </label><input type="text" name="email">
-    <label>Password: </label><input type="password" name="password">
-    <label>Re-Enter Password: </label><input type="password" name="match_password">
+    <label>Username: </label><input id=username type="text" name="username">
+    <label>Email: </label><input id=email type="text" name="email">
+    <label>Password: </label><input id=pword type="password" name="password">
+    <label>Re-Enter Password: </label><input id=match_pwrd type="password" name="match_password">
 
     <input type="submit" name="signup" value="Join EXP">
 </form>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery.js"></script>
+
+<script>
+
+    var username = $("input#username");
+    var email = $("input#email");
+    var password = $("input#pword");
+    var match_password = $("input#match_pwrd")
+
+    function valid_username(response) {
+        if (!response){
+            
+        }
+    }
+
+    username.keyup($.debounce(1000, 
+                   $.get("/valid_username", valid_username(response))))
+    email.keyup($.debounce(1000, valid_email))
+    match_password.keyup($.debounce(1500, password_match))
+
+</script>
 
 {% endblock %}

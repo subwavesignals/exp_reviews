@@ -72,7 +72,7 @@ def create_profile():
         gender = request.form.get("gender")
 
         # Get user in process, add info to DB row
-        user = User.query.filter_by(user_id=session["user_id"]).one()
+        user = User.query.filter_by(user_id=session["user_id"]).first()
         user.fname = fname
         user.lname = lname
         user.age = age
@@ -88,7 +88,33 @@ def create_profile():
 def login():
     """Displays login form on GET and handles input on POST"""
 
-    return render_template("login.html")
+    if request.method == "GET":
+        return render_template("login.html", passed="")
+
+    else:
+
+        # Get form inputs
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        # Get user info from username and check for valid username
+        valid_user = User.query.filter_by(username=username).first()
+        if not valid_user:
+            flash("Inavlid username.")
+            return redirect("/login")
+
+        # Check that password matches user's password
+        elif password != valid_user.password:
+            flash("Incorrect password")
+            return render_template("login.html", passed=username)
+
+        # Info is correct, set session and redirect home
+        else:
+            session["user_id"] = valid_user.user_id
+
+            flash("Logged in as " + username)
+            return redirect("/")
+
 
 
 @app.route("/logout")
