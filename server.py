@@ -132,14 +132,25 @@ def logout():
 
 
 @app.route("/valid_username.json")
-def valid_username():
-    """Returns true if the username is available (not in db)"""
+def validate_username():
+    """Returns username from db if already exists"""
 
     username = request.args.get("username")
+    user_list = db.session.query(User.username).filter_by(username=username).all()
 
-    users = db.session.query(User.username).filter_by(username=username).all()
-    
-    return jsonify(users)
+    return jsonify(user_list)
+
+@app.route("/valid_email.json")
+def validate_email():
+    """Returns email from db if already exists"""
+
+    email = request.args.get("email")
+    email_list = db.session.query(User.email).filter_by(email=email).all()
+
+    return jsonify(email_list)
+  
+
+
 
 
 ################################################################################

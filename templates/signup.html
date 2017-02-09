@@ -11,9 +11,17 @@
         <input id=username type="text" name="username" required>
         <img id="usercheck" src="/static/img/checkmark-flat.png" style="width:20px; height:20px" hidden>
     <br>
-    <label>Email: </label><input id=email type="text" name="email" required><br>
-    <label>Password: </label><input id=pword type="password" name="password" required><br>
-    <label>Re-Enter Password: </label><input id=match_pwrd type="password" name="match_password" required><br>
+    <label>Email: </label>
+        <input id=email type="email" name="email" required>
+        <img id="emailcheck" src="/static/img/checkmark-flat.png" style="width:20px; height:20px" hidden>
+    <br>
+    <label>Password: </label>
+        <input id=pword type="password" name="password" required>
+    <br>
+    <label>Re-Enter Password: </label>
+        <input id=match_pwrd type="password" name="match_password" required>
+        <img id="matchcheck" src="/static/img/checkmark-flat.png" style="width:20px; height:20px" hidden>
+    <br>
 
     <input type="submit" name="signup" value="Join EXP">
 </form>
@@ -29,6 +37,8 @@
     var timer = null;
 
     var userImage = $("img#usercheck");
+    var emailImage = $("img#emailcheck");
+    var pWordImage = $("img#matchcheck");
 
     function validUsername(response) {
         userImage.attr("src", "/static/img/checkmark-flat.png");
@@ -38,19 +48,61 @@
         userImage.show();
     }
 
-    function getValidity() {
+    function getUsernameValidity() {
         var formValues = {"username": username.val()};
         $.get("/valid_username.json", formValues, validUsername);
+    }
+
+    function validEmail(response) {
+        emailImage.attr("src", "/static/img/checkmark-flat.png");
+        if (response.length >= 1){
+            emailImage.attr("src", "/static/img/x-mark.png");
+        }
+        emailImage.show();
+    }
+
+    function getEmailValidity() {
+        len = email.val().length
+        var formValues = {"email": email.val()};
+        var email_suffix = [".com", ".org", ".edu", ".gov"];
+
+        suffix = email.val().slice(len-4, len);
+
+        if (email_suffix.indexOf(suffix) >= 0){
+            $.get("/valid_email.json", formValues, validEmail);
+        } else {
+            validEmail(["Invalid suffix"]);
+        }
+    }
+
+    function passwordMatch(){
+        pWordImage.attr("src", "/static/img/checkmark-flat.png");
+        if (password.val() != matchPassword.val()) {
+            pWordImage.attr("src", "/static/img/x-mark.png");
+        }
+        pWordImage.show();
     }
 
     username.keyup(function () {
             clearTimeout(timer);
             userImage.hide();
-            timer = setTimeout(getValidity, 1000);
+            timer = setTimeout(getUsernameValidity, 1000);
         }
     );
-    // email.keyup($.debounce(1000, valid_email))
-    // match_password.keyup($.debounce(1500, password_match))
+
+    email.keyup(function () {
+            clearTimeout(timer);
+            emailImage.hide();
+            timer = setTimeout(getEmailValidity, 1000);
+        }
+    );
+
+    matchPassword.keyup(function () {
+            clearTimeout(timer);
+            pWordImage.hide();
+            timer = setTimeout(passwordMatch, 1000);
+        }
+    );
 
 </script>
 
