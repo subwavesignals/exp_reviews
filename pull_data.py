@@ -62,7 +62,8 @@ def get_game_url():
     endpoint = "/games"
 
     field_list = ["id", "name", "summary", "storyline", "franchise", "genres",
-                  "first_release_date", "videos", "cover", "developers"]
+                  "first_release_date", "videos", "cover", "developers",
+                  "screenshots"]
     fields = "/?fields=" + "%2C".join(field_list) 
 
     sort_by = "&order=first_release_date%3Adesc"

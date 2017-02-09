@@ -138,6 +138,7 @@ def validate_username():
     username = request.args.get("username")
     user_list = db.session.query(User.username).filter_by(username=username).all()
 
+    # Returns user if username already taken, otherwise empty JSON object
     return jsonify(user_list)
 
 @app.route("/valid_email.json")
@@ -147,6 +148,7 @@ def validate_email():
     email = request.args.get("email")
     email_list = db.session.query(User.email).filter_by(email=email).all()
 
+    # Returns user if email already taken, otherwise empty JSON object
     return jsonify(email_list)
   
 
@@ -168,3 +170,4 @@ if __name__ == "__main__":
     DebugToolbarExtension(app)
 
     app.run(port=5000, host='0.0.0.0')
+

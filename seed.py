@@ -2,7 +2,7 @@
 
 from sqlalchemy import func
 from model import (User, Review, Game, Franchise, Cover, GamePlatform, Platform,
-                   GameDeveloper, Developer, GameGenre, Genre)
+                   GameDeveloper, Developer, GameGenre, Genre, Screenshot)
 
 from model import connect_to_db, db
 from server import app
@@ -199,6 +199,36 @@ def load_platforms(platforms_list):
     db.session.commit()
 
 
+def load_screenshots(games_list):
+    """Loads screenshot_id, url, width, and height into screenshots table"""
+
+    print "Screenshots"
+
+    # Clears table in event of preexisting data
+    Platform.query.delete()
+
+    # Iterate over games and add each screenshot to the db
+    for index, item in enumerate(games_list):
+        game_id = item["id"]
+        if item.get("screenshots"):
+            screenshots = item["screenshots"]
+            for picture in screenshots:
+                url = picture["url"]
+                width = picture["width"]
+                height = picture["height"]
+
+                screenshot = Screenshot(url=url, width=width, height=height)
+
+                db.session.add(screenshot)
+
+        # Show progress and inbetween commits to help load
+        if (index % 500 == 0):
+            db.session.commit()
+            print index
+
+    db.session.commit()
+
+
 def load_game_genres(games_list):
     """Load association table game_genre"""
 
@@ -291,22 +321,23 @@ if __name__ == "__main__":
     game_url = pull_data.get_game_url()
     games_list = pull_data.make_request(game_url)
 
-    print "Platforms List"
-    platform_url = pull_data.get_platform_url()
-    platforms_list = pull_data.make_request(platform_url)
+    # print "Platforms List"
+    # platform_url = pull_data.get_platform_url()
+    # platforms_list = pull_data.make_request(platform_url)
 
-    # Call load methods in order to not annoy relationships
-    load_users()
-    load_reviews()
-    load_genres()
-    load_developers(games_list)
-    load_platforms(platforms_list)
-    load_franchises()
-    load_games(games_list)
-    load_covers(games_list)
-    load_game_genres(games_list)
-    load_game_devs(games_list)
-    load_game_platforms(platforms_list)
+    # # Call load methods in order to not annoy relationships
+    # load_users()
+    # load_reviews()
+    # load_genres()
+    # load_developers(games_list)
+    # load_platforms(platforms_list)
+    # load_franchises()
+    # load_games(games_list)
+    # load_covers(games_list)
+    load_screenshots(games_list)
+    # load_game_genres(games_list)
+    # load_game_devs(games_list)
+    # load_game_platforms(platforms_list)
 
 
 

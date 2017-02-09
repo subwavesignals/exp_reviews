@@ -218,15 +218,36 @@ class Platform(db.Model):
         return p % (self.platform_id, self.name)
 
 
+class Screenshot(db.Model):
+    """Screenshot table"""
+
+    __tablename__ = "screenshots"
+
+    screenshot_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    game_id = db.Column(db.Integer, db.ForeignKey("games.game_id"))
+    url = db.Column(db.String(256), nullable=False)
+    width = db.Column(db.Integer, nullable=False)
+    height = db.Column(db.Integer, nullable=False)
+
+    # Set one to many reltionship with games
+    game = db.relationship("Game", backref="screenshots")
+
+    def __repr__(self):
+        """Provide helpful output when printed"""
+
+        s = "<Screenshot screenshot_id=%s game_id=%s url=%s>"
+        return s % (self.screenshot_id, self.game_id, self.url)
+
+
 ##############################################################################
 # Helper functions
 
 
-def connect_to_db(app):
+def connect_to_db(app, db_url='postgresql:///games'):
     """Connect the database to our Flask app."""
 
     # Configure to use our PstgreSQL database
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///games'
+    app.config['SQLALCHEMY_DATABASE_URI'] = db_url
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
     db.app = app
     db.init_app(app)
