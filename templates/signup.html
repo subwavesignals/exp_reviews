@@ -7,10 +7,13 @@
 <h2>Sign Up for EXP Reviews</h2>
 
 <form action="/signup" method="POST">
-    <label>Username: </label><input id=username type="text" name="username">
-    <label>Email: </label><input id=email type="text" name="email">
-    <label>Password: </label><input id=pword type="password" name="password">
-    <label>Re-Enter Password: </label><input id=match_pwrd type="password" name="match_password">
+    <label>Username: </label>
+        <input id=username type="text" name="username" required>
+        <img id="usercheck" src="/static/img/checkmark-flat.png" style="width:20px; height:20px" hidden>
+    <br>
+    <label>Email: </label><input id=email type="text" name="email" required><br>
+    <label>Password: </label><input id=pword type="password" name="password" required><br>
+    <label>Re-Enter Password: </label><input id=match_pwrd type="password" name="match_password" required><br>
 
     <input type="submit" name="signup" value="Join EXP">
 </form>
@@ -22,18 +25,32 @@
     var username = $("input#username");
     var email = $("input#email");
     var password = $("input#pword");
-    var match_password = $("input#match_pwrd")
+    var matchPassword = $("input#match_pwrd");
+    var timer = null;
 
-    function valid_username(response) {
-        if (!response){
-            
+    var userImage = $("img#usercheck");
+
+    function validUsername(response) {
+        userImage.attr("src", "/static/img/checkmark-flat.png");
+        if (response.length >= 1){
+            userImage.attr("src", "/static/img/x-mark.png");
         }
+        userImage.show();
     }
 
-    username.keyup($.debounce(1000, 
-                   $.get("/valid_username", valid_username(response))))
-    email.keyup($.debounce(1000, valid_email))
-    match_password.keyup($.debounce(1500, password_match))
+    function getValidity() {
+        var formValues = {"username": username.val()};
+        $.get("/valid_username.json", formValues, validUsername);
+    }
+
+    username.keyup(function () {
+            clearTimeout(timer);
+            userImage.hide();
+            timer = setTimeout(getValidity, 1000);
+        }
+    );
+    // email.keyup($.debounce(1000, valid_email))
+    // match_password.keyup($.debounce(1500, password_match))
 
 </script>
 

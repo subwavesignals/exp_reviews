@@ -2,7 +2,7 @@
 
 from jinja2 import StrictUndefined
 
-from flask import (Flask, render_template, redirect, request, flash, session)
+from flask import (Flask, render_template, redirect, request, flash, session, jsonify)
 from flask_debugtoolbar import DebugToolbarExtension
 
 from model import User, connect_to_db, db
@@ -129,6 +129,17 @@ def logout():
         flash("No user currently logged in.")
 
     return redirect("/")
+
+
+@app.route("/valid_username.json")
+def valid_username():
+    """Returns true if the username is available (not in db)"""
+
+    username = request.args.get("username")
+
+    users = db.session.query(User.username).filter_by(username=username).all()
+    
+    return jsonify(users)
 
 
 ################################################################################
