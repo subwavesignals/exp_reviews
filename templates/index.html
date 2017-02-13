@@ -4,6 +4,64 @@
 
 {% block content %}
 
-<h1>Homepage things go here eventually</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="jumbotron jumbotron-fluid" style="background: url('/static/img/jumbotron.jpg'); height: 400px;">
+            <h1 style="text-align: center;">EXP Reviews</h1>
+        </div>
+    </div> <!-- End homepage jumbotron -->
+
+    <div class="row">
+        <h3>Popular Right Now</h3>
+        {% for game in popular_list %}
+            <div class="col-lg-3 col-md-4 col-sm-2 col-xs-1">
+                <h5><a href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
+                <img src="{{ game.screenshots[0].url }}">
+                <div class="col-xs-2">
+                    <p>Crtitcs: Placeholder</p><!-- {{ game.critic }}</p> -->
+                    </div>
+                <div class="col-xs-2">
+                    <p>Players: Placeholder</p><!-- {{ game.player }}</p> -->
+                </div>
+            </div>
+        {% endfor %}
+
+    </div> <!-- End homepage popular games -->
+
+    <div class="row">
+        <h3>Recently Reviewed</h3>
+        {% for game in recent_list %}
+            <div class="col-lg-3 col-md-4 col-sm-2 col-xs-1">
+                <h5><a href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
+                <img src="{{ game.screenshots[0].url }}">
+                <div class="col-xs-2">
+                    <p>Crtitcs: Placeholder</p><!-- {{ game.critic }}</p> -->
+                    </div>
+                <div class="col-xs-2">
+                    <p>Players: Placeholder</p><!-- {{ game.player }}</p> -->
+                </div>
+            </div>
+        {% endfor %}
+
+    </div> <!-- End homepage recently reviewed -->
+
+    <div class="row">
+        <h3>Coming Soon</h3>
+        {% for game in soon_list %}
+            <div class="col-lg-3 col-md-4 col-sm-2 col-xs-1">
+                <h5><a href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
+                <img src="{{ game.screenshots[0].url }}">
+                <div class="col-xs-2">
+                    <p>Crtitcs: Placeholder</p><!-- {{ game.critic }}</p> -->
+                    </div>
+                <div class="col-xs-2">
+                    <p>Players: Placeholder</p><!-- {{ game.player }}</p> -->
+                </div>
+            </div>
+        {% endfor %}
+
+    </div> <!-- End homepage coming soon -->
+
+</div>
 
 {% endblock %}

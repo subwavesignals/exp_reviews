@@ -74,7 +74,7 @@ class Game(db.Model):
         """Provide helpful output when printed"""
 
         g = "<Game game_id=%s name=%s release_date=%s>"
-        return r % (self.game_id, self.name, self.release_date)
+        return g % (self.game_id, self.name, self.release_date)
 
 
 class Cover(db.Model):

@@ -8,6 +8,7 @@ from model import connect_to_db, db
 from server import app
 from datetime import datetime
 import time
+import json
 
 import pull_data
 
@@ -15,13 +16,108 @@ import pull_data
 def load_users():
     """Loads fake users from local file in users table"""
 
-    pass
+    file = open("static/data/user_data.txt")
+
+    for line in file:
+        line = line.strip()
+        username, email, password, fname, lname, age, gender = line.split("|")
+
+        user = User(username=username, email=email, password=password,
+                    fname=fname, lname=lname, age=int(age), gender=gender)
+
+        db.session.add(user)
+
+    file.close()
+    db.session.commit()
 
 
 def load_reviews():
     """Loads fake reviews from local file in reviews table"""
 
-    pass
+    file = open("static/data/review_data.txt")
+    num_line = 0
+
+    for line in file:
+        line = line.strip()
+        game_id, user_id, score, comment = line.split("|")
+
+        review = Review(game_id=game_id, user_id=user_id, score=int(score),
+                        comment=comment)
+
+        db.session.add(review)
+
+        if num_line % 500 == 0:
+            db.session.commit()
+            print num_line
+
+        num_line += 1
+
+    db.session.commit()
+
+
+def load_critic_reviews():
+
+    file = open("static/data/ign_reviews.json")
+    num_reviews = 0
+    print "IGN Reviews"
+
+    json_str = file.read()
+    json_data = json.loads(json_str)
+
+    for page in json_data:
+        for pair in page["page"]:
+            name = pair["game"]
+            score = int(float(pair["score"]) * 10)
+
+            game = Game.query.filter(Game.name.ilike(name)).all()
+
+            if game:
+                game = game[0]
+                game_id = game.game_id
+
+                review = Review(user_id=401, game_id=game_id, score=score)
+
+                db.session.add(review)
+
+            num_reviews += 1
+
+        if num_reviews % 500 == 0:
+            db.session.commit()
+            print num_reviews
+
+    db.session.commit()
+    file.close()
+
+    file = open("static/data/polygon_reviews.json")
+    num_reviews = 0
+    print "Polygon Reviews"
+
+    json_str = file.read()
+    json_data = json.loads(json_str)
+
+    for page in json_data:
+        for pair in page["page"]:
+            name = pair["game"]
+            score = int(float(pair["score"]) * 10)
+
+            game = Game.query.filter(Game.name.ilike(name)).all()
+
+            if game:
+                game = game[0]
+                game_id = game.game_id
+
+                review = Review(user_id=402, game_id=game_id, score=score)
+
+                db.session.add(review)
+
+            num_reviews += 1
+
+        if num_reviews % 500 == 0:
+            db.session.commit()
+            print num_reviews
+
+    db.session.commit()
+    file.close()
 
 
 def load_games(games_list):
@@ -41,12 +137,13 @@ def load_games(games_list):
         name = item["name"]
         summary = item.get("summary")
         storyline = item.get("storyline")
-        epoch = item["first_release_date"]
+        epoch = float(item["first_release_date"]) / 1000
         franchise_id = item.get("franchise")
 
         # Set the correct time from the UNIX epoch given by IGDB
-        first_release_date = time.strftime("%a, %d %b %Y %H:%M:%S +0000",
-                                           time.localtime(epoch))
+        human_time = time.strftime("%a, %d %b %Y %H:%M:%S",
+                                   time.localtime(epoch))
+        first_release_date = datetime.strptime(human_time, "%a, %d %b %Y %H:%M:%S")
 
 
         game = Game(game_id=game_id, name=name, summary=summary,
@@ -164,12 +261,14 @@ def load_developers(games_list):
                     company = pull_data.make_request(company_url)
 
                     # Get the dev name and add the row to the db
-                    if (company[0].get("name")):
-                        name = company[0]["name"]
+                    if len(company) == 1:
+                        if (company[0].get("name")):
+                            name = company[0]["name"]
 
-                        developer = Developer(developer_id=developer_id, name=name)
+                            developer = Developer(developer_id=developer_id, 
+                                                  name=name)
 
-                        db.session.add(developer)
+                            db.session.add(developer)
 
         # Show progress and inbetween commits to help load
         if index % 500 == 0:
@@ -269,9 +368,10 @@ def load_game_devs(games_list):
         if item.get("developers"):
             developers = item["developers"]
             for developer in developers:
-                game_dev = GameDeveloper(game_id=game_id, developer_id=developer)
+                if Developer.query.filter_by(developer_id=developer).all():
+                    game_dev = GameDeveloper(game_id=game_id, developer_id=developer)
 
-                db.session.add(game_dev);
+                    db.session.add(game_dev);
 
         # Show progress and inbetween commits to help load
         if (index % 500 == 0):
@@ -290,14 +390,18 @@ def load_game_platforms(platforms_list):
     GamePlatform.query.delete()
 
     # Iterate over platforms, if the platform has games, add them to the db
+    # game_id 19871 plat_id 92
     for index, item in enumerate(platforms_list):
         platform_id = item["id"]
         if item.get("games"):
             games = item["games"]
             for game in games:
-                game_platform = GameDeveloper(platform_id=platform_id, game_id=game)
+                if (Game.query.filter_by(game_id=game).all() and 
+                    Platform.query.filter_by(platform_id=platform_id).all()):
+                    game_platform = GamePlatform(platform_id=platform_id, 
+                                                 game_id=game)
 
-                db.session.add(game_platform);
+                    db.session.add(game_platform);
 
         # Show progress and inbetween commits to help load
         if (index % 500 == 0):
@@ -322,22 +426,23 @@ if __name__ == "__main__":
     games_list = pull_data.make_request(game_url)
 
     # print "Platforms List"
-    # platform_url = pull_data.get_platform_url()
-    # platforms_list = pull_data.make_request(platform_url)
+    platform_url = pull_data.get_platform_url()
+    platforms_list = pull_data.make_request(platform_url)
 
-    # # Call load methods in order to not annoy relationships
-    # load_users()
-    # load_reviews()
-    # load_genres()
-    # load_developers(games_list)
-    # load_platforms(platforms_list)
-    # load_franchises()
-    # load_games(games_list)
-    # load_covers(games_list)
+    # Call load methods in order to not annoy relationships
+    load_users()
+    load_reviews()
+    load_critic_reviews()
+    load_genres()
+    load_developers(games_list)
+    load_platforms(platforms_list)
+    load_franchises()
+    load_games(games_list)
+    load_covers(games_list)
     load_screenshots(games_list)
-    # load_game_genres(games_list)
-    # load_game_devs(games_list)
-    # load_game_platforms(platforms_list)
+    load_game_genres(games_list)
+    load_game_devs(games_list)
+    load_game_platforms(platforms_list)
 
 
 
