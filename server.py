@@ -4,8 +4,11 @@ from jinja2 import StrictUndefined
 
 from flask import (Flask, render_template, redirect, request, flash, session, jsonify)
 from flask_debugtoolbar import DebugToolbarExtension
+from flask_sqlalchemy import sqlalchemy
+from sqlalchemy.sql import func
+import json
 
-from model import User, connect_to_db, db
+from model import User, Game, Review, connect_to_db, db
 
 
 app = Flask(__name__)
@@ -23,7 +26,46 @@ app.jinja_env.undefined = StrictUndefined
 def display_homepage():
     """Displays the homepage"""
 
-    return render_template("index.html")
+    all_reviews = db.session.query(func.avg(Review.score).label("avg_score"), Review.game_id).group_by(Review.game_id).order_by(func.avg(Review.score).desc())
+    user_reviews = all_reviews.filter(Review.user_id <= 400).limit(20).all()
+    critic_reviews = all_reviews.filter(Review.user_id > 400).limit(20).all()
+    user_list = []
+    critic_list = []
+
+    for review in user_reviews:
+        game_id = review.game_id
+        game = Game.query.filter_by(game_id=game_id).first()
+        game.avg_score = float(review.avg_score)
+
+        user_list.append(game)
+        print game.avg_score
+
+    for review in critic_reviews:
+        game_id = review.game_id
+        game = Game.query.filter_by(game_id=game_id).first()
+        game.avg_score = float(review.avg_score)
+
+        critic_list.append(game)
+        print game.avg_score
+
+    recent_reviews = Review.query.filter(Review.user_id <= 400).order_by(Review.review_time.desc()).limit(20).all()
+    recent_list = []
+
+    for review in recent_reviews:
+        game_id = review.game_id
+        game = Game.query.filter_by(game_id=game_id).first()
+        avg_score = db.session.query(func.avg(Review.score)).filter(Review.game_id==game_id, Review.user_id <= 400).first()
+        game.avg_score = float(avg_score[0])
+        print type(avg_score[0]), type(game.avg_score)
+        recent_list.append(game)
+
+    soon_list = Game.query.filter(Game.release_date > '2017-02-28 00:00:00').order_by(Game.release_date).limit(20).all()
+
+
+    return render_template("index.html", user_list=user_list,
+                           critic_list=critic_list,
+                           recent_list=recent_list,
+                           soon_list=soon_list)
 
 
 @app.route("/signup", methods=["GET", "POST"])
@@ -152,6 +194,13 @@ def validate_email():
     return jsonify(email_list)
   
 
+@app.route("/games/<game_id>")
+def display_game(game_id):
+    """Returns game_details page for selected game_id"""
+
+    game = Game.query.filter_by(game_id=game_id).first()
+
+    return render_template("game_details.html", game=game)
 
 
 

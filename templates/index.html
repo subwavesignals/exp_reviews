@@ -12,16 +12,35 @@
     </div> <!-- End homepage jumbotron -->
 
     <div class="row">
-        <h3>Popular Right Now</h3>
-        {% for game in popular_list %}
-            <div class="col-lg-3 col-md-4 col-sm-2 col-xs-1">
+        <h3>Popular with Our Users</h3>
+        {% for game in user_list %}
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <h5><a href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
-                <img src="{{ game.screenshots[0].url }}">
+                {% if game.covers|length >= 1 %}
+                    <img src="{{ game.covers[0].url }}">
+                {% else %}
+                    <img src="/static/img/mysterious_wall_chicken.png">
+                {% endif %}
                 <div class="col-xs-2">
-                    <p>Crtitcs: Placeholder</p><!-- {{ game.critic }}</p> -->
-                    </div>
+                    <p>Score: {{ "%.1f" % game.avg_score }}</p>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div> <!-- End homepage popular games -->
+
+    <div class="row">
+        <h3>Popular with Critics</h3>
+        {% for game in critic_list %}
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <h5><a href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
+                {% if game.covers|length >= 1 %}
+                    <img src="{{ game.covers[0].url }}">
+                {% else %}
+                    <img src="/static/img/mysterious_wall_chicken.png">
+                {% endif %}
                 <div class="col-xs-2">
-                    <p>Players: Placeholder</p><!-- {{ game.player }}</p> -->
+                    <p>Score: {{ "%.1f" % game.avg_score }}</p>
                 </div>
             </div>
         {% endfor %}
@@ -31,14 +50,15 @@
     <div class="row">
         <h3>Recently Reviewed</h3>
         {% for game in recent_list %}
-            <div class="col-lg-3 col-md-4 col-sm-2 col-xs-1">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <h5><a href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
-                <img src="{{ game.screenshots[0].url }}">
+                {% if game.covers|length >= 1 %}
+                    <img src="{{ game.covers[0].url }}">
+                {% else %}
+                    <img src="/static/img/mysterious_wall_chicken.png">
+                {% endif %}
                 <div class="col-xs-2">
-                    <p>Crtitcs: Placeholder</p><!-- {{ game.critic }}</p> -->
-                    </div>
-                <div class="col-xs-2">
-                    <p>Players: Placeholder</p><!-- {{ game.player }}</p> -->
+                    <p>Score: {{ "%.1f" % game.avg_score }}</p>
                 </div>
             </div>
         {% endfor %}
@@ -48,14 +68,15 @@
     <div class="row">
         <h3>Coming Soon</h3>
         {% for game in soon_list %}
-            <div class="col-lg-3 col-md-4 col-sm-2 col-xs-1">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <h5><a href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
-                <img src="{{ game.screenshots[0].url }}">
+                {% if game.covers|length >= 1 %}
+                    <img src="{{ game.covers[0].url }}">
+                {% else %}
+                    <img src="/static/img/mysterious_wall_chicken.png">
+                {% endif %}
                 <div class="col-xs-2">
-                    <p>Crtitcs: Placeholder</p><!-- {{ game.critic }}</p> -->
-                    </div>
-                <div class="col-xs-2">
-                    <p>Players: Placeholder</p><!-- {{ game.player }}</p> -->
+                    <p>Coming Out: {{ game.release_date.strftime("%b %d, %Y") }}</p>
                 </div>
             </div>
         {% endfor %}
