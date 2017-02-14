@@ -8,7 +8,8 @@ from flask_sqlalchemy import sqlalchemy
 from sqlalchemy.sql import func
 import json
 
-from model import User, Game, Review, connect_to_db, db
+from model import (User, Game, Review, CriticReview, Platform, Developer,
+                   Genre, Franchise, connect_to_db, db)
 
 
 app = Flask(__name__)
@@ -26,9 +27,10 @@ app.jinja_env.undefined = StrictUndefined
 def display_homepage():
     """Displays the homepage"""
 
-    all_reviews = db.session.query(func.avg(Review.score).label("avg_score"), Review.game_id).group_by(Review.game_id).order_by(func.avg(Review.score).desc())
-    user_reviews = all_reviews.filter(Review.user_id <= 400).limit(20).all()
-    critic_reviews = all_reviews.filter(Review.user_id > 400).limit(20).all()
+    all_user_reviews = db.session.query(func.avg(Review.score).label("avg_score"), Review.game_id).group_by(Review.game_id).order_by(func.avg(Review.score).desc())
+    user_reviews = all_user_reviews.limit(20).all()
+    all_critic_reviews = db.session.query(func.avg(CriticReview.score).label("avg_score"), CriticReview.game_id).group_by(CriticReview.game_id).order_by(func.avg(CriticReview.score).desc())
+    critic_reviews = all_critic_reviews.limit(20).all()
     user_list = []
     critic_list = []
 
@@ -36,27 +38,26 @@ def display_homepage():
         game_id = review.game_id
         game = Game.query.filter_by(game_id=game_id).first()
         game.avg_score = float(review.avg_score)
-
+   
         user_list.append(game)
-        print game.avg_score
 
     for review in critic_reviews:
+        print review
         game_id = review.game_id
         game = Game.query.filter_by(game_id=game_id).first()
         game.avg_score = float(review.avg_score)
 
         critic_list.append(game)
-        print game.avg_score
 
-    recent_reviews = Review.query.filter(Review.user_id <= 400).order_by(Review.review_time.desc()).limit(20).all()
+    recent_reviews = Review.query.order_by(Review.review_time.desc()).limit(20).all()
     recent_list = []
 
     for review in recent_reviews:
         game_id = review.game_id
         game = Game.query.filter_by(game_id=game_id).first()
-        avg_score = db.session.query(func.avg(Review.score)).filter(Review.game_id==game_id, Review.user_id <= 400).first()
+        avg_score = db.session.query(func.avg(Review.score)).filter(Review.game_id==game_id).first()
         game.avg_score = float(avg_score[0])
-        print type(avg_score[0]), type(game.avg_score)
+
         recent_list.append(game)
 
     soon_list = Game.query.filter(Game.release_date > '2017-02-28 00:00:00').order_by(Game.release_date).limit(20).all()
@@ -201,6 +202,23 @@ def display_game(game_id):
     game = Game.query.filter_by(game_id=game_id).first()
 
     return render_template("game_details.html", game=game)
+
+
+@app.route("/search")
+def display_results():
+    """Displays paginated results of user search"""
+
+    search = {}
+    search["text"] = request.arg.get("search")
+
+    user_results = User.query.filter(User.username.ilike(search["text"]))
+    game_results = Game.query.filter(Game.username.ilike(search["text"]))
+    genre_results = Genre.query.filter(Genre.username.ilike(search["text"]))
+    fran_results = Franchise.query.filter(Franchise.username.ilike(search["text"]))
+    dev_results = Developer.query.filter(Developer.username.ilike(search["text"]))
+    platform_results = Platform.query.filter(Platform.username.ilike(search["text"]))
+
+    results = user_results.extend(game_results).extend(genre_results).extend(fran_results).extend(dev_results).extend(platform_results)
 
 
 

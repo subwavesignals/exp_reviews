@@ -17,9 +17,9 @@
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <h5><a href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
                 {% if game.covers|length >= 1 %}
-                    <img src="{{ game.covers[0].url }}">
+                    <img src="{{ game.covers[0].url }}" style="width: 250px; height: 400px;">
                 {% else %}
-                    <img src="/static/img/mysterious_wall_chicken.png">
+                    <img src="/static/img/mysterious_wall_chicken.png" style="width: 250px; height: 400px;">
                 {% endif %}
                 <div class="col-xs-2">
                     <p>Score: {{ "%.1f" % game.avg_score }}</p>
@@ -35,9 +35,9 @@
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <h5><a href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
                 {% if game.covers|length >= 1 %}
-                    <img src="{{ game.covers[0].url }}">
+                    <img src="{{ game.covers[0].url }}" style="width: 250px; height: 400px;">
                 {% else %}
-                    <img src="/static/img/mysterious_wall_chicken.png">
+                    <img src="/static/img/mysterious_wall_chicken.png" style="width: 250px; height: 400px;">
                 {% endif %}
                 <div class="col-xs-2">
                     <p>Score: {{ "%.1f" % game.avg_score }}</p>
@@ -53,9 +53,9 @@
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <h5><a href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
                 {% if game.covers|length >= 1 %}
-                    <img src="{{ game.covers[0].url }}">
+                    <img src="{{ game.covers[0].url }}" style="width: 250px; height: 400px;">
                 {% else %}
-                    <img src="/static/img/mysterious_wall_chicken.png">
+                    <img src="/static/img/mysterious_wall_chicken.png" style="width: 250px; height: 400px;">
                 {% endif %}
                 <div class="col-xs-2">
                     <p>Score: {{ "%.1f" % game.avg_score }}</p>
@@ -71,9 +71,9 @@
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <h5><a href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
                 {% if game.covers|length >= 1 %}
-                    <img src="{{ game.covers[0].url }}">
+                    <img src="{{ game.covers[0].url }}" style="width: 250px; height: 400px;">
                 {% else %}
-                    <img src="/static/img/mysterious_wall_chicken.png">
+                    <img src="/static/img/mysterious_wall_chicken.png" style="width: 250px; height: 400px;">
                 {% endif %}
                 <div class="col-xs-2">
                     <p>Coming Out: {{ game.release_date.strftime("%b %d, %Y") }}</p>

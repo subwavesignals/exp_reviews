@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}{{ game.name }}{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3">
+            <h1>{{ game.name }}</h1>
+            {% if game.covers|length >= 1 %}
+                <img src="{{ game.covers[0].url }}" style="width: 250px; height: 400px;">
+            {% else %}
+                <img src="/static/img/mysterious_wall_chicken.png" style="width: 250px; height: 400px;">
+            {% endif %}
+        </div>
+        <div class="col-lg-5">
+            {% if game.summary %}
+                <h3>Summary</h3>
+                <p>{{ game.summary }}</p>
+            {% endif %}
+            {% if game.storyline %}
+                <h3>Storyline</h3>
+                <p>{{ game.storyline }}</p>
+            {% endif %}
+        </div>
+        <div class="col-lg-5">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h3>Player Score: Placeholder</h3>
+                </div>
+                <div class="col-lg-4">
+                    <!-- rotten tomatoes style image here -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <h3>Critic Score: Placeholder</h3>
+                </div>
+                <div class="col-lg-4">
+                    <!-- rotten tomatoes style image here -->
+                </div>
+            </div>
+        </div>
+    </div> <!-- End main info div -->
+
+    <div class="row">
+        {% if game.screenshots %}
+            <h2>Screenshots</h2>
+            {% for photo in game.screenshots %}
+                <img src="{{ photo.url }}" style="width: 33%; height: 33%;">
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="row">
+        {% if game.reviews %}
+            {% for review in game.reviews %}
+                <div class="col-lg-4 col-md-6 col-xs-12">
+                    <h4>{{ review.user.username }}</h4>
+                    <strong>{{ review.score }}</strong>
+                    {% if review.comment %}
+                        <p>{{ review.comment }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
