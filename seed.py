@@ -2,7 +2,8 @@
 
 from sqlalchemy import func
 from model import (User, Review, Game, Franchise, Cover, GamePlatform, Platform,
-                   GameDeveloper, Developer, GameGenre, Genre, Screenshot)
+                   GameDeveloper, Developer, GameGenre, Genre, Screenshot,
+                   CriticReview)
 
 from model import connect_to_db, db
 from server import app
@@ -16,8 +17,14 @@ import pull_data
 def load_users():
     """Loads fake users from local file in users table"""
 
+    print "Users"
+
+    # Clears table in event of preexisting data
+    User.query.delete()
+
     file = open("static/data/user_data.txt")
 
+    # Read in fake user data
     for line in file:
         line = line.strip()
         username, email, password, fname, lname, age, gender = line.split("|")
@@ -34,6 +41,11 @@ def load_users():
 def load_reviews():
     """Loads fake reviews from local file in reviews table"""
 
+    print "Reviews"
+
+    # Clears table in event of preexisting data
+    Review.query.delete()
+
     file = open("static/data/review_data.txt")
     num_line = 0
 
@@ -46,6 +58,7 @@ def load_reviews():
 
         db.session.add(review)
 
+        # Show progress and inbetween commits to help load
         if num_line % 500 == 0:
             db.session.commit()
             print num_line
@@ -57,9 +70,15 @@ def load_reviews():
 
 def load_critic_reviews():
 
+    print "Critics"
+
+    # Clears table in event of preexisting data
+    CriticReview.query.delete()
+
     file = open("static/data/ign_reviews.json")
     num_reviews = 0
     print "IGN Reviews"
+    critic_code = "ign"
 
     json_str = file.read()
     json_data = json.loads(json_str)
@@ -75,12 +94,17 @@ def load_critic_reviews():
                 game = game[0]
                 game_id = game.game_id
 
-                review = Review(user_id=401, game_id=game_id, score=score)
+                prev_review = CriticReview.query.filter_by(critic_code=critic_code,
+                                                           game_id=game_id).first()
+                if not prev_review:
+                    review = CriticReview(critic_code=critic_code, game_id=game_id,
+                                          score=score)
 
-                db.session.add(review)
+                    db.session.add(review)
 
             num_reviews += 1
 
+        # Show progress and inbetween commits to help load
         if num_reviews % 500 == 0:
             db.session.commit()
             print num_reviews
@@ -91,6 +115,7 @@ def load_critic_reviews():
     file = open("static/data/polygon_reviews.json")
     num_reviews = 0
     print "Polygon Reviews"
+    critic_code = "polyg"
 
     json_str = file.read()
     json_data = json.loads(json_str)
@@ -106,12 +131,17 @@ def load_critic_reviews():
                 game = game[0]
                 game_id = game.game_id
 
-                review = Review(user_id=402, game_id=game_id, score=score)
+                prev_review = CriticReview.query.filter_by(critic_code=critic_code,
+                                                           game_id=game_id).first()
+                if not prev_review:
+                    review = CriticReview(critic_code=critic_code, game_id=game_id,
+                                          score=score)
 
-                db.session.add(review)
+                    db.session.add(review)
 
             num_reviews += 1
 
+        # Show progress and inbetween commits to help load
         if num_reviews % 500 == 0:
             db.session.commit()
             print num_reviews
@@ -173,6 +203,7 @@ def load_covers(games_list):
         if item.get("cover"):
             cover = item["cover"]
             url = cover["url"]
+            url = url[:35] + url[43:]
             width = cover["width"]
             height = cover["height"]
 
@@ -304,26 +335,29 @@ def load_screenshots(games_list):
     print "Screenshots"
 
     # Clears table in event of preexisting data
-    Platform.query.delete()
+    Screenshot.query.delete()
 
     # Iterate over games and add each screenshot to the db
     for index, item in enumerate(games_list):
         game_id = item["id"]
-        if item.get("screenshots"):
-            screenshots = item["screenshots"]
-            for picture in screenshots:
-                url = picture["url"]
-                width = picture["width"]
-                height = picture["height"]
+        if (Game.query.filter_by(game_id=game_id).all()):
+            if item.get("screenshots"):
+                screenshots = item["screenshots"]
+                for picture in screenshots:
+                    url = picture["url"]
+                    url = url[:35] + url[43:]
+                    width = picture["width"]
+                    height = picture["height"]
 
-                screenshot = Screenshot(url=url, width=width, height=height)
+                    screenshot = Screenshot(game_id=game_id, url=url, width=width, 
+                                            height=height)
 
-                db.session.add(screenshot)
+                    db.session.add(screenshot)
 
-        # Show progress and inbetween commits to help load
-        if (index % 500 == 0):
-            db.session.commit()
-            print index
+            # Show progress and inbetween commits to help load
+            if (index % 500 == 0):
+                db.session.commit()
+                print index
 
     db.session.commit()
 
@@ -421,28 +455,28 @@ if __name__ == "__main__":
     db.create_all()
 
     # Get games data before seeding since it has data needed for other tables
-    print "Games List"
-    game_url = pull_data.get_game_url()
-    games_list = pull_data.make_request(game_url)
+    # print "Games List"
+    # game_url = pull_data.get_game_url()
+    # games_list = pull_data.make_request(game_url)
 
     # print "Platforms List"
-    platform_url = pull_data.get_platform_url()
-    platforms_list = pull_data.make_request(platform_url)
+    # platform_url = pull_data.get_platform_url()
+    # platforms_list = pull_data.make_request(platform_url)
 
     # Call load methods in order to not annoy relationships
-    load_users()
-    load_reviews()
+    # load_users()
+    # load_genres()
+    # load_developers(games_list)
+    # load_platforms(platforms_list)
+    # load_franchises()
+    # load_games(games_list)
+    # load_reviews()
     load_critic_reviews()
-    load_genres()
-    load_developers(games_list)
-    load_platforms(platforms_list)
-    load_franchises()
-    load_games(games_list)
-    load_covers(games_list)
-    load_screenshots(games_list)
-    load_game_genres(games_list)
-    load_game_devs(games_list)
-    load_game_platforms(platforms_list)
+    # load_covers(games_list)
+    # load_screenshots(games_list)
+    # load_game_genres(games_list)
+    # load_game_devs(games_list)
+    # load_game_platforms(platforms_list)
 
 
 

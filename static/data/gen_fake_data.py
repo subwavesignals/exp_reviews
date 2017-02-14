@@ -29,13 +29,13 @@ lorems = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce " +
 
 def fake_users():
 
-    file = open("user_data.txt", "r+")
+    file = open("static/data/user_data.txt", "r+")
     for fname in fnames:
         for lname in lnames:
             username = fname[:2].lower() + lname[:5]
             email = username + "@fakeUser.com"
             password = username + str(123)
-            age = random.randrange(13, 70)
+            age = random.randrange(15, 50)
             gender = random.choice(genders)
 
             line = "|".join([username, email, password, fname, lname, str(age), 
@@ -51,13 +51,13 @@ def fake_reviews():
 
     review_list = Game.query.filter(Game.release_date < '2017-02-28 00:00:00').order_by(Game.release_date.desc()).limit(200)
 
-    file = open("review_data.txt", "r+")
+    file = open("static/data/review_data.txt", "r+")
     user_id = 1
 
     while user_id <= 400:
         for game in review_list:
             game_id = game.game_id
-            score = random.randrange(20, 100)
+            score = random.randrange(60, 100)
             comment = random.choice(lorems)
 
             line = "|".join([str(game_id), str(user_id), str(score), comment])

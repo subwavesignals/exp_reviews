@@ -55,6 +55,30 @@ class Review(db.Model):
         return r % (self.user_id, self.game_id, self.score, self.review_time)
 
 
+class CriticReview(db.Model):
+    """Reviews specific to the critic websties scraped
+
+    Kept separate to prevent convoluted queries that occur when critics are
+    treated like normal users.
+    """
+
+    __tablename__ = "critics"
+
+    review_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    critic_code = db.Column(db.String(5), nullable=False)
+    game_id = db.Column(db.Integer, db.ForeignKey("games.game_id"),
+                        nullable=False)
+    score = db.Column(db.Integer, nullable=False)
+
+    game = db.relationship("Game", backref="critics")
+
+    def __repr__(self):
+        """Provide helpful output when printed"""
+
+        r = "<CriticReview critic_code=%s game_id=%s score=%s>"
+        return r % (self.critic_code, self.game_id, self.score)
+
+
 class Game(db.Model):
     """Game data"""
 
@@ -170,23 +194,23 @@ class Developer(db.Model):
         return d % (self.developer_id, self.name)
 
 
-class Video(db.Model):
-    """Video table"""
+# class Video(db.Model):
+#     """Video table"""
 
-    __tablename__ = "videos"
+#     __tablename__ = "videos"
 
-    slug = db.Column(db.String(32), primary_key=True)
-    game_id = db.Column(db.Integer, db.ForeignKey("games.game_id"), nullable=False)
-    name = db.Column(db.String(64), nullable=False)
+#     slug = db.Column(db.String(32), primary_key=True)
+#     game_id = db.Column(db.Integer, db.ForeignKey("games.game_id"), nullable=False)
+#     name = db.Column(db.String(64), nullable=False)
 
-    # Set one to many relationship with games
-    game = db.relationship("Game", backref="videos")
+#     # Set one to many relationship with games
+#     game = db.relationship("Game", backref="videos")
 
-    def __repr__(self):
-        """Provide helpful output when printed"""
+#     def __repr__(self):
+#         """Provide helpful output when printed"""
 
-        v = "<Video video_id=%s game_id=%s name=%s url=%s>"
-        return v % (self.video_id, self.game_id, self.name, self.url)
+#         v = "<Video video_id=%s game_id=%s name=%s url=%s>"
+#         return v % (self.video_id, self.game_id, self.name, self.url)
 
 
 class GamePlatform(db.Model):
