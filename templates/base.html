@@ -16,9 +16,17 @@
         <li><a href="/signup">Sign Up</a></li>
         <li><a href="/login">Log In</a></li>
     {% endif %}
+    <form action="/search" method="GET">
+        <li>
+            <label>Search: </label><input type="text" name="search">
+            <input type="submit" name="submit" value="Search">
+        </li>
+    </form>
     </ul>
 
     <hr>
+
+    <!-- Do an AJAX thingy with a dropdown predictive text??? -->
 
     <!-- Flash message handling -->
     {% for message in get_flashed_messages() %}
