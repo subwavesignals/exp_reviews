@@ -1,20 +1,21 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ search[text] }}{% endblock %}
+{% block title %}{{ search["text"] }}{% endblock %}
 
 {% block content %}
 
-{% if search.get(results) %}
+{% if search.get("results") %}
     <div class="result-list">
-    {% for item in search[results] %}
-        <div class="result-item">
-            <a href="{{ item[slug] }}">{{ item[name] }}</a>
-            <p>{{ item[info] }}</p>
-        </div>
+    {% for key in search["results"] %}
+        {% for item in search["results"][key] %}
+            <div class="result-item">
+                <a href="{{ item[1] }}">{{ item[0] }}</a>
+            </div>
+        {% endfor %}
     {% endfor %}
     </div>
 {% else %}
-    <p>No results were found for {{ search[text] }}.</p>
+    <p>No results were found for {{ search["text"] }}.</p>
 {% endif %}
 
 {% endblock %}

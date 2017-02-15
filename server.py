@@ -42,7 +42,6 @@ def display_homepage():
         user_list.append(game)
 
     for review in critic_reviews:
-        print review
         game_id = review.game_id
         game = Game.query.filter_by(game_id=game_id).first()
         game.avg_score = float(review.avg_score)
@@ -209,17 +208,39 @@ def display_results():
     """Displays paginated results of user search"""
 
     search = {}
-    search["text"] = request.arg.get("search")
+    search["text"] = request.args.get("search")
+    results = {}
 
-    user_results = User.query.filter(User.username.ilike(search["text"]))
-    game_results = Game.query.filter(Game.username.ilike(search["text"]))
-    genre_results = Genre.query.filter(Genre.username.ilike(search["text"]))
-    fran_results = Franchise.query.filter(Franchise.username.ilike(search["text"]))
-    dev_results = Developer.query.filter(Developer.username.ilike(search["text"]))
-    platform_results = Platform.query.filter(Platform.username.ilike(search["text"]))
+    results["users"] = db.session.query(User.username, User.user_id).filter(User.username.ilike("%" + search["text"] + "%")).all()
+    results["games"] = db.session.query(Game.name, Game.game_id).filter(Game.name.ilike("%" + search["text"] + "%")).all()
+    results["genres"] = db.session.query(Genre.genre, Genre.genre_id).filter(Genre.genre.ilike("%" + search["text"] + "%")).all()
+    results["franchises"] = db.session.query(Franchise.name, Franchise.franchise_id).filter(Franchise.name.ilike("%" + search["text"] + "%")).all()
+    results["developers"] = db.session.query(Developer.name, Developer.developer_id).filter(Developer.name.ilike("%" + search["text"] + "%")).all()
+    results["platforms"] = db.session.query(Platform.name, Platform.platform_id).filter(Platform.name.ilike("%" + search["text"] + "%")).all()
 
-    results = user_results.extend(game_results).extend(genre_results).extend(fran_results).extend(dev_results).extend(platform_results)
+    for key in results:
+        print results[key]
+        results[key] = load_search_results(results, key)
 
+    search["results"] = results
+
+    return render_template("search.html", search=search)
+
+
+def load_search_results(results, key):
+
+    for index, item in enumerate(results[key]):
+        item = (item[0], "/" + key + "/" + str(item[1]))
+        results[key][index] = item
+
+    return results[key]
+
+@app.route("/users/<user_id>")
+def display_user(user_id):
+
+    user = User.query.filter_by(user_id=user_id).first()
+
+    return render_template("user_details.html", user=user)
 
 
 ################################################################################
