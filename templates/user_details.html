@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}{{ user.fname }} {{ user.lname }}{% endblock %}
+
+{% block content %}
+    {% for review in user.reviews %}
+        <div class="review-item">
+            <h3><a href="/games/{{ review.game.game_id }}">{{ review.game.name }}</a></h3>
+            <strong>Score: {{ review.score }}</strong>
+            <p>{{ review.comment }}</p>
+        </div>
+    {% endfor %}    
+{% endblock %}

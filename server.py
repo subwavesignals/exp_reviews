@@ -228,6 +228,7 @@ def display_results():
 
 
 def load_search_results(results, key):
+    """Builds links for each search result item"""
 
     for index, item in enumerate(results[key]):
         item = (item[0], "/" + key + "/" + str(item[1]))
@@ -237,6 +238,7 @@ def load_search_results(results, key):
 
 @app.route("/users/<user_id>")
 def display_user(user_id):
+    """Displays the user and all of their reviews"""
 
     user = User.query.filter_by(user_id=user_id).first()
 
