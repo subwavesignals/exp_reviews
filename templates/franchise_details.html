@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{ franchise.name }}{% endblock %}
+
+{% block content %}
+    <h1>{{ franchise.name }}</h1>
+    {% for game in franchise.games %}
+        <div class="franchise-item">
+            <a href="/games/{{ game.game_id }}">{{ game.name }}</a>
+        </div>
+    {% endfor %}    
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{ developer.name }}{% endblock %}
+
+{% block content %}
+    <h1>{{ developer.name }}</h1>
+    {% for game in developer.games %}
+        <div class="developer-item">
+            <a href="/games/{{ game.game_id }}">{{ game.name }}</a>
+        </div>
+    {% endfor %}    
+{% endblock %}

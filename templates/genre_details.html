@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{ genre.genre }}{% endblock %}
+
+{% block content %}
+    <h1>{{ genre.genre }}</h1>
+    {% for game in genre.games %}
+        <div class="genre-item">
+            <a href="/games/{{ game.game_id }}">{{ game.name }}</a>
+        </div>
+    {% endfor %}    
+{% endblock %}
