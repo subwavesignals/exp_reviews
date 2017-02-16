@@ -8,6 +8,7 @@ from flask_sqlalchemy import sqlalchemy
 from sqlalchemy.sql import func
 import json
 from math import ceil
+from datetime import datetime
 
 from model import (User, Game, Review, CriticReview, Platform, Developer,
                    Genre, Franchise, connect_to_db, db)
@@ -60,7 +61,7 @@ def display_homepage():
 
         recent_list.append(game)
 
-    soon_list = Game.query.filter(Game.release_date > '2017-02-28 00:00:00').order_by(Game.release_date).limit(20).all()
+    soon_list = Game.query.filter(Game.release_date > datetime.now()).order_by(Game.release_date).limit(20).all()
 
 
     return render_template("index.html", user_list=user_list,
@@ -241,9 +242,40 @@ def display_game(game_id):
 
     num_pages = int(ceil(float(len(reviews)) / 10))
 
+    if session.get("user_id"):
+        user_id = session["user_id"]
+        current_review = Review.query.filter_by(user_id=user_id, game_id=game_id).first()
+    else:
+        current_review = None
+
     return render_template("game_details.html", game=game, reviews=reviews,
                            player_score=player_score, critic_score=critic_score,
-                           num_pages=num_pages)
+                           num_pages=num_pages, current_review=current_review)
+
+
+@app.route("/review/<game_id>", methods=["POST"])
+def add_update_review(game_id):
+
+    user_id = session["user_id"]
+    score = request.form.get("score")
+    comment = request.form.get("comment")
+
+    review = Review.query.filter_by(user_id=user_id, game_id=game_id).first()
+
+    if review:
+        review.score = score
+        review.comment = comment
+        review.review_time = datetime.now()
+        flash("Your rating has been updated.")
+    else:
+        review = Review(user_id=user_id, game_id=game_id, score=score,
+                        comment=comment)
+        db.session.add(review)
+        flash("Your rating has been added.")
+
+    db.session.commit()
+
+    return redirect("/games/" + game_id)
 
 
 @app.route("/users/<user_id>")

@@ -4,7 +4,6 @@
 
 {% block content %}
 
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-3">
@@ -57,6 +56,26 @@
             {% endfor %}
         {% endif %}
     </div>
+
+    {% if session.get("user_id") %}
+    <div class="add-edit-review">
+        {% if current_review %}
+            <h4>Edit your Review:</h4>
+            <form action="/review/{{ game.game_id }}" method="POST">
+                <label>Score: </label><input type="number" name="score" min="0" max="100" value="{{ current_review.score }}">
+                <label>Comments: </label><input type="textarea" name="comment" value="{{ current_review.comment }}">
+                <input type="submit" name="submit" value="Update">
+            </form>
+        {% else %}
+            <h4>Add a Review:</h4>
+            <form action="/review/{{ game.game_id }}" method="POST">
+                <label>Score: </label><input type="number" min="0" max="100" name="score">
+                <label>Comments: </label><input type="textarea" name="comment">
+                <input type="submit" name="submit" value="Review">
+            </form>
+        {% endif %}
+    </div>
+    {% endif %}
 
     <div class="row game-reviews">
         {% if reviews %}

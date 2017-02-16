@@ -3,6 +3,12 @@
 {% block title %}{{ user.fname }} {{ user.lname }}{% endblock %}
 
 {% block content %}
+<div class="currently-playing">
+    <!-- I think I need another table to store this data; sleeping on it -->
+
+</div>
+
+
 <div class="row game-reviews">
     {% if user.reviews %}
         {% if num_pages > 1 %}
