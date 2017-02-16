@@ -4,6 +4,7 @@
 
 {% block content %}
 
+<h1>Search Results for {{ search["text"] }}</h1>
 {% if search.get("results") %}
     <div class="result-list">
     {% for key in search["results"] %}
@@ -15,7 +16,7 @@
     {% endfor %}
     </div>
 {% else %}
-    <p>No results were found for {{ search["text"] }}.</p>
+    <p>No results were found.</p>
 {% endif %}
 
 {% endblock %}
