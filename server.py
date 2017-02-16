@@ -7,6 +7,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from flask_sqlalchemy import sqlalchemy
 from sqlalchemy.sql import func
 import json
+from math import ceil
 
 from model import (User, Game, Review, CriticReview, Platform, Developer,
                    Genre, Franchise, connect_to_db, db)
@@ -192,15 +193,6 @@ def validate_email():
 
     # Returns user if email already taken, otherwise empty JSON object
     return jsonify(email_list)
-  
-
-@app.route("/games/<game_id>")
-def display_game(game_id):
-    """Returns game_details page for selected game_id"""
-
-    game = Game.query.filter_by(game_id=game_id).first()
-
-    return render_template("game_details.html", game=game)
 
 
 @app.route("/search")
@@ -236,6 +228,24 @@ def load_search_results(results, key):
 
     return results[key]
 
+
+@app.route("/games/<game_id>")
+def display_game(game_id):
+    """Returns game_details page for selected game_id"""
+
+    game = Game.query.filter_by(game_id=game_id).first()
+    reviews = Review.query.filter_by(game_id=game_id).all()
+
+    player_score = db.session.query(func.avg(Review.score)).filter_by(game_id=game_id).first()
+    critic_score = db.session.query(func.avg(CriticReview.score)).filter_by(game_id=game_id).first()
+
+    num_pages = int(ceil(float(len(reviews)) / 10))
+
+    return render_template("game_details.html", game=game, reviews=reviews,
+                           player_score=player_score, critic_score=critic_score,
+                           num_pages=num_pages)
+
+
 @app.route("/users/<user_id>")
 def display_user(user_id):
     """Displays the user and all of their reviews"""
@@ -243,6 +253,64 @@ def display_user(user_id):
     user = User.query.filter_by(user_id=user_id).first()
 
     return render_template("user_details.html", user=user)
+
+
+@app.route("/genres/<genre_id>")
+def display_genre(genre_id):
+    """Displays the list of games for a given genre"""
+
+    genre = Genre.query.filter_by(genre_id=genre_id).first()
+
+    return render_template("genre_details.html", genre=genre)
+
+
+@app.route("/developers/<developer_id>")
+def display_developer(developer_id):
+    """Displays the list of games for a given developer"""
+
+    developer = Developer.query.filter_by(developer_id=developer_id).first()
+
+    return render_template("developer_details.html", developer=developer)
+
+
+@app.route("/franchises/<franchise_id>")
+def display_franchise(franchise_id):
+    """Displays the list of games for a given franchise"""
+
+    franchise = Franchise.query.filter_by(franchise_id=franchise_id).first()
+
+    return render_template("franchise_details.html", franchise=franchise)
+
+
+@app.route("/platforms/<platform_id>")
+def display_platform(platform_id):
+    """Displays the list of games for a given platform"""
+
+    platform = Platform.query.filter_by(platform_id=platform_id).first()
+
+    return render_template("platform_details.html", platform=platform)
+
+
+@app.route("/get_reviews.json")
+def get_reviews():
+    """Returns json object of reviews for pagination"""
+
+    game_id = int(request.args.get("gameId"))
+    max_reviews = int(request.args.get("maxReview"))
+    print game_id, max_reviews
+
+    reviews = Review.query.filter_by(game_id=game_id).offset(max_reviews - 10).limit(10).all()
+
+    cleaned_reviews = []
+    for review in reviews:
+        cleaned_reviews.append({"username": review.user.username,
+                                             "user_id": review.user.user_id,
+                                             "score": review.score,
+                                             "comment": review.comment})
+
+    return jsonify(cleaned_reviews)
+
+
 
 
 ################################################################################

@@ -4,6 +4,7 @@
 
 {% block content %}
 
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-3">
@@ -25,47 +26,97 @@
             {% endif %}
         </div>
         <div class="col-lg-5">
+            {% if player_score[0] %}
             <div class="row">
                 <div class="col-lg-8">
-                    <h3>Player Score: Placeholder</h3>
+                    <h3>Player Score: {{ "%.1f" % player_score[0] }}</h3>
                 </div>
                 <div class="col-lg-4">
                     <!-- rotten tomatoes style image here -->
                 </div>
             </div>
+            {% endif %}
+            {% if critic_score[0] %}
             <div class="row">
                 <div class="col-lg-8">
-                    <h3>Critic Score: Placeholder</h3>
+                    <h3>Critic Score: {{ "%.1f" % critic_score[0] }}</h3>
                 </div>
                 <div class="col-lg-4">
                     <!-- rotten tomatoes style image here -->
                 </div>
             </div>
+            {% endif %}
         </div>
     </div> <!-- End main info div -->
 
     <div class="row">
         {% if game.screenshots %}
-            <h2>Screenshots</h2>
+            <div><h2>Screenshots</h2></div>
             {% for photo in game.screenshots %}
                 <img src="{{ photo.url }}" style="width: 33%; height: 33%;">
             {% endfor %}
         {% endif %}
     </div>
 
-    <div class="row">
-        {% if game.reviews %}
-            {% for review in game.reviews %}
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <h4><a href="/users/{{ review.user.user_id }}">{{ review.user.username }}</a></h4>
-                    <strong>{{ review.score }}</strong>
-                    {% if review.comment %}
-                        <p>{{ review.comment }}</p>
-                    {% endif %}
-                </div>
-            {% endfor %}
-        {% endif %}
+    <div class="row game-reviews">
+        {% if reviews %}
+            {% if num_pages > 1 %}
+                <h2 class="paginated-header"></h2>
+                <div class="col-lg-4 col-md-6 col-xs-12 paginated-reviews"></div>
+                {% for index in range(1, num_pages + 1) %}
+                    <a class="pagination" id="{{ index }}" href="/games/{{ game.game_id }}">{{ index }}</a>
+                {% endfor %}
+            {% else %}
+                <h2>Reviews</h2>
+                {% for review in reviews %}
+                    <div class="col-lg-4 col-md-6 col-xs-12">
+                        <h4><a href="/users/{{ review.user.user_id }}">{{ review.user.username }}</a></h4>
+                        <strong>{{ review.score }}</strong>
+                        {% if review.comment %}
+                            <p>{{ review.comment }}</p>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endif %} 
     </div>
 </div>
+
+<script type="text/javascript">
+    var gameId = "{{ game.game_id }}";
+    var paginatedReviews = $("div.paginated-reviews");
+
+    var urlIndex = 1;
+
+    var getReviews = function (){
+        var maxReview = urlIndex * 10;
+        var data = {"gameId": gameId, "maxReview": maxReview};
+
+        $.get("/get_reviews.json", data, setPaginatedReviews);
+    };
+
+    var setPaginatedReviews = function (results) {
+        paginatedHTML = "";
+        for (var i = 0; i < results.length; i++){
+            console.log(results[i]["username"])
+            paginatedHTML = (paginatedHTML + "<div class='col-lg-4 col-md-6 col-xs-12'><h4><a href='/users/" + results[i]['user_id'] + "'>" +
+                results[i]['username'] + "</a></h4><strong>" + results[i]['score'] + "</strong>");
+            if (results[i]["comment"]){
+                paginatedHTML = paginatedHTML + "<p>" + results[i]["comment"] + "</p>";
+            }
+            paginatedHTML = paginatedHTML + "</div>";
+        }
+        paginatedReviews.html(paginatedHTML);
+    };
+
+    $("a.pagination").on("click", function (evt) {
+        evt.preventDefault();
+        var index = $(this).attr("id");
+        urlIndex = parseInt(index) ;
+        getReviews();
+    });
+
+    $(document).ready(getReviews());
+</script>
 
 {% endblock %}
