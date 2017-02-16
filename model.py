@@ -112,7 +112,7 @@ class CurrentGame(db.Model):
     notes = db.Column(db.Text)
     time_played = db.Column(db.Integer)
 
-    user = db.relationship("Users", backref="currently_playing")
+    user = db.relationship("User", backref="currently_playing")
 
     def __repr__(self):
         """Provide helpful output when printed"""

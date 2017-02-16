@@ -4,8 +4,33 @@
 
 {% block content %}
 <div class="currently-playing">
-    <!-- I think I need another table to store this data; sleeping on it -->
-
+    <!-- Display in carousel so no pagination -->
+    {% if current_games %}
+        <h2>Currently Playing</h2>
+        {% for game in current_games %}
+            <div class="currently-playing-item">
+                <a href="/games/{{ game.game_id }}">{{ game.name }}</a>
+                <img src="{{ game.covers[0].url }}" style="width: 33%; height: 33%">
+                {% if session.get("user_id") %}
+                    {% if session["user_id"] == user.user_id %}
+                        <a class="update-notes" id="{{ game.game_id }}" href="#">Update Notes</a>
+                        <div class="currently-playing-notes" id="div-{{ game.game_id }}" style="display: none">
+                            <form action="/users/{{ user.user_id }}" method="POST" class="notes-form" id="form-{{ game.game_id }}">
+                                <label>Hours Played so Far:</label> 
+                                {% if game.time_played %}
+                                <input id="time" type="number" name="time_played" value="{{ game.time_played }}">
+                                {% else %}
+                                <input id="time" type="number" name="time_played" value="0">
+                                {% endif %}
+                                <input id="notes" type="textarea" name="notes" value="{{ game.notes }}">
+                                <input type="submit" name="submit" value="Update Notes">
+                            </form>
+                        </div>
+                    {% endif %}
+                {% endif %}
+        {% endfor %}
+        <p id="fake-flash" style="display: none">Your notes have been updated.</p>
+    {% endif %}
 </div>
 
 
@@ -35,6 +60,7 @@
 <script type="text/javascript">
     var userId = "{{ user.user_id }}";
     var paginatedReviews = $("div.paginated-reviews");
+    var paginatedHeader = $("div.paginated-header");
 
     var urlIndex = 1;
 
@@ -48,7 +74,6 @@
     var setPaginatedReviews = function (results) {
         paginatedHTML = "";
         for (var i = 0; i < results.length; i++){
-            console.log(results[i]["username"])
             paginatedHTML = (paginatedHTML + "<div class='col-lg-4 col-md-6 col-xs-12'><h4><a href='/games/" + results[i]['game_id'] + "'>" +
                 results[i]['name'] + "</a></h4><strong>" + results[i]['score'] + "</strong>");
             if (results[i]["comment"]){
@@ -67,5 +92,32 @@
     });
 
     $(document).ready(getReviews());
+
+    $("a.update-notes").on("click", function (evt) {
+        evt.preventDefault()
+        gameId = $(this).attr("id");
+        $("div#div-" + gameId).toggle();
+        console.log("Should be showing")
+    });
+
+    var gameUpdated = function(results) {
+        $("p#fake-flash").toggle();
+        setTimeout(function () {
+            $("p#fake-flash").toggle();
+        }, 3000);
+    };
+
+    $("form.notes-form").submit(function (evt) {
+        evt.preventDefault();
+        gameId = $(this).attr("id");
+        gameId = gameId.slice(5, gameId.length)
+        $("div#div-" + gameId).toggle();
+        formValues = {"user_id": "{{ user.user_id }}",
+                      "game_id": gameId,
+                      "notes": $("#notes").val(),
+                      "time_played": $("#time").val()};
+        $.post("/update_notes", formValues, gameUpdated);
+    });
+
 </script>
 {% endblock %}

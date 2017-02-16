@@ -11,7 +11,7 @@ from math import ceil
 from datetime import datetime
 
 from model import (User, Game, Review, CriticReview, Platform, Developer,
-                   Genre, Franchise, connect_to_db, db)
+                   Genre, Franchise, CurrentGame, connect_to_db, db)
 
 
 app = Flask(__name__)
@@ -245,12 +245,16 @@ def display_game(game_id):
     if session.get("user_id"):
         user_id = session["user_id"]
         current_review = Review.query.filter_by(user_id=user_id, game_id=game_id).first()
+        added = CurrentGame.query.filter_by(user_id=user_id, game_id=game_id).first()
     else:
         current_review = None
+        added = None
+
 
     return render_template("game_details.html", game=game, reviews=reviews,
                            player_score=player_score, critic_score=critic_score,
-                           num_pages=num_pages, current_review=current_review)
+                           num_pages=num_pages, current_review=current_review,
+                           added=added)
 
 
 @app.route("/review/<game_id>", methods=["POST"])
@@ -287,8 +291,17 @@ def display_user(user_id):
 
     num_pages = int(ceil(float(len(reviews)) / 10))
 
+    current = CurrentGame.query.filter_by(user_id=user_id).all()
+    current_games = []
+
+    for game in current:
+        game_item = Game.query.filter_by(game_id=game.game_id).first()
+        game_item.notes = game.notes
+        game_item.time_played = game.time_played
+        current_games.append(game_item)
+
     return render_template("user_details.html", user=user, reviews=reviews,
-                           num_pages=num_pages)
+                           num_pages=num_pages, current_games=current_games)
 
 
 @app.route("/genres/<genre_id>")
@@ -364,6 +377,39 @@ def get_user_reviews():
 
     return jsonify(cleaned_reviews)
 
+
+@app.route("/update_notes", methods=["POST"])
+def update_notes():
+    """Updates and commits changes to currently playing table"""
+
+    user_id = request.form.get("user_id")
+    game_id = request.form.get("game_id")
+    notes = request.form.get("notes")
+    time_played = request.form.get("time_played")
+
+    current_game = CurrentGame.query.filter_by(user_id=user_id, game_id=game_id).first()
+
+    current_game.notes = notes
+    current_game.time_played = time_played
+
+    db.session.commit()
+
+    return jsonify("Updated")
+
+
+@app.route("/add_game", methods=["POST"])
+def add_game():
+    """Adds selected game to user's currently playing list"""
+
+    user_id = session["user_id"]
+    game_id = request.form.get("game_id")
+
+    current_game = CurrentGame(user_id=user_id, game_id=game_id)
+
+    db.session.add(current_game)
+    db.session.commit()
+
+    return jsonify("Added")
 
 
 

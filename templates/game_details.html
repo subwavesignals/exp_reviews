@@ -13,6 +13,10 @@
             {% else %}
                 <img src="/static/img/mysterious_wall_chicken.png" style="width: 250px; height: 400px;">
             {% endif %}
+            {% if session.get("user_id") and not added %}
+                <button type="button" id="add-game">Add Game +</button>
+                <p id="fake-flash" style="display: none">Added to your list.</p>
+            {% endif %}
         </div>
         <div class="col-lg-5">
             {% if game.summary %}
@@ -117,7 +121,6 @@
     var setPaginatedReviews = function (results) {
         paginatedHTML = "";
         for (var i = 0; i < results.length; i++){
-            console.log(results[i]["username"])
             paginatedHTML = (paginatedHTML + "<div class='col-lg-4 col-md-6 col-xs-12'><h4><a href='/users/" + results[i]['user_id'] + "'>" +
                 results[i]['username'] + "</a></h4><strong>" + results[i]['score'] + "</strong>");
             if (results[i]["comment"]){
@@ -136,6 +139,19 @@
     });
 
     $(document).ready(getReviews());
+
+    var gameAdded = function(results) {
+        $("p#fake-flash").toggle();
+        setTimeout(function () {
+            $("p#fake-flash").toggle();
+        }, 3000);
+    };
+
+    $("button#add-game").on("click", function () {
+        $(this).toggle()
+        formValues = {"game_id": "{{ game.game_id }}"}
+        $.post("/add_game", formValues, gameAdded)
+    });
 </script>
 
 {% endblock %}
