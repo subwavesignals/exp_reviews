@@ -471,7 +471,7 @@ if __name__ == "__main__":
     # load_franchises()
     # load_games(games_list)
     # load_reviews()
-    load_critic_reviews()
+    # load_critic_reviews()
     # load_covers(games_list)
     # load_screenshots(games_list)
     # load_game_genres(games_list)

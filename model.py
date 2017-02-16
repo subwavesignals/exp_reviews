@@ -101,6 +101,26 @@ class Game(db.Model):
         return g % (self.game_id, self.name, self.release_date)
 
 
+class CurrentGame(db.Model):
+    """Tabel for holding onto currently playing games for users"""
+
+    __tablename__ = "current_games"
+
+    current_game_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
+    game_id = db.Column(db.Integer, db.ForeignKey("games.game_id"))
+    notes = db.Column(db.Text)
+    time_played = db.Column(db.Integer)
+
+    user = db.relationship("Users", backref="currently_playing")
+
+    def __repr__(self):
+        """Provide helpful output when printed"""
+
+        g = "<CurrentGame game_id=%s user_id=%s>"
+        return g % (self.game_id, self.user_id)
+
+
 class Cover(db.Model):
     """Game cover art image and dimensions"""
 
