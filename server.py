@@ -251,8 +251,12 @@ def display_user(user_id):
     """Displays the user and all of their reviews"""
 
     user = User.query.filter_by(user_id=user_id).first()
+    reviews = Review.query.filter_by(user_id=user_id).all()
 
-    return render_template("user_details.html", user=user)
+    num_pages = int(ceil(float(len(reviews)) / 10))
+
+    return render_template("user_details.html", user=user, reviews=reviews,
+                           num_pages=num_pages)
 
 
 @app.route("/genres/<genre_id>")
@@ -291,22 +295,40 @@ def display_platform(platform_id):
     return render_template("platform_details.html", platform=platform)
 
 
-@app.route("/get_reviews.json")
-def get_reviews():
+@app.route("/get_game_reviews.json")
+def get_game_reviews():
     """Returns json object of reviews for pagination"""
 
     game_id = int(request.args.get("gameId"))
     max_reviews = int(request.args.get("maxReview"))
-    print game_id, max_reviews
 
     reviews = Review.query.filter_by(game_id=game_id).offset(max_reviews - 10).limit(10).all()
 
     cleaned_reviews = []
     for review in reviews:
         cleaned_reviews.append({"username": review.user.username,
-                                             "user_id": review.user.user_id,
-                                             "score": review.score,
-                                             "comment": review.comment})
+                                "user_id": review.user.user_id,
+                                "score": review.score,
+                                "comment": review.comment})
+
+    return jsonify(cleaned_reviews)
+
+
+@app.route("/get_user_reviews.json")
+def get_user_reviews():
+    """Returns json object of reviews for pagination"""
+
+    user_id = int(request.args.get("userId"))
+    max_reviews = int(request.args.get("maxReview"))
+
+    reviews = Review.query.filter_by(user_id=user_id).offset(max_reviews - 10).limit(10).all()
+
+    cleaned_reviews = []
+    for review in reviews:
+        cleaned_reviews.append({"name": review.game.name,
+                                "game_id": review.game.game_id,
+                                "score": review.score,
+                                "comment": review.comment})
 
     return jsonify(cleaned_reviews)
 
