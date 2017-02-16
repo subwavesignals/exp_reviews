@@ -92,7 +92,7 @@
         var maxReview = urlIndex * 10;
         var data = {"gameId": gameId, "maxReview": maxReview};
 
-        $.get("/get_reviews.json", data, setPaginatedReviews);
+        $.get("/get_game_reviews.json", data, setPaginatedReviews);
     };
 
     var setPaginatedReviews = function (results) {
