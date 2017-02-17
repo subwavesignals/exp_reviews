@@ -412,6 +412,98 @@ def add_game():
     return jsonify("Added")
 
 
+@app.route("/get_review_breakdown")
+def get_review_breakdown():
+    """Returns datasets for age and gender grouped review scores"""
+
+    game_id = request.args.get("gameId")
+
+    user_review_join = db.session.query(User.age, User.gender, Review.score).join(Review).filter_by(game_id=game_id)
+
+    queries = {"m": user_review_join.filter(User.gender == "m"),
+               "f": user_review_join.filter(User.gender == "f"),
+               "tm": user_review_join.filter(User.gender == "tm"),
+               "tw": user_review_join.filter(User.gender == "tw"),
+               "nb": user_review_join.filter(User.gender == "nb_gf")}
+
+    datasets = {"m": [], "f": [], "tm": [], "tw":[], "nb": []}
+
+    for item in queries:
+        datasets[item].append(queries[item].filter(User.age <= 19).all())
+        datasets[item].append(queries[item].filter(User.age <= 29, User.age >19).all())
+        datasets[item].append(queries[item].filter(User.age <= 39, User.age >29).all())
+        datasets[item].append(queries[item].filter(User.age <= 49, User.age >39).all())
+        datasets[item].append(queries[item].filter(User.age <= 59, User.age >49).all())
+
+    averages = {"m": [], "f": [], "tm": [], "tw":[], "nb": []}
+
+    for gender in datasets:
+        for age_bracket in datasets[gender]:
+            total = 0
+            for user in age_bracket:
+                total += user[2]
+            if len(age_bracket) >= 1:
+                averages[gender].append(float(total) / len(age_bracket))
+            else:
+                averages[gender].append(0)
+
+    return jsonify({ 
+        "labels": ["10-19", "20-29", "30-39", "40-49", "50-59"],
+        "datasets": [
+            {
+                "label": "Men",
+                "backgroundColor": "rgba(179,181,198,0.2)",
+                "borderColor": "rgba(179,181,198,1)",
+                "pointBackgroundColor": "rgba(179,181,198,1)",
+                "pointBorderColor": "#fff",
+                "pointHoverBackgroundColor": "#fff",
+                "pointHoverBorderColor": "rgba(179,181,198,1)",
+                "data": averages["m"]
+            },
+            {
+                "label": "Women",
+                "backgroundColor": "rgba(255,99,132,0.2)",
+                "borderColor": "rgba(255,99,132,1)",
+                "pointBackgroundColor": "rgba(255,99,132,1)",
+                "pointBorderColor": "#fff",
+                "pointHoverBackgroundColor": "#fff",
+                "pointHoverBorderColor": "rgba(255,99,132,1)",
+                "data": averages["f"]
+            },
+            {
+                "label": "Transmen",
+                "backgroundColor": "rgba(179,181,198,0.2)",
+                "borderColor": "rgba(179,181,198,1)",
+                "pointBackgroundColor": "rgba(179,181,198,1)",
+                "pointBorderColor": "#fff",
+                "pointHoverBackgroundColor": "#fff",
+                "pointHoverBorderColor": "rgba(179,181,198,1)",
+                "data": averages["tm"]
+            },
+            {
+                "label": "Transwomen",
+                "backgroundColor": "rgba(255,99,132,0.2)",
+                "borderColor": "rgba(255,99,132,1)",
+                "pointBackgroundColor": "rgba(255,99,132,1)",
+                "pointBorderColor": "#fff",
+                "pointHoverBackgroundColor": "#fff",
+                "pointHoverBorderColor": "rgba(255,99,132,1)",
+                "data": averages["tw"]
+            },
+            {
+                "label": "Nonbinary",
+                "backgroundColor": "rgba(179,181,198,0.2)",
+                "borderColor": "rgba(179,181,198,1)",
+                "pointBackgroundColor": "rgba(179,181,198,1)",
+                "pointBorderColor": "#fff",
+                "pointHoverBackgroundColor": "#fff",
+                "pointHoverBorderColor": "rgba(179,181,198,1)",
+                "data": averages["nb"]
+            }
+        ]
+    })
+
+
 
 ################################################################################
 # Helper Functions

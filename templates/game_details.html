@@ -81,6 +81,16 @@
     </div>
     {% endif %}
 
+    <div class="row data-charts">
+        {% if reviews %}
+            <h2>Review Breakdown</h2>
+            <div class="game-chart">
+                <canvas id="radarChart"></canvas>
+                <div id="radarLegend" class="chart-legend"></div>
+            <div>
+        {% endif %}
+    </div>
+
     <div class="row game-reviews">
         {% if reviews %}
             {% if num_pages > 1 %}
@@ -121,10 +131,13 @@
     var setPaginatedReviews = function (results) {
         paginatedHTML = "";
         for (var i = 0; i < results.length; i++){
-            paginatedHTML = (paginatedHTML + "<div class='col-lg-4 col-md-6 col-xs-12'><h4><a href='/users/" + results[i]['user_id'] + "'>" +
-                results[i]['username'] + "</a></h4><strong>" + results[i]['score'] + "</strong>");
+            paginatedHTML = (paginatedHTML + "<div class='col-lg-4 col-md-6 " + 
+                "col-xs-12'><h4><a href='/users/" + results[i]['user_id'] + "'>" +
+                results[i]['username'] + "</a></h4><strong>" + results[i]['score'] +
+                "</strong>");
             if (results[i]["comment"]){
-                paginatedHTML = paginatedHTML + "<p>" + results[i]["comment"] + "</p>";
+                paginatedHTML = paginatedHTML + "<p>" + results[i]["comment"] + 
+                "</p>";
             }
             paginatedHTML = paginatedHTML + "</div>";
         }
@@ -148,10 +161,31 @@
     };
 
     $("button#add-game").on("click", function () {
-        $(this).toggle()
+        $(this).toggle();
         formValues = {"game_id": "{{ game.game_id }}"}
-        $.post("/add_game", formValues, gameAdded)
+        $.post("/add_game", formValues, gameAdded);
     });
+
+    var options = { responsive: true };
+    var ctx_radar = $("#radarChart").get(0).getContext("2d");
+
+    formValues = {"gameId": "{{ game.game_id }}"}
+    $.get("/get_review_breakdown", formValues, function (results) {
+        var myRadarChart = new Chart(ctx_radar, {
+            type: 'radar',
+            data: results,
+            options: {
+                scale: {
+                    ticks: {
+                        beginAtZero: true,
+                        min: 0,
+                        max: 100
+                    }
+                }
+            }
+        }); 
+    });
+
 </script>
 
 {% endblock %}
