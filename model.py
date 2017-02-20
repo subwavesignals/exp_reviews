@@ -69,6 +69,7 @@ class CriticReview(db.Model):
     game_id = db.Column(db.Integer, db.ForeignKey("games.game_id"),
                         nullable=False)
     score = db.Column(db.Integer, nullable=False)
+    name = db.Column(db.String(32), nullable=False)
 
     game = db.relationship("Game", backref="critics")
 
