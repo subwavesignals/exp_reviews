@@ -27,6 +27,28 @@
                 <h3>Storyline</h3>
                 <p>{{ game.storyline }}</p>
             {% endif %}
+            {% if game.developers %}
+                <h5>Developers: </h5>
+                {% for dev in game.developers %}
+                    <a href="/developers/{{ dev.developer_id }}">{{ dev.name }}</a>
+                {% endfor %}
+            {% endif %}
+            {% if game.franchise %}
+                <h5>Franchise: </h5>
+                <a href="/franchises/{{ game.franchise_id }}">{{ game.franchise.name }}</a>
+            {% endif %}
+            {% if game.genres %}
+                <h5>Genres: </h5>
+                {% for genre in game.genres %}
+                    <a href="/genres/{{ genre.genre_id }}">{{ genre.genre }}</a>
+                {% endfor %}
+            {% endif %}
+            {% if game.platforms %}
+                <h5>Platforms: </h5>
+                {% for platform in game.platforms %}
+                    <a href="/platforms/{{ platform.platform_id }}">{{ platform.name }}</a>
+                {% endfor %}
+            {% endif %}
         </div>
         <div class="col-lg-5">
             {% if player_score[0] %}
@@ -39,10 +61,13 @@
                 </div>
             </div>
             {% endif %}
-            {% if critic_score[0] %}
+            {% if critic_scores %}
             <div class="row">
                 <div class="col-lg-8">
-                    <h3>Critic Score: {{ "%.1f" % critic_score[0] }}</h3>
+                    <h3>Critic Scores: </h3>
+                        {% for review in critic_scores %}
+                            <h4>{{ review[0] }}: {{ review[1] / 10 }}/10</h4>
+                        {% endfor %}
                 </div>
                 <div class="col-lg-4">
                     <!-- rotten tomatoes style image here -->

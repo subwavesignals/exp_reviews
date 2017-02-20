@@ -238,7 +238,7 @@ def display_game(game_id):
     reviews = Review.query.filter_by(game_id=game_id).all()
 
     player_score = db.session.query(func.avg(Review.score)).filter_by(game_id=game_id).first()
-    critic_score = db.session.query(func.avg(CriticReview.score)).filter_by(game_id=game_id).first()
+    critic_scores = db.session.query(CriticReview.name, CriticReview.score).filter_by(game_id=game_id).all()
 
     num_pages = int(ceil(float(len(reviews)) / 10))
 
@@ -252,7 +252,7 @@ def display_game(game_id):
 
 
     return render_template("game_details.html", game=game, reviews=reviews,
-                           player_score=player_score, critic_score=critic_score,
+                           player_score=player_score, critic_scores=critic_scores,
                            num_pages=num_pages, current_review=current_review,
                            added=added)
 
