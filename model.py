@@ -2,6 +2,7 @@
 
 from flask_sqlalchemy import SQLAlchemy
 import datetime
+import correlation
 
 db = SQLAlchemy()
 
@@ -27,6 +28,53 @@ class User(db.Model):
 
         u = "<User user_id=%s username=%s email=%s age=%s gender=%s>"
         return u % (self.user_id, self.username, self.email, self.age, self.gender)
+
+    def recommend(self):
+        """Predict games that this user would like"""
+
+        
+        # Find users that are similar to the current user
+        review_dict = {}
+
+        for review in self.reviews:
+            review_dict[review.game_id] = review.score
+
+        min_age = self.age / 10 * 10
+        max_age = self.age / 10 * 10 + 10
+
+        sim_users = db.session.query(Review.user_id, Review.game_id, Review.score).filter(User.user_id != self.user_id,
+                                              User.gender == self.gender,
+                                              User.age >= min_age,
+                                              User.age <= max_age,
+                                              Review.user_id == User.user_id).all()
+
+        matched_reviews = {}
+        for review in sim_users:
+            match = review_dict.get(review[1])
+            if match:
+                if matched_reviews.get(review.user_id):
+                    matched_reviews[review.user_id].append((match, review.score))
+                else:
+                    matched_reviews[review.user_id] = [(match, review.score)]
+
+        similarities = []
+        for user in matched_reviews:
+            similarities.append((user,
+                            correlation.pearson(matched_reviews[user])))
+
+        if similarities:
+
+            similarities.sort(key=lambda x: x[1], reverse=True)
+
+            #Return top five similar user_ids
+            best_users = []
+            for i in range(5):
+                best_users.append(similarities[i][0])
+            return best_users
+
+        # If there are not positive similarities, return None
+        else:
+            return None
 
 
 class Review(db.Model):

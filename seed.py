@@ -79,6 +79,7 @@ def load_critic_reviews():
     num_reviews = 0
     print "IGN Reviews"
     critic_code = "ign"
+    critic_name = "IGN"
 
     json_str = file.read()
     json_data = json.loads(json_str)
@@ -98,7 +99,7 @@ def load_critic_reviews():
                                                            game_id=game_id).first()
                 if not prev_review:
                     review = CriticReview(critic_code=critic_code, game_id=game_id,
-                                          score=score)
+                                          score=score, name=critic_name)
 
                     db.session.add(review)
 
@@ -116,6 +117,7 @@ def load_critic_reviews():
     num_reviews = 0
     print "Polygon Reviews"
     critic_code = "polyg"
+    critic_name = "Polygon"
 
     json_str = file.read()
     json_data = json.loads(json_str)
@@ -135,7 +137,7 @@ def load_critic_reviews():
                                                            game_id=game_id).first()
                 if not prev_review:
                     review = CriticReview(critic_code=critic_code, game_id=game_id,
-                                          score=score)
+                                          score=score, name=critic_name)
 
                     db.session.add(review)
 
@@ -471,7 +473,7 @@ if __name__ == "__main__":
     # load_franchises()
     # load_games(games_list)
     # load_reviews()
-    # load_critic_reviews()
+    load_critic_reviews()
     # load_covers(games_list)
     # load_screenshots(games_list)
     # load_game_genres(games_list)

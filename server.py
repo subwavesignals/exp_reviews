@@ -63,8 +63,25 @@ def display_homepage():
 
     soon_list = Game.query.filter(Game.release_date > datetime.now()).order_by(Game.release_date).limit(20).all()
 
+    if session.get("user_id"):
+        user = User.query.filter_by(user_id=session["user_id"]).first()
+        best_users = user.recommend()
+        recommended_list = []
+        if best_users:
+            for other_user in best_users:
+                top_four = Review.query.filter_by(user_id=other_user).order_by(Review.score.desc()).limit(4).all()
+                recommended_list.extend(top_four)
+        else:
+            recommended_list = None
+    else:
+        recommended_list = None
 
-    return render_template("index.html", user_list=user_list,
+    # Remove duplicates
+    recommended_list = list(set(recommended_list))
+
+    return render_template("index.html", 
+                           recommended_list=recommended_list,
+                           user_list=user_list,
                            critic_list=critic_list,
                            recent_list=recent_list,
                            soon_list=soon_list)

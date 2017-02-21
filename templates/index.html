@@ -11,6 +11,22 @@
         </div>
     </div> <!-- End homepage jumbotron -->
 
+    {% if session.get("user_id") and recommended_list%}
+    <div class="row">
+        <h3>Recommended for You</h3>
+        {% for review in recommended_list %}
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <h5><a href="/games/{{ review.game.game_id }}">{{ review.game.name }}</a></h5>
+                {% if review.game.covers|length >= 1 %}
+                    <img src="{{ review.game.covers[0].url }}" style="width: 250px; height: 400px;">
+                {% else %}
+                    <img src="/static/img/mysterious_wall_chicken.png" style="width: 250px; height: 400px;">
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
     <div class="row">
         <h3>Popular with Our Users</h3>
         {% for game in user_list %}
