@@ -71,6 +71,134 @@ class RouteIntegrationTests(unittest.TestCase):
         self.assertIn("Logged out", result.data)
         self.assertNotIn("Recommended for You", result.data)
 
+    def test_logout_no_user(self):
+        result = self.client.get("/logout", follow_redirects=True)
+        self.assertIn("No user currently logged in", result.data)
+        self.assertNotIn("Logged out", result.data)
+
+    def test_create_profile(self):
+        data = {'fname': 'Test', "lname": "O", "age": 34, "gender": "nb_gf"}
+        with self.client as c:
+            with c.session_transaction() as test_session:
+                test_session['user_id'] = 1
+        result = self.client.post("/create_profile", data=data, follow_redirects=True)
+        self.assertIn("Your profile is complete", result.data)
+        self.assertIn("Popular with Our Users", result.data)
+        self.assertNotIn("Age:", result.data)
+
+    def test_valid_username_fail(self):
+        username = User.query.first().username
+        result = self.client.get("/valid_username.json",
+                                 query_string={"username": username})
+        self.assertIn("testo", result.data)
+        self.assertNotIn("[]", result.data)
+
+    def test_valid_email_fail(self):
+        email = User.query.first().email
+        result = self.client.get("/valid_email.json",
+                                 query_string={"email": email})
+        self.assertIn("testo", result.data)
+        self.assertNotIn("[]", result.data)
+
+    def test_search(self):
+        data =  {"search": "test"}
+        result = self.client.get("/search", query_string=data, follow_redirects=True)
+        self.assertIn("Testo Games", result.data)
+        self.assertNotIn("boolean", result.data)
+
+    def test_game_details(self):
+        game_id = 1
+        result = self.client.get("/games/" + str(game_id))
+        self.assertIn("Testo", result.data)
+        self.assertIn("///testo.png", result.data)
+        self.assertIn("Testo360", result.data)
+
+    def test_game_detail_with_user(self):
+        game_id = 1
+        with self.client as c:
+            with c.session_transaction() as test_session:
+                test_session['user_id'] = 1
+        result = self.client.get("/games/" + str(game_id))
+        self.assertIn("Score:", result.data)
+        self.assertNotIn("Add Game +", result.data)
+
+    def test_add_review(self):
+        with self.client as c:
+            with c.session_transaction() as test_session:
+                test_session['user_id'] = 3
+        data = {"score": 90, "comment": "BLAH"}
+        result = self.client.post("/review/1", data=data, follow_redirects=True)
+        self.assertIn("Your rating has been added", result.data)
+        self.assertNotIn("Your rating has been updated", result.data)
+
+    def test_update_review(self):
+        with self.client as c:
+            with c.session_transaction() as test_session:
+                test_session['user_id'] = 1
+        data = {"score": 92, "comment": "BLAH"}
+        result = self.client.post("/review/1", data=data, follow_redirects=True)
+        self.assertNotIn("Your rating has been added", result.data)
+        self.assertIn("Your rating has been updated", result.data)
+
+    def test_user_details(self):
+        result = self.client.get("/users/1")
+        self.assertIn("testo", result.data)
+        self.assertIn(Game.query.first().name, result.data)
+
+    def test_genre_details(self):
+        result = self.client.get("/genres/1")
+        self.assertIn(Genre.query.first().genre, result.data)
+        self.assertIn(Genre.query.first().games[0].name, result.data)
+
+    def test_developer_details(self):
+        result = self.client.get("/developers/1")
+        self.assertIn(Developer.query.first().name, result.data)
+        self.assertIn(Developer.query.first().games[0].name, result.data)
+
+    def test_franchise_details(self):
+        result = self.client.get("/franchises/1")
+        self.assertIn(Franchise.query.first().name, result.data)
+        self.assertIn(Franchise.query.first().games[0].name, result.data)
+
+    def test_platform_details(self):
+        result = self.client.get("/platforms/1")
+        self.assertIn(Platform.query.first().name, result.data)
+        self.assertIn(Platform.query.first().games[0].name, result.data)
+
+    def test_get_game_reviews(self):
+        data = {"gameId": 1, "maxReview": 10}
+        result = self.client.get("/get_game_reviews.json",
+                                 query_string=data)
+        self.assertIn("testo", result.data)
+        self.assertNotIn("[]", result.data)
+
+    def test_get_user_reviews(self):
+        data = {"userId": 1, "maxReview": 10}
+        result = self.client.get("/get_user_reviews.json",
+                                 query_string=data)
+        self.assertIn("Testo", result.data)
+        self.assertNotIn("[]", result.data)
+
+    def test_update_notes(self):
+        data = {"user_id": 1, "game_id": 1, "notes": "BLAH", "time_played": 2}
+        result = self.client.post("/update_notes", data=data)
+        self.assertIn("Updated", result.data)
+        self.assertNotIn(Game.query.filter_by(game_id=1).first().name, result.data)
+
+    def test_add_game(self):
+        data = {"game_id": 1}
+        with self.client as c:
+            with c.session_transaction() as test_session:
+                test_session['user_id'] = 1
+        result = self.client.post("/add_game", data=data)
+        self.assertIn("Added", result.data)
+        self.assertNotIn(Game.query.filter_by(game_id=1).first().name, result.data)
+
+    def test_get_review_breakdown(self):
+        data = {"gameId": 1}
+        result = self.client.get("/get_review_breakdown", query_string=data)
+        self.assertIn("10-19", result.data)
+        self.assertNotIn("[]", result.data)
 
 
 class DatabaseTests(unittest.TestCase):
