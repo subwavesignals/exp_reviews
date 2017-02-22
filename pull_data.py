@@ -26,7 +26,8 @@ def make_request(url):
 
         # Sets limit to 49 to circumvent IGDB error of 10,000+ items requested
         if offset_value + 50 >= 10000:
-            limit = limit[:-2] + str(49)
+            # Ignored in test due to small sample size
+            limit = limit[:-2] + str(49) # pragma: no cover
 
         # Query IGDB with given url and added limit/offset
         response = unirest.get(url + limit + offset + str(offset_value),
@@ -42,7 +43,8 @@ def make_request(url):
 
         # To show progress
         if len(response_list) % 500 == 0:
-            print len(response_list)
+            # Ignored in test due to small sample size
+            print len(response_list) # pragma: no cover
 
     return response_list 
 
