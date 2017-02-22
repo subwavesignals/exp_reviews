@@ -40,7 +40,7 @@ class User(db.Model):
             review_dict[review.game_id] = review.score
 
         min_age = self.age / 10 * 10
-        max_age = self.age / 10 * 10 + 10
+        max_age = min_age + 10
 
         sim_users = db.session.query(Review.user_id, Review.game_id, Review.score).filter(User.user_id != self.user_id,
                                               User.gender == self.gender,
@@ -69,10 +69,13 @@ class User(db.Model):
             #Return top five similar user_ids
             best_users = []
             for i in range(5):
-                best_users.append(similarities[i][0])
+                try:
+                    best_users.append(similarities[i][0])
+                except IndexError:
+                    return best_users
             return best_users
 
-        # If there are not positive similarities, return None
+        # If there are not similarities, return None
         else:
             return None
 
@@ -99,8 +102,8 @@ class Review(db.Model):
     def __repr__(self):
         """Provide helpful output when printed"""
 
-        r = "<Review user_id=%s game_id=%s score=%s datetime=%s>"
-        return r % (self.user_id, self.game_id, self.score, self.review_time)
+        r = "<Review user_id=%s game_id=%s score=%s>"
+        return r % (self.user_id, self.game_id, self.score)
 
 
 class CriticReview(db.Model):
@@ -346,12 +349,36 @@ def connect_to_db(app, db_url='postgresql:///games'):
     db.init_app(app)
 
 
-if __name__ == "__main__":
-    # As a convenience, if we run this module interactively, it will leave
-    # you in a state of being able to work with the database directly.
+def example_data():
+    """Makes some example objects for db testing"""
+    user = User(username='testo', password='testo', email='testo@test.com',
+                age=35, gender='nb_gf')
+    user2 = User(username='boolean', password='bear', email='bb@test.com',
+                 age=32, gender='nb_gf')
+    user3 = User(username='instance', password='cat', email='ic@test.com',
+                 age=30, gender='nb_gf')
+    review = Review(user_id=1, game_id=1, score=95, comment=None)
+    review2 = Review(user_id=2, game_id=1, score=95, comment=None)
+    critic_review = CriticReview(game_id=1, critic_code='ign', score=100, name="IGN")
+    game = Game(game_id=1, name="Testo", release_date=datetime.datetime.now(), franchise_id=1)
+    current_game = CurrentGame(user_id=1, game_id=1)
+    cover = Cover(game_id=1, url="///testo.png", width=360, height=240)
+    franchise = Franchise(franchise_id=1, name="Testo Stories")
+    genre = Genre(genre="test")
+    developer = Developer(name="Testo Games")
+    platform = Platform(name="Testo360")
+    screenshot = Screenshot(game_id=1, url="///test.png", width=260, height=240)
 
-    from server import app
-    connect_to_db(app)
-    print "Connected to DB."
+    db.session.add_all([user, user2, user3, franchise, game])
+    db.session.commit()
+    db.session.add_all([review, review2, critic_review, current_game,
+                       cover, genre, developer, platform, screenshot])
+    db.session.commit()
 
+    gameGenre = GameGenre(game_id=1, genre_id=1)
+    gameDeveloper = GameDeveloper(game_id=1, developer_id=1)
+    gamePlatform = GamePlatform(game_id=1, platform_id=1)
+
+    db.session.add_all([gameGenre, gamePlatform, gameDeveloper])
+    db.session.commit()
 
