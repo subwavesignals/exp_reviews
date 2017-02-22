@@ -4,6 +4,7 @@ blinker==1.4
 cffi==1.9.1
 click==6.7
 constantly==15.1.0
+coverage==4.3.4
 cryptography==1.7.2
 cssselect==1.0.1
 enum34==1.1.6
