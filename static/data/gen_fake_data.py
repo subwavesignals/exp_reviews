@@ -49,21 +49,28 @@ def fake_reviews():
 
     connect_to_db(app)
 
-    review_list = Game.query.filter(Game.release_date < '2017-02-28 00:00:00').order_by(Game.release_date.desc()).limit(200)
+    review_list = Game.query.filter(Game.release_date < '2017-02-28 00:00:00').order_by(Game.release_date.desc()).limit(1000)
 
     file = open("static/data/review_data.txt", "r+")
     user_id = 1
 
     while user_id <= 400:
-        for game in review_list:
+        offset = 0
+        num_review = 0
+        while num_review < 100:
+            game = random.choice(review_list[offset:offset + 10])
             game_id = game.game_id
-            score = random.randrange(60, 100)
+            score = score = random.randrange(50, 100)
             comment = random.choice(lorems)
 
             line = "|".join([str(game_id), str(user_id), str(score), comment])
             file.write(line + "\n")
 
+            num_review += 1
+            offset += 10
+
         user_id += 1
+        print user_id
 
     file.close()
     

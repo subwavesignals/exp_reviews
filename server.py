@@ -39,14 +39,14 @@ def display_homepage():
     for review in user_reviews:
         game_id = review.game_id
         game = Game.query.filter_by(game_id=game_id).first()
-        game.avg_score = float(review.avg_score)
+        game.avg_user_score = float(review.avg_score)
    
         user_list.append(game)
 
     for review in critic_reviews:
         game_id = review.game_id
         game = Game.query.filter_by(game_id=game_id).first()
-        game.avg_score = float(review.avg_score)
+        game.avg_critic_score = float(review.avg_score)
 
         critic_list.append(game)
 
@@ -57,7 +57,7 @@ def display_homepage():
         game_id = review.game_id
         game = Game.query.filter_by(game_id=game_id).first()
         avg_score = db.session.query(func.avg(Review.score)).filter(Review.game_id==game_id).first()
-        game.avg_score = float(avg_score[0])
+        game.avg_user_score = float(avg_score[0])
 
         recent_list.append(game)
 
@@ -65,6 +65,9 @@ def display_homepage():
 
     if session.get("user_id"):
         user = User.query.filter_by(user_id=session["user_id"]).first()
+        user_reviwed = {}
+        for review in user.reviews:
+            user_reviwed[review.game_id] = review
         best_users = user.recommend()
         recommended_list = []
         if best_users:
@@ -77,7 +80,14 @@ def display_homepage():
         recommended_list = None
 
     # Remove duplicates
-    recommended_list = list(set(recommended_list))
+    if recommended_list:
+        recommended_list = list(set(recommended_list))
+        final_list = []
+        for game in recommended_list:
+            if game.game_id not in user_reviwed:
+                final_list.append(game)
+        recommended_list = final_list
+        print len(recommended_list)
 
     return render_template("index.html", 
                            recommended_list=recommended_list,
@@ -161,7 +171,7 @@ def login():
         # Get user info from username and check for valid username
         valid_user = User.query.filter_by(username=username).first()
         if not valid_user:
-            flash("Inavlid username.")
+            flash("Invalid username.")
             return redirect("/login")
 
         # Check that password matches user's password
