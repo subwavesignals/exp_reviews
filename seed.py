@@ -3,7 +3,7 @@
 from sqlalchemy import func
 from model import (User, Review, Game, Franchise, Cover, GamePlatform, Platform,
                    GameDeveloper, Developer, GameGenre, Genre, Screenshot,
-                   CriticReview)
+                   CriticReview, Video)
 
 from model import connect_to_db, db
 from server import app
@@ -311,6 +311,37 @@ def load_developers(games_list):
     db.session.commit()
 
 
+def load_videos(games_list):
+    """Load YouTube slug (as PK), name and game_id into videos table"""
+
+    print "Videos"
+
+    # Clears table in event of preexisting data
+    Video.query.delete()
+
+    # Iterate over games list and for any game that has videos, add each to db
+    for index, item in enumerate(games_list):
+        game_id = item["id"]
+
+        if (Game.query.filter_by(game_id=game_id).first()):
+            if item.get("videos"):
+                videos = item["videos"]
+                for video in videos:
+                    slug = video["video_id"]
+                    name = video["name"]
+
+                    video = Video(slug=slug, game_id=game_id, name=name)
+
+                    db.session.add(video)
+
+            # Show progress and inbetween commits to help load
+            if (index % 500 == 0):
+                db.session.commit()
+                print index
+
+    db.session.commit()
+
+
 def load_platforms(platforms_list):
     """Loads platform_id and name into platforms table"""
 
@@ -457,9 +488,9 @@ if __name__ == "__main__":
     db.create_all()
 
     # Get games data before seeding since it has data needed for other tables
-    # print "Games List"
-    # game_url = pull_data.get_game_url()
-    # games_list = pull_data.make_request(game_url)
+    print "Games List"
+    game_url = pull_data.get_game_url()
+    games_list = pull_data.make_request(game_url)
 
     # print "Platforms List"
     # platform_url = pull_data.get_platform_url()
@@ -473,8 +504,9 @@ if __name__ == "__main__":
     # load_franchises()
     # load_games(games_list)
     # load_reviews()
-    load_critic_reviews()
+    # load_critic_reviews()
     # load_covers(games_list)
+    load_videos(games_list)
     # load_screenshots(games_list)
     # load_game_genres(games_list)
     # load_game_devs(games_list)
