@@ -8,6 +8,7 @@ from model import (db, connect_to_db, example_data, User, Review, CriticReview,
 from correlation import pearson
 import pull_data
 import datetime
+import gen_fake_data
 
 class RouteIntegrationTests(unittest.TestCase):
     """Tests for the app routes and URL paths"""
@@ -333,6 +334,13 @@ class PullDataTests(unittest.TestCase):
         self.assertIsNotNone(pull_data.make_request(platformURL))
 
 
+class GenFakeDataTests(unittest.TestCase):
+    """Tests for gen_fake_data"""
+
+    def test_fake_users(self):
+        gen_fake_data.fake_users()
+        file = open("static/data/test_user.txt")
+        self.assertIsNotNone(file)
 
 if __name__ == "__main__":
     unittest.main()
