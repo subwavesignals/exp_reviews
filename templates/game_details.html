@@ -86,6 +86,22 @@
         {% endif %}
     </div>
 
+    <div class="row">
+        {% if videos %}
+            <div><h2>Videos</h2></div>
+            {% for video in videos %}
+                <iframe
+                    src="http://www.youtube.com/embed/{{ video.slug }}"
+                    height="300"
+                    width="400"
+                    frameborder="0"
+                    scrolling=no
+                    allowfullscreen=true>
+                </iframe>
+            {% endfor %}
+        {% endif %}
+    </div>
+
     {% if session.get("user_id") %}
     <div class="add-edit-review">
         {% if current_review %}

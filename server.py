@@ -13,7 +13,6 @@ from datetime import datetime
 from model import (User, Game, Review, CriticReview, Platform, Developer,
                    Genre, Franchise, CurrentGame, connect_to_db, db)
 
-
 app = Flask(__name__)
 
 # Required to use Flask sessions and the debug toolbar
@@ -271,6 +270,8 @@ def display_game(game_id):
 
     num_pages = int(ceil(float(len(reviews)) / 10))
 
+    videos = game.videos
+
     if session.get("user_id"):
         user_id = session["user_id"]
         current_review = Review.query.filter_by(user_id=user_id, game_id=game_id).first()
@@ -283,7 +284,7 @@ def display_game(game_id):
     return render_template("game_details.html", game=game, reviews=reviews,
                            player_score=player_score, critic_scores=critic_scores,
                            num_pages=num_pages, current_review=current_review,
-                           added=added)
+                           added=added, videos=videos)
 
 
 @app.route("/review/<game_id>", methods=["POST"])
