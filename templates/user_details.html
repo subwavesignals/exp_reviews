@@ -8,7 +8,7 @@
     {% if current_games %}
         <h2>Currently Playing</h2>
         {% for game in current_games %}
-            <div class="currently-playing-item">
+            <div class="currently-playing-item" id="main-{{ game.game_id }}">
                 <a href="/games/{{ game.game_id }}">{{ game.name }}</a>
                 <img src="{{ game.covers[0].url }}" style="width: 33%; height: 33%">
                 {% if session.get("user_id") %}
@@ -18,16 +18,23 @@
                             <form action="/users/{{ user.user_id }}" method="POST" class="notes-form" id="form-{{ game.game_id }}">
                                 <label>Hours Played so Far:</label> 
                                 {% if game.time_played %}
-                                <input id="time" type="number" name="time_played" value="{{ game.time_played }}">
+                                <input class="time" id="time-{{ game.game_id }}" type="number" name="time_played" value="{{ game.time_played }}">
                                 {% else %}
-                                <input id="time" type="number" name="time_played" value="0">
+                                <input class="time" id="time-{{ game.game_id }}" type="number" name="time_played" value="0">
                                 {% endif %}
-                                <input id="notes" type="textarea" name="notes" value="{{ game.notes }}">
+                                <input class="notes" id="notes-{{ game.game_id }}" type="textarea" name="notes" value="{{ game.notes }}">
                                 <input type="submit" name="submit" value="Update Notes">
                             </form>
+                            <button type="button" class="finish-button" id="finish-game-{{ game.game_id }}">Finish Game</button>
+                            <div class="publish-review" id="publish-{{ game.game_id }}" style="display: none">
+                                <p>Final Score: </p>
+                                <input class="score" id="score-{{ game.game_id }}" type="number" name="score">
+                                <button type="button" class="publish-button" id="publish-review-{{ game.game_id }}">Publish</button>
+                            </div>
                         </div>
                     {% endif %}
                 {% endif %}
+            </div>    
         {% endfor %}
         <p id="fake-flash" style="display: none">Your notes have been updated.</p>
     {% endif %}
@@ -93,11 +100,32 @@
 
     $(document).ready(getReviews());
 
+    var removeGame = function(results) {
+        $("div#main-" + results["game_id"]).toggle()
+    };
+
     $("a.update-notes").on("click", function (evt) {
         evt.preventDefault()
-        gameId = $(this).attr("id");
+        var gameId = $(this).attr("id");
         $("div#div-" + gameId).toggle();
-        console.log("Should be showing")
+    });
+
+    $("button.finish-button").on("click", function() {
+        var gameId = $(this).attr("id")
+        gameId = gameId.split("-")[2]
+        console.log("Clicked on " + gameId)
+        $("div#publish-" + gameId).toggle()
+    });
+
+    $("button.publish-button").on("click", function() {
+        var gameId = $(this).attr("id")
+        gameId = gameId.split("-")[2]
+        var formValues = {"user_id": "{{ user.user_id }}",
+                  "game_id": gameId,
+                  "notes": $("#notes-" + gameId).val(),
+                  "time_played": $("#time-" + gameId).val(),
+                  "score": $("#score-" + gameId).val()};
+        $.post("/publish_review", formValues, removeGame)
     });
 
     var gameUpdated = function(results) {
@@ -109,15 +137,16 @@
 
     $("form.notes-form").submit(function (evt) {
         evt.preventDefault();
-        gameId = $(this).attr("id");
-        gameId = gameId.slice(5, gameId.length)
+        var gameId = $(this).attr("id");
+        gameId = gameId.split("-")[1]
         $("div#div-" + gameId).toggle();
-        formValues = {"user_id": "{{ user.user_id }}",
+        var formValues = {"user_id": "{{ user.user_id }}",
                       "game_id": gameId,
-                      "notes": $("#notes").val(),
-                      "time_played": $("#time").val()};
+                      "notes": $("#notes-" + gameId).val(),
+                      "time_played": $("#time-" + gameId).val()};
         $.post("/update_notes", formValues, gameUpdated);
     });
+
 
 </script>
 {% endblock %}

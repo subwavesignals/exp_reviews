@@ -442,6 +442,33 @@ def add_game():
     return jsonify("Added")
 
 
+@app.route("/publish_review", methods=["POST"])
+def publish_review():
+    """Turns a user's notes into a review and add it to db"""
+
+    user_id = request.form.get("user_id")
+    game_id = request.form.get("game_id")
+    notes = request.form.get("notes")
+    time_played = request.form.get("time_played")
+    score = request.form.get("score")
+
+    comment = notes + "\n\nTime Played: " + str(time_played)
+
+    prev_review = Review.query.filter_by(user_id=user_id, game_id=game_id).first()
+    if prev_review:
+        prev_review.score = score
+        prev_review.comment = comment
+    else:
+        review = Review(user_id=user_id, game_id=game_id, score=score, comment=comment)
+        db.session.add(review)
+
+    CurrentGame.query.filter_by(user_id=user_id, game_id=game_id).delete()
+
+    db.session.commit()
+
+    return jsonify({"game_id": game_id})
+
+
 @app.route("/get_review_breakdown")
 def get_review_breakdown():
     """Returns datasets for age and gender grouped review scores"""
