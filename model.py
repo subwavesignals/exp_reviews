@@ -123,6 +123,7 @@ class CriticReview(db.Model):
                         nullable=False)
     score = db.Column(db.Integer, nullable=False)
     name = db.Column(db.String(32), nullable=False)
+    link = db.Column(db.String(256), nullable=False)
 
     game = db.relationship("Game", backref="critics")
 

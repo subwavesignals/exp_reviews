@@ -85,25 +85,28 @@ def load_critic_reviews():
     json_data = json.loads(json_str)
 
     for page in json_data:
-        for pair in page["page"]:
-            name = pair["game"]
-            score = int(float(pair["score"]) * 10)
+        if page.get("page"):
+            for pair in page["page"]:
+                name = pair["game"]
+                score = int(float(pair["score"]) * 10)
+                link = pair["link"]
 
-            game = Game.query.filter(Game.name.ilike(name)).all()
+                game = Game.query.filter(Game.name.ilike(name)).all()
 
-            if game:
-                game = game[0]
-                game_id = game.game_id
+                if game:
+                    game = game[0]
+                    game_id = game.game_id
 
-                prev_review = CriticReview.query.filter_by(critic_code=critic_code,
-                                                           game_id=game_id).first()
-                if not prev_review:
-                    review = CriticReview(critic_code=critic_code, game_id=game_id,
-                                          score=score, name=critic_name)
+                    prev_review = CriticReview.query.filter_by(critic_code=critic_code,
+                                                               game_id=game_id).first()
+                    if not prev_review:
+                        review = CriticReview(critic_code=critic_code, game_id=game_id,
+                                              score=score, name=critic_name,
+                                              link=link)
 
-                    db.session.add(review)
+                        db.session.add(review)
 
-            num_reviews += 1
+                num_reviews += 1
 
         # Show progress and inbetween commits to help load
         if num_reviews % 500 == 0:
@@ -123,25 +126,28 @@ def load_critic_reviews():
     json_data = json.loads(json_str)
 
     for page in json_data:
-        for pair in page["page"]:
-            name = pair["game"]
-            score = int(float(pair["score"]) * 10)
+        if page.get("page"):
+            for pair in page["page"]:
+                name = pair["game"]
+                score = int(float(pair["score"]) * 10)
+                link = pair["link"]
 
-            game = Game.query.filter(Game.name.ilike(name)).all()
+                game = Game.query.filter(Game.name.ilike(name)).all()
 
-            if game:
-                game = game[0]
-                game_id = game.game_id
+                if game:
+                    game = game[0]
+                    game_id = game.game_id
 
-                prev_review = CriticReview.query.filter_by(critic_code=critic_code,
-                                                           game_id=game_id).first()
-                if not prev_review:
-                    review = CriticReview(critic_code=critic_code, game_id=game_id,
-                                          score=score, name=critic_name)
+                    prev_review = CriticReview.query.filter_by(critic_code=critic_code,
+                                                               game_id=game_id).first()
+                    if not prev_review:
+                        review = CriticReview(critic_code=critic_code, game_id=game_id,
+                                              score=score, name=critic_name,
+                                              link=link)
 
-                    db.session.add(review)
+                        db.session.add(review)
 
-            num_reviews += 1
+                num_reviews += 1
 
         # Show progress and inbetween commits to help load
         if num_reviews % 500 == 0:
@@ -436,9 +442,10 @@ def load_game_devs(games_list):
             developers = item["developers"]
             for developer in developers:
                 if Developer.query.filter_by(developer_id=developer).all():
-                    game_dev = GameDeveloper(game_id=game_id, developer_id=developer)
+                    if Game.query.filter_by(game_id=game_id).all():
+                        game_dev = GameDeveloper(game_id=game_id, developer_id=developer)
 
-                    db.session.add(game_dev);
+                        db.session.add(game_dev)   
 
         # Show progress and inbetween commits to help load
         if (index % 500 == 0):
@@ -457,7 +464,6 @@ def load_game_platforms(platforms_list):
     GamePlatform.query.delete()
 
     # Iterate over platforms, if the platform has games, add them to the db
-    # game_id 19871 plat_id 92
     for index, item in enumerate(platforms_list):
         platform_id = item["id"]
         if item.get("games"):
@@ -488,9 +494,9 @@ if __name__ == "__main__":
     db.create_all()
 
     # Get games data before seeding since it has data needed for other tables
-    print "Games List"
-    game_url = pull_data.get_game_url()
-    games_list = pull_data.make_request(game_url)
+    # print "Games List"
+    # game_url = pull_data.get_game_url()
+    # games_list = pull_data.make_request(game_url)
 
     # print "Platforms List"
     # platform_url = pull_data.get_platform_url()
@@ -504,9 +510,9 @@ if __name__ == "__main__":
     # load_franchises()
     # load_games(games_list)
     # load_reviews()
-    # load_critic_reviews()
+    load_critic_reviews()
     # load_covers(games_list)
-    load_videos(games_list)
+    # load_videos(games_list)
     # load_screenshots(games_list)
     # load_game_genres(games_list)
     # load_game_devs(games_list)

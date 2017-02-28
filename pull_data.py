@@ -91,7 +91,7 @@ def get_company_url(dev_id):
 
     search = "/" + str(dev_id)
 
-    field_list = ["name"]
+    field_list = ["name", "logo", "description", "country", "website", "twitter"]
     fields = "?fields=" + "%2C".join(field_list)
 
     return base_url + endpoint + search + fields
@@ -113,7 +113,7 @@ def get_platform_url():
 
     endpoint = "/platforms"
 
-    field_list = ["id", "name", "games"]
+    field_list = ["id", "name", "games", "logo", "summary", "website", "generation"]
     fields = "/?fields=" + "%2C".join(field_list)
     
     return base_url + endpoint + fields
