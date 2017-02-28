@@ -1,104 +1,129 @@
 [{
   "page": [
     {
+      "game": "For Honor",
+      "link": "http://www.polygon.com/2017/2/22/14693170/for-honor-review-ps4-pc-xbox-one-playstation-4",
+      "score": "8.0"
+    },
+    {
+      "game": "Horizon Zero Dawn",
+      "link": "http://www.polygon.com/2017/2/20/14576092/horizon-zero-dawn-review-ps4-playstation-4-sony-guerrilla-games",
+      "score": "9.5"
+    },
+    {
+      "game": "Sniper Elite 4",
+      "link": "http://www.polygon.com/2017/2/18/14613392/sniper-elite-4-review-pc-ps4-xbox-one-rebellion",
+      "score": "6.5"
+    },
+    {
+      "game": "Fire Emblem Heroes",
+      "link": "http://www.polygon.com/2017/2/17/14649754/fire-emblem-heroes-review-nintendo-mobile-ios-android",
+      "score": "8.0"
+    },
+    {
+      "game": "Halo Wars 2",
+      "link": "http://www.polygon.com/2017/2/16/14601592/halo-wars-2-review-xbox-one-windows-10-play-anywhere",
+      "score": "8.0"
+    },
+    {
       "game": "We Are Chicago",
+      "link": "http://www.polygon.com/2017/2/10/14578684/we-are-chicago-review",
       "score": "7.0"
     },
     {
       "game": "Nioh",
+      "link": "http://www.polygon.com/2017/2/8/14445452/nioh-review-ps4-playstation-4-team-ninja-sony-koei-tecmo",
       "score": "8.0"
     },
     {
       "game": "Resident Evil 7 biohazard",
+      "link": "http://www.polygon.com/2017/1/23/14287196/resident-evil-7-review-re7-vii-biohazard-ps4-playstation-4-vr-psvr-pc-windows-xbox-one-capcom",
       "score": "9.0"
     },
     {
       "game": "Yakuza 0",
+      "link": "http://www.polygon.com/2017/1/19/14193836/yakuza-0-review-ps4-playstation-4-sega-atlus",
       "score": "8.0"
     },
     {
       "game": "Gravity Rush 2",
+      "link": "http://www.polygon.com/2017/1/10/14129338/gravity-rush-2-review-ps4",
       "score": "7.5"
     },
     {
       "game": "Frog Fractions 2",
+      "link": "http://www.polygon.com/2016/12/27/14084640/frog-fractions-2-review",
       "score": "7.5"
     },
     {
       "game": "The Walking Dead: The Telltale Series - A New Frontier",
+      "link": "http://www.polygon.com/2016/12/20/14020936/the-walking-dead-season-3-a-new-frontier-review-three-telltale-games-series-episode-1-2-3-4-5",
       "score": "7.5"
     },
     {
       "game": "Shadow Tactics: Blades of the Shogun",
+      "link": "http://www.polygon.com/2016/12/16/13977280/shadow-tactics-blades-of-the-shogun-review-pc-windows",
       "score": "8.5"
     },
     {
       "game": "Super Mario Run",
+      "link": "http://www.polygon.com/2016/12/15/13976400/super-mario-run-review-ios-iphone-ipad-android-nintendo-mobile",
       "score": "7.0"
     },
     {
       "game": "Watch Dogs 2",
+      "link": "http://www.polygon.com/2016/11/14/13620870/watch-dogs-2-review-playstation-4-ps4-xbox-one-pc-windows-ubisoft",
       "score": "8.0"
     },
     {
       "game": "Batman: The Telltale Series",
+      "link": "http://www.polygon.com/2016/8/2/12347266/batman-the-telltale-series-review-pc-ps4-xbox-one",
       "score": "8.5"
     },
     {
       "game": "Steep",
+      "link": "http://www.polygon.com/2016/12/12/13923366/steep-review-ps4-xbox-one-pc",
       "score": "8.0"
     },
     {
       "game": "The Last Guardian",
+      "link": "http://www.polygon.com/2016/12/5/13767468/the-last-guardian-review-playstation-4-ps4-trico-sony-fumito-ueda-gendesign",
       "score": "7.5"
     },
     {
       "game": "Dead Rising 4",
+      "link": "http://www.polygon.com/2016/12/5/13797380/dead-rising-4-review-xbox-one-pc",
       "score": "8.0"
     },
     {
       "game": "Tyranny",
+      "link": "http://www.polygon.com/2016/12/1/13810280/tyranny-review-windows",
       "score": "7.5"
     },
     {
       "game": "Orwell",
+      "link": "http://www.polygon.com/2016/11/29/13769024/orwell-review-PC",
       "score": "9.0"
     },
     {
       "game": "Final Fantasy 15",
+      "link": "http://www.polygon.com/2016/11/28/13661570/final-fantasy-15-review-xv-ff15-ps4-playstation-4-xbox-one-square-enix",
       "score": "9.0"
     },
     {
       "game": "Hitman",
+      "link": "http://www.polygon.com/2016/3/10/11195428/hitman-review",
       "score": "8.5"
     },
     {
       "game": "Dishonored 2",
+      "link": "http://www.polygon.com/2016/11/16/13655060/dishonored-2-review-ps4-xbox-one-pc",
       "score": "8.5"
     },
     {
       "game": "Call of Duty: Infinite Warfare",
+      "link": "http://www.polygon.com/2016/11/4/13408584/call-of-duty-infinite-warfare-review-ps4-pro-playstation-4-xbox-one-windows-pc",
       "score": "8.5"
-    },
-    {
-      "game": "Pokémon Sun/Pokémon Moon",
-      "score": "8.5"
-    },
-    {
-      "game": "Titanfall 2",
-      "score": "7.0"
-    },
-    {
-      "game": "Owlboy",
-      "score": "8.0"
-    },
-    {
-      "game": "World of Warcraft: Legion",
-      "score": "9.5"
-    },
-    {
-      "game": "Battlefield 1",
-      "score": "9.0"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed"
@@ -106,104 +131,129 @@
 {
   "page": [
     {
+      "game": "Pokémon Sun/Pokémon Moon",
+      "link": "http://www.polygon.com/2016/11/15/13637246/pokemon-sun-and-moon-review-nintendo-3ds",
+      "score": "8.5"
+    },
+    {
+      "game": "Titanfall 2",
+      "link": "http://www.polygon.com/2016/10/24/13377822/titanfall-2-review-xbox-one-PC-ps4-playstation-4",
+      "score": "7.0"
+    },
+    {
+      "game": "Owlboy",
+      "link": "http://www.polygon.com/2016/11/1/13492626/owlboy-review-PC-windows",
+      "score": "8.0"
+    },
+    {
+      "game": "World of Warcraft: Legion",
+      "link": "http://www.polygon.com/2016/10/28/13462548/world-of-warcraft-legion-review-wow-expansion",
+      "score": "9.5"
+    },
+    {
+      "game": "Battlefield 1",
+      "link": "http://www.polygon.com/2016/10/17/13303292/battlefield-1-review-xbox-one-ps4-playstation-4-pc-windows",
+      "score": "9.0"
+    },
+    {
       "game": "Dark Souls 3: Ashes of Ariandel",
+      "link": "http://www.polygon.com/2016/10/25/13411264/dark-souls-3-ashes-of-ariandel-review-dlc-ps4-xbox-one-pc",
       "score": "8.0"
     },
     {
       "game": "Sid Meier's Civilization 6",
+      "link": "http://www.polygon.com/2016/10/25/13398612/sid-meiers-civilization-6-review-PC-mac-windows",
       "score": "8.5"
     },
     {
       "game": "World of Final Fantasy",
+      "link": "http://www.polygon.com/2016/10/25/13396546/world-of-final-fantasy-review-ps4-vita",
       "score": "7.0"
     },
     {
       "game": "Gears of War 4",
+      "link": "http://www.polygon.com/2016/10/6/13162116/gears-of-war-4-review-pc-xbox-one-windows-10",
       "score": "9.0"
     },
     {
       "game": "Alone With You",
+      "link": "http://www.polygon.com/2016/9/5/12775316/alone-with-you-review",
       "score": "6.0"
     },
     {
       "game": "Ladykiller in a Bind",
+      "link": "http://www.polygon.com/2016/10/20/13339742/ladykiller-in-a-bind-review",
       "score": "7.0"
     },
     {
       "game": "Shadow Warrior 2",
+      "link": "http://www.polygon.com/2016/10/19/13189126/shadow-warrior-2-review-PS4-PC-Xbox-one",
       "score": "5.0"
     },
     {
       "game": "Slayer Shock",
+      "link": "http://www.polygon.com/2016/10/18/13311270/slayer-shock-review",
       "score": "5.5"
     },
     {
       "game": "Dragon Quest Builders",
+      "link": "http://www.polygon.com/2016/10/17/13307806/dragon-quest-builders-review-PS4",
       "score": "8.5"
     },
     {
       "game": "Paper Mario: Color Splash",
+      "link": "http://www.polygon.com/2016/10/14/13289136/paper-mario-color-splash-review-wii-u",
       "score": "6.5"
     },
     {
       "game": "Mafia 3",
+      "link": "http://www.polygon.com/2016/10/14/13282728/mafia-3-review-ps4-playstation-4-pc-xbox-one-2k-games-hangar-13",
       "score": "6.0"
     },
     {
       "game": "Dragon Quest 7: Fragments of the Forgotten Past",
+      "link": "http://www.polygon.com/2016/10/5/13176696/dragon-quest-7-review-3ds-fragments-forgotten-past-nintendo-square-enix",
       "score": "8.0"
     },
     {
       "game": "Yo-kai Watch 2: Bony Spirits/Fleshy Souls",
+      "link": "http://www.polygon.com/2016/10/5/13177572/yo-kai-watch-2-bony-spirits-fleshy-souls-review",
       "score": "7.5"
     },
     {
       "game": "Destiny: Rise of Iron",
+      "link": "http://www.polygon.com/2016/9/30/13111452/destiny-rise-of-iron-review",
       "score": "7.5"
     },
     {
       "game": "FIFA 17",
+      "link": "http://www.polygon.com/2016/9/28/13094192/fifa-17-review-ps4-xbox-one",
       "score": "9.0"
     },
     {
       "game": "NHL 17",
+      "link": "http://www.polygon.com/2016/9/23/13033934/nhl-17-review-ps4-xbox-one",
       "score": "7.5"
     },
     {
       "game": "NASCAR Heat Evolution",
+      "link": "http://www.polygon.com/2016/9/22/13002854/nascar-heat-evolution-review-ps4-xbox-one",
       "score": "7.5"
     },
     {
       "game": "Virginia",
+      "link": "http://www.polygon.com/2016/9/22/13009240/virginia-review-PC-xbox-one-ps4",
       "score": "9.0"
     },
     {
       "game": "Shin Megami Tensei 4: Apocalypse",
+      "link": "http://www.polygon.com/2016/9/21/12992500/shin-megami-tensei-4-apocalypse-review-nintendo-3ds",
       "score": "7.5"
     },
     {
       "game": "NBA 2K17",
+      "link": "http://www.polygon.com/2016/9/20/12987250/nba-2k17-review-ps4-xbox-one",
       "score": "8.0"
-    },
-    {
-      "game": "Forza Horizon 3",
-      "score": "8.5"
-    },
-    {
-      "game": "ReCore",
-      "score": "6.5"
-    },
-    {
-      "game": "Phoenix Wright: Ace Attorney - Spirit of Justice",
-      "score": "7.5"
-    },
-    {
-      "game": "Deus Ex: Mankind Divided",
-      "score": "8.5"
-    },
-    {
-      "game": "Metroid Prime: Federation Force",
-      "score": "5.0"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/2"
@@ -211,104 +261,129 @@
 {
   "page": [
     {
+      "game": "Forza Horizon 3",
+      "link": "http://www.polygon.com/2016/9/20/12984906/forza-horizon-3-review",
+      "score": "8.5"
+    },
+    {
+      "game": "ReCore",
+      "link": "http://www.polygon.com/2016/9/12/12886642/recore-review-xbox-one-windows-10-PC",
+      "score": "6.5"
+    },
+    {
+      "game": "Phoenix Wright: Ace Attorney - Spirit of Justice",
+      "link": "http://www.polygon.com/2016/9/9/12865226/phoenix-wright-ace-attorney-spirit-of-justice-review-nintendo-3ds",
+      "score": "7.5"
+    },
+    {
+      "game": "Deus Ex: Mankind Divided",
+      "link": "http://www.polygon.com/2016/8/19/12491450/deus-ex-mankind-divided-review-xbox-one-PC-PS4",
+      "score": "8.5"
+    },
+    {
+      "game": "Metroid Prime: Federation Force",
+      "link": "http://www.polygon.com/2016/8/26/12662284/metroid-prime-federation-force-review",
+      "score": "5.0"
+    },
+    {
       "game": "Obduction",
+      "link": "http://www.polygon.com/2016/8/25/12644808/obduction-review-myst-cyan-PC",
       "score": "8.5"
     },
     {
       "game": "Madden NFL 17",
+      "link": "http://www.polygon.com/2016/8/22/12591612/madden-nfl-17-review-ps4-xbox-one",
       "score": "9.0"
     },
     {
       "game": "Bound",
+      "link": "http://www.polygon.com/2016/8/15/12430588/bound-review-ps4-playstation-4-plastic-studios",
       "score": "7.5"
     },
     {
       "game": "No Man's Sky",
+      "link": "http://www.polygon.com/2016/8/12/12461520/no-mans-sky-review-ps4-playstation-4-pc-windows-hello-games-sony",
       "score": "6.0"
     },
     {
       "game": "Abzu",
+      "link": "http://www.polygon.com/2016/8/2/12290330/abzu-review-ps4-pc-playstation-4",
       "score": "7.5"
     },
     {
       "game": "Headlander",
+      "link": "http://www.polygon.com/2016/7/25/12227500/headlander-review-PC-PS4",
       "score": "8.0"
     },
     {
       "game": "Quadrilateral Cowboy",
+      "link": "http://www.polygon.com/2016/7/25/12273584/quadrilateral-cowboy-review-PC-blendo",
       "score": "8.0"
     },
     {
       "game": "I Am Setsuna",
+      "link": "http://www.polygon.com/2016/7/19/12229908/i-am-setsuna-review-ps4-steam-square-enix-tokyo-rpg-factory",
       "score": "8.5"
     },
     {
       "game": "Hearts of Iron 4",
+      "link": "http://www.polygon.com/2016/7/19/12215976/hearts-of-iron-4-review",
       "score": "8.0"
     },
     {
       "game": "Pokémon Go",
+      "link": "http://www.polygon.com/2016/7/14/12183956/pokemon-go-review-ios-android-nintendo-niantic-company-mobile-game",
       "score": "7.5"
     },
     {
       "game": "Ghostbusters (2016)",
+      "link": "http://www.polygon.com/2016/7/12/12167508/ghostbusters-2016-video-game-review-xbox-one-ps4-pc",
       "score": "2.0"
     },
     {
       "game": "Videoball",
+      "link": "http://www.polygon.com/2016/7/12/12124516/videoball-review-pc-ps4-playstation-4-xbox-one",
       "score": "9.0"
     },
     {
       "game": "Necropolis",
+      "link": "http://www.polygon.com/2016/7/12/12124552/necropolis-review-pc-ps4-playstation-4-xbox-one",
       "score": "5.5"
     },
     {
       "game": "Monster Hunter Generations",
+      "link": "http://www.polygon.com/2016/7/12/12055532/monster-hunter-generations-review-capcom-3ds",
       "score": "8.5"
     },
     {
       "game": "Song of the Deep",
+      "link": "http://www.polygon.com/2016/7/8/12133016/song-of-the-deep-review",
       "score": "7.0"
     },
     {
       "game": "Zero Escape: Zero Time Dilemma",
+      "link": "http://www.polygon.com/2016/6/29/12055182/zero-escape-zero-time-dilemma-review",
       "score": "8.0"
     },
     {
       "game": "Inside",
+      "link": "http://www.polygon.com/2016/6/28/12049410/inside-review",
       "score": "9.5"
     },
     {
       "game": "Star Ocean: Integrity and Faithlessness",
+      "link": "http://www.polygon.com/2016/6/28/12047872/star-ocean-integrity-and-faithlessness-review-playstation-4-ps4-square-enix",
       "score": "5.0"
     },
     {
       "game": "Mirror's Edge Catalyst",
+      "link": "http://www.polygon.com/2016/6/6/11863322/mirrors-edge-catalyst-review-xbox-one-ps4-playstation-4-pc-windows-ea-dice",
       "score": "8.0"
     },
     {
       "game": "Umbrella Corps",
+      "link": "http://www.polygon.com/2016/6/23/12017032/umbrella-corps-review-ps4-PC",
       "score": "3.0"
-    },
-    {
-      "game": "Mighty No. 9",
-      "score": "5.0"
-    },
-    {
-      "game": "Breached",
-      "score": "6.5"
-    },
-    {
-      "game": "Tokyo Mirage Sessions #FE",
-      "score": "9.5"
-    },
-    {
-      "game": "Duskers",
-      "score": "9.0"
-    },
-    {
-      "game": "Kirby: Planet Robobot",
-      "score": "8.0"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/3"
@@ -316,104 +391,129 @@
 {
   "page": [
     {
+      "game": "Mighty No. 9",
+      "link": "http://www.polygon.com/2016/6/22/12009022/mighty-no-9-review",
+      "score": "5.0"
+    },
+    {
+      "game": "Breached",
+      "link": "http://www.polygon.com/2016/6/22/11997290/breached-review",
+      "score": "6.5"
+    },
+    {
+      "game": "Tokyo Mirage Sessions #FE",
+      "link": "http://www.polygon.com/2016/6/22/11998068/tokyo-mirage-sessions-fe-review-nintendo-atlus-wii-u-fire-emblem-shin-megami-tensei",
+      "score": "9.5"
+    },
+    {
+      "game": "Duskers",
+      "link": "http://www.polygon.com/2016/6/11/11906044/duskers-review",
+      "score": "9.0"
+    },
+    {
+      "game": "Kirby: Planet Robobot",
+      "link": "http://www.polygon.com/2016/6/10/11907078/kirby-planet-robobot-review",
+      "score": "8.0"
+    },
+    {
       "game": "Dangerous Golf",
+      "link": "http://www.polygon.com/2016/6/7/11871410/dangerous-golf-review-pc-windows-ps4-xbox-one",
       "score": "7.0"
     },
     {
       "game": "Edge of Nowhere",
+      "link": "http://www.polygon.com/2016/6/6/11852898/edge-of-nowhere-review-insomniac-vr-oculus-rift-pc-windows",
       "score": "7.5"
     },
     {
       "game": "Overwatch",
+      "link": "http://www.polygon.com/2016/5/27/11797672/overwatch-review",
       "score": "8.0"
     },
     {
       "game": "Teenage Mutant Ninja Turtles: Mutants In Manhattan",
+      "link": "http://www.polygon.com/2016/5/26/11769628/teenage-mutant-ninja-turtles-mutants-in-manhattan-review",
       "score": "3.0"
     },
     {
       "game": "Stellaris",
+      "link": "http://www.polygon.com/2016/5/20/11701984/stellaris-review",
       "score": "7.5"
     },
     {
       "game": "Doom (2016)",
+      "link": "http://www.polygon.com/2016/5/18/11706108/doom-review-PC-xbox-one-PS4",
       "score": "8.5"
     },
     {
       "game": "Homefront: The Revolution",
+      "link": "http://www.polygon.com/2016/5/17/11659880/homefront-the-revolution-review-PC-PS4-Xbox-one",
       "score": "6.0"
     },
     {
       "game": "Shadow of the Beast (2016)",
+      "link": "http://www.polygon.com/2016/5/16/11657852/shadow-of-the-beast-review-PS4",
       "score": "3.0"
     },
     {
       "game": "Battleborn",
+      "link": "http://www.polygon.com/2016/5/13/11669154/battleborn-review-gearbox-software-ps4-pc-xbox-one",
       "score": "7.5"
     },
     {
       "game": "Kathy Rain",
+      "link": "http://www.polygon.com/2016/5/10/11609202/kathy-rain-review",
       "score": "6.5"
     },
     {
       "game": "The Banner Saga 2",
+      "link": "http://www.polygon.com/2016/5/6/11604100/the-banner-saga-2-review-pc-steam",
       "score": "8.0"
     },
     {
       "game": "Push Me Pull You",
+      "link": "http://www.polygon.com/2016/5/5/11599008/push-me-pull-you-review-ps4",
       "score": "8.5"
     },
     {
       "game": "Uncharted 4: A Thief's End",
+      "link": "http://www.polygon.com/2016/5/5/11540948/uncharted-4-review-a-thiefs-end-ps4-playstation-4-naughty-dog-nathan-drake",
       "score": "9.0"
     },
     {
       "game": "Severed",
+      "link": "http://www.polygon.com/2016/4/26/11487856/severed-review-vita",
       "score": "9.0"
     },
     {
       "game": "Bravely Second: End Layer",
+      "link": "http://www.polygon.com/2016/4/25/11485494/bravely-second-end-layer-review-3ds",
       "score": "7.0"
     },
     {
       "game": "Day of the Tentacle Remastered",
+      "link": "http://www.polygon.com/2016/4/22/11463940/day-of-the-tentacle-remastered-review-pc-mac-ps4-vita",
       "score": "7.0"
     },
     {
       "game": "Ratchet and Clank (2016)",
+      "link": "http://www.polygon.com/2016/4/12/11365672/ratchet-and-clank-2016-review-ps4-playstation-4-insomniac-sony",
       "score": "8.0"
     },
     {
       "game": "Hyper Light Drifter",
+      "link": "http://www.polygon.com/2016/4/6/11372562/hyper-light-drifter-review-PC",
       "score": "8.5"
     },
     {
       "game": "MLB The Show 16",
+      "link": "http://www.polygon.com/2016/4/6/11372152/mlb-16-review-the-show-ps4-playstation-4",
       "score": "8.0"
     },
     {
       "game": "Dark Souls 3",
+      "link": "http://www.polygon.com/2016/4/4/11265022/dark-souls-3-review-from-software-ps4-playstation-4-xbox-one-pc-windows",
       "score": "7.0"
-    },
-    {
-      "game": "Quantum Break",
-      "score": "8.5"
-    },
-    {
-      "game": "Return to PopoloCrois: A Story of Seasons Fairytale",
-      "score": "6.5"
-    },
-    {
-      "game": "Adrift",
-      "score": "6.5"
-    },
-    {
-      "game": "Stardew Valley",
-      "score": "9.0"
-    },
-    {
-      "game": "Rory McIlroy PGA Tour",
-      "score": "7.5"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/4"
@@ -421,104 +521,129 @@
 {
   "page": [
     {
+      "game": "Quantum Break",
+      "link": "http://www.polygon.com/2016/4/1/11240354/quantum-break-review-xbox-one-pc",
+      "score": "8.5"
+    },
+    {
+      "game": "Return to PopoloCrois: A Story of Seasons Fairytale",
+      "link": "http://www.polygon.com/2016/3/31/11320346/return-to-popolocrois-a-story-of-seasons-fairytale-review",
+      "score": "6.5"
+    },
+    {
+      "game": "Adrift",
+      "link": "http://www.polygon.com/2016/3/31/11334468/adrift-review-adr1ft-pc-oculus-rift-vr",
+      "score": "6.5"
+    },
+    {
+      "game": "Stardew Valley",
+      "link": "http://www.polygon.com/2016/3/29/11320382/stardew-valley-review",
+      "score": "9.0"
+    },
+    {
+      "game": "Rory McIlroy PGA Tour",
+      "link": "http://www.polygon.com/2015/7/18/8995967/rory-mcilroy-pga-tour-review-ps4-xbox-one",
+      "score": "7.5"
+    },
+    {
       "game": "XCOM 2",
+      "link": "http://www.polygon.com/2016/2/1/10872594/xcom-2-review-PC",
       "score": "8.0"
     },
     {
       "game": "Salt and Sanctuary",
+      "link": "http://www.polygon.com/2016/3/22/11284996/salt-and-sanctuary-review-ps4",
       "score": "9.0"
     },
     {
       "game": "Tom Clancy's The Division",
+      "link": "http://www.polygon.com/2016/3/15/11224502/the-division-review-ps4-xbox-one-pc",
       "score": "7.0"
     },
     {
       "game": "EA Sports UFC 2",
+      "link": "http://www.polygon.com/2016/3/11/11195860/ea-sports-ufc-2-review-ps4-xbox-one",
       "score": "8.0"
     },
     {
       "game": "Digimon Story: Cyber Sleuth",
+      "link": "http://www.polygon.com/2016/3/4/11148770/digimon-story-cyber-sleuth-review",
       "score": "7.5"
     },
     {
       "game": "The Legend of Zelda: Twilight Princess HD",
+      "link": "http://www.polygon.com/2016/3/1/11137784/the-legend-of-zelda-twilight-princess-hd-review",
       "score": "8.0"
     },
     {
       "game": "Superhot",
+      "link": "http://www.polygon.com/2016/2/25/11094044/superhot-review-pc-windows-xbox-one",
       "score": "9.0"
     },
     {
       "game": "Darkest Dungeon",
+      "link": "http://www.polygon.com/2016/2/24/11102056/darkest-dungeon-review-pc-mac",
       "score": "8.0"
     },
     {
       "game": "Street Fighter 5",
+      "link": "http://www.polygon.com/2016/2/23/10959838/street-fighter-5-review-PS4-PC",
       "score": "6.5"
     },
     {
       "game": "Far Cry Primal",
+      "link": "http://www.polygon.com/2016/2/22/11051774/far-cry-primal-review-ps4-xbox-one-pc",
       "score": "8.5"
     },
     {
       "game": "Plants vs. Zombies: Garden Warfare 2",
+      "link": "http://www.polygon.com/2016/2/18/10961098/plants-vs-zombies-garden-warfare-2-review-xbox-one-PS4-PC",
       "score": "8.0"
     },
     {
       "game": "Fire Emblem Fates",
+      "link": "http://www.polygon.com/2016/2/17/11032406/fire-emblem-fates-review",
       "score": "8.5"
     },
     {
       "game": "Cobalt",
+      "link": "http://www.polygon.com/2016/2/15/10971230/cobalt-review",
       "score": "7.0"
     },
     {
       "game": "Lego Marvel's Avengers",
+      "link": "http://www.polygon.com/2016/2/11/10962084/lego-marvels-avengers-review",
       "score": "5.5"
     },
     {
       "game": "Firewatch",
+      "link": "http://www.polygon.com/2016/2/8/10900796/firewatch-review-pc-ps4-playstation-4-campo-santo",
       "score": "8.5"
     },
     {
       "game": "Unravel",
+      "link": "http://www.polygon.com/2016/2/8/10906102/unravel-review-xbox-one-ps4-PC",
       "score": "6.0"
     },
     {
       "game": "American Truck Simulator",
+      "link": "http://www.polygon.com/2016/2/4/10906288/american-truck-simulator-review",
       "score": "8.0"
     },
     {
       "game": "Homeworld: Deserts of Kharak",
+      "link": "http://www.polygon.com/2016/2/3/10906294/homeworld-deserts-of-kharak-review-pc-gearbox-blackbird",
       "score": "7.0"
     },
     {
       "game": "Final Fantasy Explorers",
+      "link": "http://www.polygon.com/2016/1/26/10821436/final-fantasy-explorers-review-3ds-square-ff",
       "score": "8.0"
     },
     {
       "game": "The Witness",
+      "link": "http://www.polygon.com/2016/1/25/10817632/the-witness-review-PC-PS4",
       "score": "8.0"
-    },
-    {
-      "game": "Mario & Luigi: Paper Jam",
-      "score": "6.5"
-    },
-    {
-      "game": "Resident Evil 0",
-      "score": "7.0"
-    },
-    {
-      "game": "King's Quest: Rubble Without a Cause",
-      "score": "5.0"
-    },
-    {
-      "game": "Oxenfree",
-      "score": "7.0"
-    },
-    {
-      "game": "Dragon's Dogma",
-      "score": "7.0"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/5"
@@ -526,104 +651,129 @@
 {
   "page": [
     {
+      "game": "Mario & Luigi: Paper Jam",
+      "link": "http://www.polygon.com/2016/1/22/10809774/mario-and-luigi-paper-jam-review-3ds",
+      "score": "6.5"
+    },
+    {
+      "game": "Resident Evil 0",
+      "link": "http://www.polygon.com/2016/1/19/10787542/resident-evil-0-hd-remaster-review-xbox-one-ps4-playstation-4-pc-360-3-ps3",
+      "score": "7.0"
+    },
+    {
+      "game": "King's Quest: Rubble Without a Cause",
+      "link": "http://www.polygon.com/2016/1/15/10772542/kings-quest-chapter-2-review-xbox-one-ps4-pc",
+      "score": "5.0"
+    },
+    {
+      "game": "Oxenfree",
+      "link": "http://www.polygon.com/2016/1/15/10774358/oxenfree-review-xbox-one-pc",
+      "score": "7.0"
+    },
+    {
+      "game": "Dragon's Dogma",
+      "link": "http://www.polygon.com/2012/11/14/3559514/dragons-dogma-review-breaking-with-tradition",
+      "score": "7.0"
+    },
+    {
       "game": "Fallout 4",
+      "link": "http://www.polygon.com/2015/11/9/9648824/fallout-4-review-xbox-one-PS4-PC",
       "score": "9.5"
     },
     {
       "game": "Tom Clancy's Rainbow Six Siege",
+      "link": "http://www.polygon.com/2015/12/10/9888126/rainbow-six-siege-review",
       "score": "6.0"
     },
     {
       "game": "Metal Gear Solid 5: The Phantom Pain",
+      "link": "http://www.polygon.com/2015/8/27/9207599/metal-gear-solid-5-the-phantom-pain-review-ps4-xbox-one-PC",
       "score": "9.0"
     },
     {
       "game": "Just Cause 3",
+      "link": "http://www.polygon.com/2015/11/30/9822508/just-cause-3-review",
       "score": "8.5"
     },
     {
       "game": "Xenoblade Chronicles X",
+      "link": "http://www.polygon.com/2015/11/30/9817678/xenoblade-chronicles-x-review-wii-u-nintendo-monolith-soft",
       "score": "7.0"
     },
     {
       "game": "Halo 5: Guardians",
+      "link": "http://www.polygon.com/2015/10/26/9553081/halo-5-guardians-review-xbox-one",
       "score": "9.0"
     },
     {
       "game": "Star Wars Battlefront",
+      "link": "http://www.polygon.com/2015/11/16/9747556/star-wars-battlefront-review-xbox-one-playstation-4-PC",
       "score": "8.0"
     },
     {
       "game": "Call of Duty: Black Ops 3",
+      "link": "http://www.polygon.com/2015/11/6/9648812/call-of-duty-black-ops-3-review-ps4-xbox-one-pc",
       "score": "7.0"
     },
     {
       "game": "Rise of the Tomb Raider",
+      "link": "http://www.polygon.com/2015/11/9/9633858/rise-of-the-tomb-raider-review-xbox-one-crystal-dynamics-square-enix",
       "score": "8.5"
     },
     {
       "game": "Yo-kai Watch",
+      "link": "http://www.polygon.com/2015/11/4/9671722/yo-kai-watch-review-nintendo-3ds",
       "score": "7.5"
     },
     {
       "game": "Disney Infinity 3.0",
+      "link": "http://www.polygon.com/2015/8/28/9217477/disney-infinity-3-0-review-ps4-playstation-4-xbox-one-wii-u",
       "score": "8.0"
     },
     {
       "game": "Assassin's Creed Syndicate",
+      "link": "http://www.polygon.com/2015/10/22/9553029/assassins-creed-syndicate-review-xbox-one-ps4-pc",
       "score": "8.5"
     },
     {
       "game": "Life is Strange: Episode Five - Polarized",
+      "link": "http://www.polygon.com/2015/10/21/9589174/life-is-strange-episode-5-review-polarized",
       "score": "6.5"
     },
     {
       "game": "Guitar Hero Live",
+      "link": "http://www.polygon.com/2015/10/20/9576527/guitar-hero-live-review-ps4-xbox-one-wii-u",
       "score": "9.0"
     },
     {
       "game": "Minecraft: Story Mode - Episode 1: The Order of the Stone",
+      "link": "http://www.polygon.com/2015/10/13/9517975/minecraft-story-mode-review",
       "score": "8.0"
     },
     {
       "game": "Rock Band 4",
+      "link": "http://www.polygon.com/2015/10/9/9484089/rock-band-4-review",
       "score": "7.5"
     },
     {
       "game": "Dragon Quest Heroes",
+      "link": "http://www.polygon.com/2015/10/8/9324119/dragon-quest-heroes-review-world-trees-woes-blight-below-ps4-playstation-4",
       "score": "8.0"
     },
     {
       "game": "Transformers: Devastation",
+      "link": "http://www.polygon.com/2015/10/8/9476405/transformers-devastation-review",
       "score": "6.5"
     },
     {
       "game": "Destiny: The Taken King",
+      "link": "http://www.polygon.com/2015/9/28/9410531/destiny-the-taken-king-review",
       "score": "8.5"
     },
     {
       "game": "Lego Dimensions",
+      "link": "http://www.polygon.com/2015/9/28/9407223/lego-dimensions-review-xbox-one-ps4-wii-u",
       "score": "8.0"
-    },
-    {
-      "game": "Animal Crossing: Happy Home Designer",
-      "score": "6.0"
-    },
-    {
-      "game": "NHL 16",
-      "score": "7.5"
-    },
-    {
-      "game": "Persona 4: Dancing All Night",
-      "score": "8.5"
-    },
-    {
-      "game": "FIFA 16",
-      "score": "9.0"
-    },
-    {
-      "game": "Soma",
-      "score": "9.0"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/6"
@@ -631,104 +781,129 @@
 {
   "page": [
     {
+      "game": "Animal Crossing: Happy Home Designer",
+      "link": "http://www.polygon.com/2015/9/22/9324173/animal-crossing-happy-home-designer-review-3ds",
+      "score": "6.0"
+    },
+    {
+      "game": "NHL 16",
+      "link": "http://www.polygon.com/2015/9/22/9367009/nhl-16-review-ps4-xbox-one",
+      "score": "7.5"
+    },
+    {
+      "game": "Persona 4: Dancing All Night",
+      "link": "http://www.polygon.com/2015/9/22/9367529/persona-4-dancing-all-night-review-vita",
+      "score": "8.5"
+    },
+    {
+      "game": "FIFA 16",
+      "link": "http://www.polygon.com/2015/9/22/9325831/ea-sports-fifa-16-review-PS4-xbox-one",
+      "score": "9.0"
+    },
+    {
+      "game": "Soma",
+      "link": "http://www.polygon.com/2015/9/21/9324177/soma-review-frictional-games-pc-horror-amnesia",
+      "score": "9.0"
+    },
+    {
       "game": "Skylanders Superchargers",
+      "link": "http://www.polygon.com/2015/9/20/9325955/skylanders-superchargers-review-xbox-one-PS4-wii-U",
       "score": "8.5"
     },
     {
       "game": "Destiny",
+      "link": "http://www.polygon.com/2014/9/12/6138497/destiny-review-no-fate",
       "score": "7.0"
     },
     {
       "game": "Lovers in a Dangerous Spacetime",
+      "link": "http://www.polygon.com/2015/9/11/9180411/lovers-in-a-dangerous-spacetime-review-xbox-one-PC",
       "score": "8.0"
     },
     {
       "game": "Mad Max",
+      "link": "http://www.polygon.com/2015/8/31/9190443/mad-max-review-ps4-playstion-4-xbox-one-pc-windows",
       "score": "5.5"
     },
     {
       "game": "Forza Motorsport 6",
+      "link": "http://www.polygon.com/2015/9/8/9248997/forza-motorsport-6-review-xbox-one",
       "score": "8.0"
     },
     {
       "game": "Super Mario Maker",
+      "link": "http://www.polygon.com/2015/9/2/9190435/super-mario-maker-review-nintendo-wii-u",
       "score": "9.5"
     },
     {
       "game": "Madden NFL 16",
+      "link": "http://www.polygon.com/2015/8/25/9200463/madden-nfl-16-review-xbox-one-PS4",
       "score": "9.0"
     },
     {
       "game": "Until Dawn",
+      "link": "http://www.polygon.com/2015/8/24/9166487/until-dawn-review-ps4-playstation-4-supermassive-games-horror",
       "score": "6.5"
     },
     {
       "game": "Gears of War: Ultimate Edition",
+      "link": "http://www.polygon.com/2015/8/24/9165163/gears-of-war-ultimate-edition-xbox-one-review",
       "score": "8.0"
     },
     {
       "game": "PlanetSide 2",
+      "link": "http://www.polygon.com/2012/12/14/3768324/planetside-2-review-tipping-the-scale",
       "score": "7.5"
     },
     {
       "game": "Volume",
+      "link": "http://www.polygon.com/2015/8/18/9131197/volume-ps4-pc-review",
       "score": "9.0"
     },
     {
       "game": "Etrian Odyssey 2 Untold: The Fafnir Knight",
+      "link": "http://www.polygon.com/2015/8/13/9030621/etrian-odyssey-2-untold-the-fafnir-knight-review-nintendo-3ds-atlus",
       "score": "8.5"
     },
     {
       "game": "Life is Strange: Episode Four - Dark Room",
+      "link": "http://www.polygon.com/2015/8/13/9130223/life-is-strange-episode-4-review-dark-room",
       "score": "6.5"
     },
     {
       "game": "Everybody's Gone to the Rapture",
+      "link": "http://www.polygon.com/2015/8/10/9120119/everybodys-gone-to-the-rapture-review-ps4-playstation-4-chinese-room",
       "score": "7.0"
     },
     {
       "game": "Feist",
+      "link": "http://www.polygon.com/2015/8/11/9127985/feist-review-pc-mac-linux",
       "score": "6.0"
     },
     {
       "game": "Contradiction",
+      "link": "http://www.polygon.com/2015/8/5/9085557/contradiction-review",
       "score": "8.0"
     },
     {
       "game": "Galak-Z: The Dimensional",
+      "link": "http://www.polygon.com/2015/8/5/9102179/galak-z-review-ps4",
       "score": "9.0"
     },
     {
       "game": "Rare Replay",
+      "link": "http://www.polygon.com/2015/8/3/9085379/rare-replay-review-xbox-one-banjo-kazooie-perfect-dark-battletoads-killer-instinct-blast-corps",
       "score": "8.0"
     },
     {
       "game": "King's Quest: A Knight to Remember",
+      "link": "http://www.polygon.com/2015/7/28/9035975/kings-quest-review-chapter-1-xbox-one-ps4-pc",
       "score": "6.5"
     },
     {
       "game": "Rocket League",
+      "link": "http://www.polygon.com/2015/7/27/9050337/rocket-league-review-ps4-pc",
       "score": "9.0"
-    },
-    {
-      "game": "Lost Dimension",
-      "score": "7.5"
-    },
-    {
-      "game": "Game of Thrones: A Telltale Games Series - Episode 5: A Nest of Vipers",
-      "score": "7.0"
-    },
-    {
-      "game": "Tembo the Badass Elephant",
-      "score": "8.0"
-    },
-    {
-      "game": "The Elder Scrolls Online",
-      "score": "6.0"
-    },
-    {
-      "game": "Dreamfall Chapters: Book Three: Realms",
-      "score": "8.5"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/7"
@@ -736,104 +911,129 @@
 {
   "page": [
     {
+      "game": "Lost Dimension",
+      "link": "http://www.polygon.com/2015/7/27/8836207/lost-dimension-review-ps3-ps-vita",
+      "score": "7.5"
+    },
+    {
+      "game": "Game of Thrones: A Telltale Games Series - Episode 5: A Nest of Vipers",
+      "link": "http://www.polygon.com/2015/7/21/9008003/game-of-thrones-telltale-episode-5-review-nest-of-vipers",
+      "score": "7.0"
+    },
+    {
+      "game": "Tembo the Badass Elephant",
+      "link": "http://www.polygon.com/2015/7/20/8967487/tembo-the-badass-elephant-review-sega-ps4-playstation-4-xbox-one-pc-windows",
+      "score": "8.0"
+    },
+    {
+      "game": "The Elder Scrolls Online",
+      "link": "http://www.polygon.com/2014/4/24/5644410/the-elder-scrolls-online-review",
+      "score": "6.0"
+    },
+    {
+      "game": "Dreamfall Chapters: Book Three: Realms",
+      "link": "http://www.polygon.com/2015/7/14/8903067/dreamfall-chapters-book-3-realms-review",
+      "score": "8.5"
+    },
+    {
       "game": "Splatoon",
+      "link": "http://www.polygon.com/2015/5/27/8588969/splatoon-review-nintendo-wii-u",
       "score": "8.5"
     },
     {
       "game": "Kholat",
+      "link": "http://www.polygon.com/2015/6/23/8825883/kholat-review",
       "score": "6.0"
     },
     {
       "game": "The Witcher 3: Wild Hunt",
+      "link": "http://www.polygon.com/2015/5/13/8533059/the-witcher-3-review-wild-hunt-PC-PS4-Xbox-one",
       "score": "8.0"
     },
     {
       "game": "Her Story",
+      "link": "http://www.polygon.com/2015/6/22/8825813/her-story-review-mac-windows-pc",
       "score": "8.5"
     },
     {
       "game": "Batman: Arkham Knight",
+      "link": "http://www.polygon.com/2015/6/19/8811383/batman-arkham-knight-review-xbox-one-PC-PS4",
       "score": "10.0"
     },
     {
       "game": "Game of Thrones: A Telltale Games Series - Episode 4: Sons of Winter",
+      "link": "http://www.polygon.com/2015/6/5/8732423/game-of-thrones-telltale-episode-4-review-sons-of-winter",
       "score": "8.0"
     },
     {
       "game": "Heroes of the Storm",
+      "link": "http://www.polygon.com/2015/6/2/8714203/heroes-of-the-storm-review-into-the-breach",
       "score": "7.5"
     },
     {
       "game": "Life is Strange: Episode Three - Chaos Theory",
+      "link": "http://www.polygon.com/2015/6/1/8688317/life-is-strange-episode-3-chaos-theory-review",
       "score": "6.5"
     },
     {
       "game": "Destiny: House of Wolves",
+      "link": "http://www.polygon.com/2015/5/29/8688083/destiny-house-of-wolves-review",
       "score": "7.0"
     },
     {
       "game": "H1Z1",
+      "link": "http://www.polygon.com/2015/2/24/8079601/h1z1-review",
       "score": "6.5"
     },
     {
       "game": "Chroma Squad",
+      "link": "http://www.polygon.com/2015/5/19/8625287/chroma-squad-review-pc-steam",
       "score": "7.5"
     },
     {
       "game": "Not a Hero",
+      "link": "http://www.polygon.com/2015/5/15/8588955/not-a-hero-review-pc-ps4-playstation-4-vita-windows-steam",
       "score": "6.5"
     },
     {
       "game": "Wolfenstein: The Old Blood",
+      "link": "http://www.polygon.com/2015/5/6/8561545/wolfenstein-the-old-blood-review-ps4-PC-xbox-one",
       "score": "7.0"
     },
     {
       "game": "Assassin's Creed Chronicles: China",
+      "link": "http://www.polygon.com/2015/5/5/8549495/assassins-creed-chronicles-china-review-ps4-xbox-one-playstation-4-pc",
       "score": "7.5"
     },
     {
       "game": "Mortal Kombat X",
+      "link": "http://www.polygon.com/2015/4/13/8364929/mortal-kombat-x-review-PS4-Xbox-One",
       "score": "8.5"
     },
     {
       "game": "Broken Age",
+      "link": "http://www.polygon.com/2014/1/15/5309804/broken-age-review",
       "score": "8.0"
     },
     {
       "game": "DriveClub",
+      "link": "http://www.polygon.com/2014/10/7/6570539/driveclub-review-ps4-playstation-4",
       "score": "7.5"
     },
     {
       "game": "State of Decay",
+      "link": "http://www.polygon.com/2013/6/5/4399636/state-of-decay-review-city-on-the-hill",
       "score": "8.5"
     },
     {
       "game": "Sid Meier's Starships",
+      "link": "http://www.polygon.com/2015/4/17/8416749/sid-meiers-starships-review-PC-iOS",
       "score": "6.5"
     },
     {
       "game": "Dark Souls 2",
+      "link": "http://www.polygon.com/2014/3/11/5492096/dark-souls-2-review",
       "score": "9.0"
-    },
-    {
-      "game": "Xenoblade Chronicles",
-      "score": "8.0"
-    },
-    {
-      "game": "MLB 15 The Show",
-      "score": "9.0"
-    },
-    {
-      "game": "Code Name: STEAM",
-      "score": "6.0"
-    },
-    {
-      "game": "Titan Souls",
-      "score": "6.5"
-    },
-    {
-      "game": "Game of Thrones: A Telltale Games Series - Episode 3: The Sword in the Darkness",
-      "score": "7.5"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/8"
@@ -841,104 +1041,129 @@
 {
   "page": [
     {
+      "game": "Xenoblade Chronicles",
+      "link": "http://www.polygon.com/2015/4/14/8384931/xenoblade-chronicles-3d-review-hard-knock-life",
+      "score": "8.0"
+    },
+    {
+      "game": "MLB 15 The Show",
+      "link": "http://www.polygon.com/2015/4/13/8384257/mlb-15-the-show-review-ps4",
+      "score": "9.0"
+    },
+    {
+      "game": "Code Name: STEAM",
+      "link": "http://www.polygon.com/2015/3/13/8212587/code-name-s-t-e-a-m-review-off-the-rails",
+      "score": "6.0"
+    },
+    {
+      "game": "Titan Souls",
+      "link": "http://www.polygon.com/2015/4/13/8398611/titan-souls-review-PC-PS4",
+      "score": "6.5"
+    },
+    {
+      "game": "Game of Thrones: A Telltale Games Series - Episode 3: The Sword in the Darkness",
+      "link": "http://www.polygon.com/2015/4/9/8354233/game-of-thrones-the-sword-in-the-darkness-review-pc-ps4-xbox-one",
+      "score": "7.5"
+    },
+    {
       "game": "Mario Party 10",
+      "link": "http://www.polygon.com/2015/4/7/8365239/mario-party-10-review-wii-u",
       "score": "6.5"
     },
     {
       "game": "Battlefield Hardline",
+      "link": "http://www.polygon.com/2015/3/17/8209655/battlefield-hardline-review-xbox-one-PS4-playstation-4-PC",
       "score": "7.0"
     },
     {
       "game": "Axiom Verge",
+      "link": "http://www.polygon.com/2015/4/1/8206525/axiom-verge-review-ps4-playstation-4-vita",
       "score": "7.0"
     },
     {
       "game": "Bloodborne",
+      "link": "http://www.polygon.com/2015/3/27/8209199/bloodborne-review-PS4-playstation-4-exclusive",
       "score": "9.0"
     },
     {
       "game": "Republique Episode 3: Ones and Zeroes",
+      "link": "http://www.polygon.com/2015/3/27/8077665/republique-remastered-review-pc-ios-android-mac",
       "score": "8.5"
     },
     {
       "game": "Dreamfall Chapters: Book Two: Rebels",
+      "link": "http://www.polygon.com/2015/3/26/8295701/dreamfall-chapters-book-2-rebels-review-pc-mac-linux",
       "score": "6.5"
     },
     {
       "game": "Life is Strange: Episode Two - Out of Time",
+      "link": "http://www.polygon.com/2015/3/25/8291203/life-is-strange-episode-two-review",
       "score": "8.5"
     },
     {
       "game": "Resident Evil Revelations 2",
+      "link": "http://www.polygon.com/2015/3/25/8169759/resident-evil-revelations-2-review-xbox-one-ps4-playstation-4-pc",
       "score": "8.0"
     },
     {
       "game": "OlliOlli 2: Welcome to Olliwood",
+      "link": "http://www.polygon.com/2015/3/18/8237877/olliolli-2-welcome-to-olliwood-review-on-a-roll",
       "score": "9.0"
     },
     {
       "game": "Tales from the Borderlands: Episode 2",
+      "link": "http://www.polygon.com/2015/3/17/8209433/tales-from-the-borderlands-episode-2-review-ps4-xbox-one-PC",
       "score": "8.5"
     },
     {
       "game": "Final Fantasy Type-0 HD",
+      "link": "http://www.polygon.com/2015/3/16/8206427/final-fantasy-type-0-hd-review-ps4-playstation-4-xbox-one",
       "score": "8.0"
     },
     {
       "game": "Hotline Miami 2: Wrong Number",
+      "link": "http://www.polygon.com/2015/3/10/8177615/hotline-miami-2-wrong-number-review-pc",
       "score": "8.5"
     },
     {
       "game": "Ori and the Blind Forest",
+      "link": "http://www.polygon.com/2015/3/9/8180595/ori-and-the-blind-forest-review-xbox-one-PC",
       "score": "9.0"
     },
     {
       "game": "ScreamRide",
+      "link": "http://www.polygon.com/2015/3/3/8077681/screamride-review-xbox-one",
       "score": "8.0"
     },
     {
       "game": "The Order: 1886",
+      "link": "http://www.polygon.com/2015/2/19/8063559/the-order-1886-review-PS4-playstation-4-exclusive",
       "score": "5.5"
     },
     {
       "game": "Kirby and the Rainbow Curse",
+      "link": "http://www.polygon.com/2015/2/18/8060651/kirby-and-the-rainbow-curse-review-wii-u",
       "score": "8.5"
     },
     {
       "game": "Citizens of Earth",
+      "link": "http://www.polygon.com/2015/2/17/8049951/citizens-of-earth-review-pc-ps4-playstation-4-wii-u-vita-3ds",
       "score": "8.0"
     },
     {
       "game": "Evolve",
+      "link": "http://www.polygon.com/2015/2/9/8003383/evolve-review-xbox-one-PS4-PC",
       "score": "8.0"
     },
     {
       "game": "Total War: Attila",
+      "link": "http://www.polygon.com/2015/2/12/7993659/total-war-attila-review-PC",
       "score": "8.0"
     },
     {
       "game": "Monster Hunter 4 Ultimate",
+      "link": "http://www.polygon.com/2015/2/10/8007853/monster-hunter-4-ultimate-review-new-3ds-xl",
       "score": "8.5"
-    },
-    {
-      "game": "The Legend of Zelda: Majora's Mask",
-      "score": "9.0"
-    },
-    {
-      "game": "Dying Light",
-      "score": "6.5"
-    },
-    {
-      "game": "Game of Thrones: A Telltale Games Series - Episode 2: The Lost Lords",
-      "score": "7.0"
-    },
-    {
-      "game": "IDARB",
-      "score": "8.5"
-    },
-    {
-      "game": "Life is Strange: Episode One - Chrysalis",
-      "score": "8.0"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/9"
@@ -946,104 +1171,129 @@
 {
   "page": [
     {
+      "game": "The Legend of Zelda: Majora's Mask",
+      "link": "http://www.polygon.com/2015/2/4/7874951/zelda-majoras-mask-3d-review-legend-new-3ds-xl",
+      "score": "9.0"
+    },
+    {
+      "game": "Dying Light",
+      "link": "http://www.polygon.com/2015/2/3/7967647/dying-light-review-xbox-one-ps4-PC",
+      "score": "6.5"
+    },
+    {
+      "game": "Game of Thrones: A Telltale Games Series - Episode 2: The Lost Lords",
+      "link": "http://www.polygon.com/2015/2/3/7964309/game-of-thrones-episode-2-two-the-lost-lords-review-telltale-xbox-one-pc-mac-playstation-4-ps4",
+      "score": "7.0"
+    },
+    {
+      "game": "IDARB",
+      "link": "http://www.polygon.com/2015/2/2/7964455/idarb-review-xbox-one",
+      "score": "8.5"
+    },
+    {
+      "game": "Life is Strange: Episode One - Chrysalis",
+      "link": "http://www.polygon.com/2015/1/29/7945795/life-is-strange-review-xbox-one-ps4-360-ps3-PC-episode-one",
+      "score": "8.0"
+    },
+    {
       "game": "Grim Fandango Remastered",
+      "link": "http://www.polygon.com/2015/1/27/7874999/grim-fandango-remastered-review-pc-ps4-playstation-4-vita-windows-mac",
       "score": "7.0"
     },
     {
       "game": "Saints Row: Gat Out of Hell",
+      "link": "http://www.polygon.com/2015/1/20/7549983/saints-row-gat-out-of-hell-playstation-4-ps4-xbox-one-pc-review",
       "score": "6.0"
     },
     {
       "game": "Resident Evil (2015)",
+      "link": "http://www.polygon.com/2015/1/19/7550887/resident-evil-hd-remaster-review-pc-xbox-one-ps4-playstation-4-360-3",
       "score": "7.0"
     },
     {
       "game": "Super Mega Baseball",
+      "link": "http://www.polygon.com/2015/1/6/7504631/super-mega-baseball-review-ps4",
       "score": "9.0"
     },
     {
       "game": "The Talos Principle",
+      "link": "http://www.polygon.com/2014/12/17/7411513/the-talos-principle-review",
       "score": "8.5"
     },
     {
       "game": "Destiny: The Dark Below",
+      "link": "http://www.polygon.com/2014/12/12/7384909/destiny-the-dark-below-review-no-light-above",
       "score": "5.0"
     },
     {
       "game": "The Crew",
+      "link": "http://www.polygon.com/2014/12/10/7363397/the-crew-review-xbox-one-ps4-PC",
       "score": "4.5"
     },
     {
       "game": "Lara Croft and the Temple of Osiris",
+      "link": "http://www.polygon.com/2014/12/8/7341659/lara-croft-temple-of-osiris-review-xbox-one-ps4-playstation-4-pc",
       "score": "7.5"
     },
     {
       "game": "Pro Evolution Soccer 2015",
+      "link": "http://www.polygon.com/2014/12/8/7341269/pro-evolution-soccer-2015-review-ps4-xbox-one",
       "score": "8.0"
     },
     {
       "game": "WWE 2K15",
+      "link": "http://www.polygon.com/2014/12/3/7327821/wwe-2k15-review-xbox-one-ps4",
       "score": "5.5"
     },
     {
       "game": "Game of Thrones: A Telltale Games Series - Episode 1: Iron from Ice",
+      "link": "http://www.polygon.com/2014/12/2/7315451/game-of-thrones-telltale-episode-1-review-xbox-one-ps4-PC",
       "score": "6.5"
     },
     {
       "game": "Captain Toad: Treasure Tracker",
+      "link": "http://www.polygon.com/2014/12/1/7312633/captain-toad-treasure-tracker-review-wii-u",
       "score": "8.5"
     },
     {
       "game": "Fantasy Life",
+      "link": "http://www.polygon.com/2014/11/28/7296225/fantasy-life-review-nintendo-3ds",
       "score": "5.5"
     },
     {
       "game": "World of Warcraft: Warlords of Draenor",
+      "link": "http://www.polygon.com/2014/11/26/7297125/world-of-warcraft-warlords-draenor-review-pc-mac-mmo",
       "score": "9.5"
     },
     {
       "game": "Tales from the Borderlands: Episode 1",
+      "link": "http://www.polygon.com/2014/11/25/7277923/tales-from-the-borderlands-episode-1-zer0-sum-review",
       "score": "8.5"
     },
     {
       "game": "Geometry Wars 3: Dimensions",
+      "link": "http://www.polygon.com/2014/11/25/7279307/geometry-wars-3-dimensions-review-xbox-one-PS4",
       "score": "8.0"
     },
     {
       "game": "Far Cry 4",
+      "link": "http://www.polygon.com/2014/11/21/7260135/far-cry-4-review-ps4-playstation-4-pc-xbox-one",
       "score": "9.0"
     },
     {
       "game": "Persona Q: Shadow of the Labyrinth",
+      "link": "http://www.polygon.com/2014/11/20/7243337/persona-q-review-3ds-shin-megami-tensei",
       "score": "9.0"
     },
     {
       "game": "Pokémon Omega Ruby/Pokémon Alpha Sapphire",
+      "link": "http://www.polygon.com/2014/11/19/7243189/pokemon-omega-ruby-pokemon-alpha-sapphire-review-3DS",
       "score": "8.0"
     },
     {
       "game": "Never Alone",
+      "link": "http://www.polygon.com/2014/11/18/7236771/never-alone-review-ps4-xbox-one-pc",
       "score": "7.0"
-    },
-    {
-      "game": "Escape Dead Island",
-      "score": "2.0"
-    },
-    {
-      "game": "LittleBigPlanet 3",
-      "score": "7.0"
-    },
-    {
-      "game": "Halo: The Master Chief Collection",
-      "score": "8.0"
-    },
-    {
-      "game": "Assassin's Creed Unity",
-      "score": "6.5"
-    },
-    {
-      "game": "Dragon Age: Inquisition",
-      "score": "9.5"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/10"
@@ -1051,104 +1301,129 @@
 {
   "page": [
     {
+      "game": "Escape Dead Island",
+      "link": "http://www.polygon.com/2014/11/18/7236015/escape-dead-island-review",
+      "score": "2.0"
+    },
+    {
+      "game": "LittleBigPlanet 3",
+      "link": "http://www.polygon.com/2014/11/18/7235677/littlebigplanet-3-review-ps4-playstation-4-little-big-planet",
+      "score": "7.0"
+    },
+    {
+      "game": "Halo: The Master Chief Collection",
+      "link": "http://www.polygon.com/2014/11/7/7076007/halo-the-master-chief-collection-review-xbox-one",
+      "score": "8.0"
+    },
+    {
+      "game": "Assassin's Creed Unity",
+      "link": "http://www.polygon.com/2014/11/11/7192467/assassins-creed-unity-review-xbox-one-PS4-PC",
+      "score": "6.5"
+    },
+    {
+      "game": "Dragon Age: Inquisition",
+      "link": "http://www.polygon.com/2014/11/11/7134385/dragon-age-inquisition-review-ps4-xbox-one-playstation-4-pc",
+      "score": "9.5"
+    },
+    {
       "game": "Dreamfall Chapters: The Longest Journey",
+      "link": "http://www.polygon.com/2014/11/6/7170023/dreamfall-chapters-book-1-reborn-review-pc-windows-mac",
       "score": "8.0"
     },
     {
       "game": "Call of Duty: Advanced Warfare",
+      "link": "http://www.polygon.com/2014/11/3/7147051/call-of-duty-advanced-warfare-review-xbox-one",
       "score": "9.0"
     },
     {
       "game": "NBA Live 15",
+      "link": "http://www.polygon.com/2014/10/28/7080853/nba-live-15-review-xbox-one-PS4",
       "score": "6.0"
     },
     {
       "game": "Lords of the Fallen",
+      "link": "http://www.polygon.com/2014/10/28/7080037/lords-of-the-fallen-review",
       "score": "7.5"
     },
     {
       "game": "Sunset Overdrive",
+      "link": "http://www.polygon.com/2014/10/27/6991717/sunset-overdrive-review-xbox-one",
       "score": "9.0"
     },
     {
       "game": "Sid Meier's Civilization: Beyond Earth",
+      "link": "http://www.polygon.com/2014/10/23/6880933/civilization-beyond-earth-review-pc",
       "score": "9.0"
     },
     {
       "game": "The Legend of Korra",
+      "link": "http://www.polygon.com/2014/10/22/6996737/the-legend-of-korra-review-avatar-last-airbender",
       "score": "5.0"
     },
     {
       "game": "NBA 2K15",
+      "link": "http://www.polygon.com/2014/10/21/6989353/nba-2k15-review-xbox-one-ps4",
       "score": "6.0"
     },
     {
       "game": "Fantasia: Music Evolved",
+      "link": "http://www.polygon.com/2014/10/21/6881463/fantasia-music-evolved-review-xbox-one-360",
       "score": "7.0"
     },
     {
       "game": "A City Sleeps",
+      "link": "http://www.polygon.com/2014/10/17/6991673/a-city-sleeps-review-pc-harmonix",
       "score": "6.0"
     },
     {
       "game": "The Evil Within",
+      "link": "http://www.polygon.com/2014/10/14/6896155/the-evil-within-review-xbox-one-PS4",
       "score": "6.5"
     },
     {
       "game": "Borderlands: The Pre-Sequel",
+      "link": "http://www.polygon.com/2014/10/13/6570035/borderlands-the-pre-sequel-review-360-ps3-PC",
       "score": "7.0"
     },
     {
       "game": "Bayonetta 2",
+      "link": "http://www.polygon.com/2014/10/13/6957677/bayonetta-2-review-wii-u",
       "score": "7.5"
     },
     {
       "game": "The Vanishing of Ethan Carter",
+      "link": "http://www.polygon.com/2014/10/10/6960363/the-vanishing-of-ethan-carter-review-pc",
       "score": "9.0"
     },
     {
       "game": "Skylanders Trap Team",
+      "link": "http://www.polygon.com/2014/10/8/6939701/skylanders-trap-team-review-ps4",
       "score": "8.0"
     },
     {
       "game": "Murasaki Baby",
+      "link": "http://www.polygon.com/2014/10/8/6874509/murasaki-baby-review-psvita",
       "score": "6.5"
     },
     {
       "game": "Costume Quest 2",
+      "link": "http://www.polygon.com/2014/10/7/6881489/costume-quest-2-review-PC",
       "score": "6.0"
     },
     {
       "game": "FIFA 15",
+      "link": "http://www.polygon.com/2014/10/6/6904449/fifa-15-review-ps4-xbox-one",
       "score": "8.0"
     },
     {
       "game": "Alien: Isolation",
+      "link": "http://www.polygon.com/2014/10/3/6142209/alien-isolation-review-xbox-one-PS4",
       "score": "6.5"
     },
     {
       "game": "Sherlock Holmes: Crimes & Punishments",
+      "link": "http://www.polygon.com/2014/9/30/6872781/sherlock-holmes-crimes-and-punishments-review",
       "score": "8.0"
-    },
-    {
-      "game": "Disney Infinity 2.0",
-      "score": "8.0"
-    },
-    {
-      "game": "Dark Souls 2: Crown of the Old Iron King",
-      "score": "8.0"
-    },
-    {
-      "game": "Super Smash Bros. for Nintendo 3DS",
-      "score": "9.0"
-    },
-    {
-      "game": "Middle-earth: Shadow of Mordor",
-      "score": "9.5"
-    },
-    {
-      "game": "Roundabout",
-      "score": "7.5"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/11"
@@ -1156,104 +1431,129 @@
 {
   "page": [
     {
+      "game": "Disney Infinity 2.0",
+      "link": "http://www.polygon.com/2014/9/26/6850297/disney-infinity-2-0-marvel-super-heroes-review-xbox-one-PS4",
+      "score": "8.0"
+    },
+    {
+      "game": "Dark Souls 2: Crown of the Old Iron King",
+      "link": "http://www.polygon.com/2014/9/26/6850439/dark-souls-2-crown-of-the-old-iron-king-review-ps3-xbox360-pc",
+      "score": "8.0"
+    },
+    {
+      "game": "Super Smash Bros. for Nintendo 3DS",
+      "link": "http://www.polygon.com/2014/9/26/6847267/super-smash-bros-3ds-review",
+      "score": "9.0"
+    },
+    {
+      "game": "Middle-earth: Shadow of Mordor",
+      "link": "http://www.polygon.com/2014/9/26/6254177/middle-earth-shadow-of-mordor-review-lord-of-the-rings-ps4-xbox-one",
+      "score": "9.5"
+    },
+    {
+      "game": "Roundabout",
+      "link": "http://www.polygon.com/2014/9/25/6840747/roundabout-review-pc-ps4-xbox-one",
+      "score": "7.5"
+    },
+    {
       "game": "Forza Horizon 2",
+      "link": "http://www.polygon.com/2014/9/25/6255023/forza-horizon-2-review-xbox-one",
       "score": "7.0"
     },
     {
       "game": "Dance Central Spotlight",
+      "link": "http://www.polygon.com/2014/9/23/6833977/dance-central-spotlight-review-xbox-one",
       "score": "8.0"
     },
     {
       "game": "D4",
+      "link": "http://www.polygon.com/2014/9/19/6558653/d4-review-xbox-one",
       "score": "7.0"
     },
     {
       "game": "Danganronpa 2: Goodbye Despair",
+      "link": "http://www.polygon.com/2014/9/18/6354993/danganronpa-2-goodbye-despair-vita-review",
       "score": "8.0"
     },
     {
       "game": "NHL 15",
+      "link": "http://www.polygon.com/2014/9/17/6343845/nhl-15-review-xbox-one-PS4",
       "score": "5.5"
     },
     {
       "game": "Hyrule Warriors",
+      "link": "http://www.polygon.com/2014/9/17/6112729/Zelda-hyrule-warriors-review-wii-u-nintendo",
       "score": "5.5"
     },
     {
       "game": "Theatrhythm Final Fantasy: Curtain Call",
+      "link": "http://www.polygon.com/2014/9/16/6079697/theatrhythm-final-fantasy-curtain-call-review-3ds",
       "score": "8.0"
     },
     {
       "game": "The Sims 4",
+      "link": "http://www.polygon.com/2014/9/10/6124747/the-sims-4-review-skin-deep",
       "score": "6.5"
     },
     {
       "game": "Hatoful Boyfriend",
+      "link": "http://www.polygon.com/2014/9/4/6079657/hatoful-boyfriend-review-pc-mac",
       "score": "8.0"
     },
     {
       "game": "Infamous: First Light",
+      "link": "http://www.polygon.com/2014/9/3/6102055/infamous-first-light-review-ps4",
       "score": "8.0"
     },
     {
       "game": "Velocity 2X",
+      "link": "http://www.polygon.com/2014/9/2/6054585/velocity-2x-review-embargo-sept-2-10-am-pt",
       "score": "9.0"
     },
     {
       "game": "Madden NFL 15",
+      "link": "http://www.polygon.com/2014/8/27/6075381/madden-15-review-xbox-one-ps4",
       "score": "9.0"
     },
     {
       "game": "The Walking Dead Season Two: Episode 5",
+      "link": "http://www.polygon.com/2014/8/26/6064039/the-walking-dead-season-2-episode-5-review-no-going-back",
       "score": "7.0"
     },
     {
       "game": "Akiba's Trip: Undead & Undressed",
+      "link": "http://www.polygon.com/2014/8/25/5971843/akibas-trip-undead-undressed-ps3-vita-review",
       "score": "5.0"
     },
     {
       "game": "Tales of Xillia 2",
+      "link": "http://www.polygon.com/2014/8/21/5877583/tales-of-xillia-2-review-playstation-3-ps3",
       "score": "6.0"
     },
     {
       "game": "CounterSpy",
+      "link": "http://www.polygon.com/2014/8/19/6005223/counterspy-review-ps3-ps4-vita-playstation-3-4",
       "score": "5.0"
     },
     {
       "game": "Hohokum",
+      "link": "http://www.polygon.com/2014/8/13/5989285/hohokum-review-playstation-3-vita-4-ps3-ps4",
       "score": "6.0"
     },
     {
       "game": "Arma 3",
+      "link": "http://www.polygon.com/2013/10/17/4845530/arma-3-review-snafu",
       "score": "8.0"
     },
     {
       "game": "Rogue Legacy",
+      "link": "http://www.polygon.com/2013/7/3/4488182/rogue-legacy-review-family-matters",
       "score": "9.0"
     },
     {
       "game": "Metrico",
+      "link": "http://www.polygon.com/2014/8/5/5971117/metrico-review-moving-pieces",
       "score": "5.0"
-    },
-    {
-      "game": "Divinity: Original Sin",
-      "score": "9.5"
-    },
-    {
-      "game": "The Walking Dead Season Two: Episode 4",
-      "score": "6.0"
-    },
-    {
-      "game": "Dark Souls 2: Crown of the Sunken King",
-      "score": "8.5"
-    },
-    {
-      "game": "The Wolf Among Us Episode Five: Cry Wolf",
-      "score": "8.0"
-    },
-    {
-      "game": "Valiant Hearts: The Great War",
-      "score": "8.0"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/12"
@@ -1261,104 +1561,129 @@
 {
   "page": [
     {
+      "game": "Divinity: Original Sin",
+      "link": "http://www.polygon.com/2014/7/31/5954541/divinity-original-sin-review-pc-mac",
+      "score": "9.5"
+    },
+    {
+      "game": "The Walking Dead Season Two: Episode 4",
+      "link": "http://www.polygon.com/2014/7/22/5917533/the-walking-dead-season-2-episode-4-review-amid-the-ruins",
+      "score": "6.0"
+    },
+    {
+      "game": "Dark Souls 2: Crown of the Sunken King",
+      "link": "http://www.polygon.com/2014/7/22/5916671/dark-souls-2-dlc-crown-of-sunken-king-review",
+      "score": "8.5"
+    },
+    {
+      "game": "The Wolf Among Us Episode Five: Cry Wolf",
+      "link": "http://www.polygon.com/2014/7/15/5902421/the-wolf-among-us-ep-5-cry-wolf-review-pc-mac-xbox-ps4",
+      "score": "8.0"
+    },
+    {
+      "game": "Valiant Hearts: The Great War",
+      "link": "http://www.polygon.com/2014/7/9/5869243/valiant-hearts-review-xbox-ps4-pc",
+      "score": "8.0"
+    },
+    {
       "game": "WildStar",
+      "link": "http://www.polygon.com/2014/7/7/5879017/wildstar-review-pc",
       "score": "7.0"
     },
     {
       "game": "Transformers: Rise of the Dark Spark",
+      "link": "http://www.polygon.com/2014/7/3/5868449/transformers-rise-of-the-dark-spark-review-xbox-one-PS4",
       "score": "4.5"
     },
     {
       "game": "Guacamelee",
+      "link": "http://www.polygon.com/2013/4/9/4202580/guacamelee-review",
       "score": "9.0"
     },
     {
       "game": "Munin",
+      "link": "http://www.polygon.com/2014/6/30/5850996/munin-review-pc-mac",
       "score": "7.5"
     },
     {
       "game": "EA Sports UFC",
+      "link": "http://www.polygon.com/2014/6/26/5846322/ea-sports-ufc-review-xbox-one-ps4",
       "score": "5.0"
     },
     {
       "game": "Shovel Knight",
+      "link": "http://www.polygon.com/2014/6/26/5842180/shovel-knight-review-pc-3ds-wii-u",
       "score": "9.0"
     },
     {
       "game": "The Last Tinker: City of Colors",
+      "link": "http://www.polygon.com/2014/6/25/5839108/the-last-tinker-review-pc-windows",
       "score": "7.0"
     },
     {
       "game": "1001 Spikes",
+      "link": "http://www.polygon.com/2014/6/24/5838640/1001-spikes-review-ps4-pc-xbox-3ds-vita",
       "score": "8.0"
     },
     {
       "game": "Tomodachi Life",
+      "link": "http://www.polygon.com/2014/6/6/5762122/tomodachi-life-review-3ds",
       "score": "7.5"
     },
     {
       "game": "Always Sometimes Monsters",
+      "link": "http://www.polygon.com/2014/6/5/5765838/always-sometimes-monsters-review-working-class-hero",
       "score": "8.0"
     },
     {
       "game": "Pushmo World",
+      "link": "http://www.polygon.com/2014/6/5/5765910/pushmo-world-wii-u-review",
       "score": "9.0"
     },
     {
       "game": "Tropico 5",
+      "link": "http://www.polygon.com/2014/6/4/5720864/tropico-5-review-wasted-away-again",
       "score": "6.5"
     },
     {
       "game": "Murdered: Soul Suspect",
+      "link": "http://www.polygon.com/2014/6/3/5765892/murdered-soul-suspect-review",
       "score": "7.0"
     },
     {
       "game": "The Wolf Among Us Episode Four: In Sheep's Clothing",
+      "link": "http://www.polygon.com/2014/5/30/5765286/the-wolf-among-us-episode-4-in-sheeps-clothing-review-dark-side",
       "score": "7.0"
     },
     {
       "game": "Among the Sleep",
+      "link": "http://www.polygon.com/2014/5/29/5745584/among-the-sleep-review",
       "score": "7.0"
     },
     {
       "game": "Watch Dogs",
+      "link": "http://www.polygon.com/2014/5/27/5746116/watch-dogs-ps4-xbox-one-review",
       "score": "8.0"
     },
     {
       "game": "DreadOut",
+      "link": "http://www.polygon.com/2014/5/21/5739854/dreadout-review",
       "score": "5.0"
     },
     {
       "game": "Transistor",
+      "link": "http://www.polygon.com/2014/5/20/5714244/transistor-review-a-girl-and-her-sword",
       "score": "8.5"
     },
     {
       "game": "Drakengard 3",
+      "link": "http://www.polygon.com/2014/5/20/5676062/drakengard-3-review-personality-conflict",
       "score": "7.0"
     },
     {
       "game": "Wolfenstein: The New Order",
+      "link": "http://www.polygon.com/2014/5/20/5718792/wolfenstein-the-new-order-review",
       "score": "9.0"
-    },
-    {
-      "game": "Mario Kart 8",
-      "score": "9.0"
-    },
-    {
-      "game": "The Walking Dead Season Two: Episode 3",
-      "score": "8.5"
-    },
-    {
-      "game": "Super Time Force",
-      "score": "8.5"
-    },
-    {
-      "game": "MLB 14 The Show",
-      "score": "8.5"
-    },
-    {
-      "game": "Full Bore: The First Dig",
-      "score": "7.5"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/13"
@@ -1366,104 +1691,129 @@
 {
   "page": [
     {
+      "game": "Mario Kart 8",
+      "link": "http://www.polygon.com/2014/5/15/5673346/mario-kart-8-wii-u-review",
+      "score": "9.0"
+    },
+    {
+      "game": "The Walking Dead Season Two: Episode 3",
+      "link": "http://www.polygon.com/2014/5/13/5701292/walking-dead-season-2-episode-3-in-harms-way-review",
+      "score": "8.5"
+    },
+    {
+      "game": "Super Time Force",
+      "link": "http://www.polygon.com/2014/5/13/5695860/super-time-force-review",
+      "score": "8.5"
+    },
+    {
+      "game": "MLB 14 The Show",
+      "link": "http://www.polygon.com/2014/4/7/5582644/mlb-14-the-show-review",
+      "score": "8.5"
+    },
+    {
+      "game": "Full Bore: The First Dig",
+      "link": "http://www.polygon.com/2014/5/8/5692134/full-bore-review-deeper-and-deeper",
+      "score": "7.5"
+    },
+    {
       "game": "Bound by Flame",
+      "link": "http://www.polygon.com/2014/5/8/5663068/bound-by-flame-review-cold-as-ice",
       "score": "4.0"
     },
     {
       "game": "Republique Episode 2: Metamorphosis",
+      "link": "http://www.polygon.com/2014/5/7/5689612/republique-metamorphosis-review",
       "score": "8.5"
     },
     {
       "game": "Sportsfriends",
+      "link": "http://www.polygon.com/2014/5/6/5666834/sportsfriends-review-life-of-the-party",
       "score": "9.0"
     },
     {
       "game": "Final Fantasy 14: A Realm Reborn",
+      "link": "http://www.polygon.com/2013/9/20/4753658/final-fantasy-14-realm-reborn-review",
       "score": "9.0"
     },
     {
       "game": "The Amazing Spider-Man 2",
+      "link": "http://www.polygon.com/2014/5/1/5672712/the-amazing-spider-man-2-review-swing-and-miss",
       "score": "6.0"
     },
     {
       "game": "Hitman Go",
+      "link": "http://www.polygon.com/2014/4/30/5666442/hitman-go-review-mouse-trap",
       "score": "8.0"
     },
     {
       "game": "NES Remix 2",
+      "link": "http://www.polygon.com/2014/4/29/5662536/nes-remix-2-review-playing-with-power",
       "score": "8.0"
     },
     {
       "game": "Daylight",
+      "link": "http://www.polygon.com/2014/4/29/5662172/daylight-review",
       "score": "5.0"
     },
     {
       "game": "Kirby Triple Deluxe",
+      "link": "http://www.polygon.com/2014/4/28/5617608/kirby-triple-deluxe-review-brainpower",
       "score": "7.5"
     },
     {
       "game": "Child of Light",
+      "link": "http://www.polygon.com/2014/4/28/5660322/child-of-light-review-xbox-one-ps4-xbox-360-ps3",
       "score": "6.5"
     },
     {
       "game": "Hearthstone: Heroes of Warcraft",
+      "link": "http://www.polygon.com/2014/4/25/5654196/hearthstone-heroes-of-warcraft-review",
       "score": "10.0"
     },
     {
       "game": "Mario Golf: World Tour",
+      "link": "http://www.polygon.com/2014/4/25/5650016/mario-golf-world-tour-review",
       "score": "8.0"
     },
     {
       "game": "Guild Wars 2",
+      "link": "http://www.polygon.com/2013/1/24/3728326/guild-wars-2-review-second-coming",
       "score": "9.0"
     },
     {
       "game": "Moebius: Empire Rising",
+      "link": "http://www.polygon.com/2014/4/24/5641066/moebius-empire-rising-review-remedial-history",
       "score": "4.0"
     },
     {
       "game": "Fract OSC",
+      "link": "http://www.polygon.com/2014/4/22/5638086/fract-review-fract-OSC",
       "score": "7.0"
     },
     {
       "game": "Starbound",
+      "link": "http://www.polygon.com/2014/4/22/5625444/starbound-review",
       "score": "9.0"
     },
     {
       "game": "Octodad: Dadliest Catch",
+      "link": "http://www.polygon.com/2014/1/30/5359128/octodad-dadliest-catch-review-father-knows-best",
       "score": "8.0"
     },
     {
       "game": "Conception 2: Children of the Seven Stars",
+      "link": "http://www.polygon.com/2014/4/18/5626304/conception-2-review-bad-romance",
       "score": "4.0"
     },
     {
       "game": "Trials Fusion",
+      "link": "http://www.polygon.com/2014/4/16/5617986/trials-fusion-review",
       "score": "6.5"
     },
     {
       "game": "Tales of Symphonia Chronicles",
+      "link": "http://www.polygon.com/2014/4/14/5602730/tales-of-symphonia-chronicles-review-passing-by",
       "score": "6.5"
-    },
-    {
-      "game": "The Wolf Among Us Episode Three: A Crooked Mile",
-      "score": "8.0"
-    },
-    {
-      "game": "Lego The Hobbit",
-      "score": "8.0"
-    },
-    {
-      "game": "Mercenary Kings",
-      "score": "8.5"
-    },
-    {
-      "game": "Kinect Sports Rivals",
-      "score": "6.0"
-    },
-    {
-      "game": "Diablo 3: Reaper of Souls",
-      "score": "9.5"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/14"
@@ -1471,104 +1821,129 @@
 {
   "page": [
     {
+      "game": "The Wolf Among Us Episode Three: A Crooked Mile",
+      "link": "http://www.polygon.com/2014/4/11/5603214/the-wolf-among-us-episode-3-a-crooked-mile-review-procedural-justice",
+      "score": "8.0"
+    },
+    {
+      "game": "Lego The Hobbit",
+      "link": "http://www.polygon.com/2014/4/11/5602034/lego-the-hobbit-review-safe-fairyland",
+      "score": "8.0"
+    },
+    {
+      "game": "Mercenary Kings",
+      "link": "http://www.polygon.com/2014/4/9/5598816/mercenary-kings-review",
+      "score": "8.5"
+    },
+    {
+      "game": "Kinect Sports Rivals",
+      "link": "http://www.polygon.com/2014/4/7/5589164/kinect-sports-rivals-review-second-string",
+      "score": "6.0"
+    },
+    {
+      "game": "Diablo 3: Reaper of Souls",
+      "link": "http://www.polygon.com/2014/4/4/5580704/diablo-3-reaper-of-souls-review-human-shield",
+      "score": "9.5"
+    },
+    {
       "game": "Final Fantasy 10/10-2 HD Remaster",
+      "link": "http://www.polygon.com/2014/4/3/5578702/final-fantasy-x-x-2-hd-remaster-review-music-of-the-spheres",
       "score": "8.0"
     },
     {
       "game": "Monument Valley",
+      "link": "http://www.polygon.com/2014/4/3/5575062/monument-valley-review-moonrise-kingdom",
       "score": "9.0"
     },
     {
       "game": "Age of Wonders 3",
+      "link": "http://www.polygon.com/2014/4/1/5546818/age-of-wonders-3-review-power-fantasy",
       "score": "8.0"
     },
     {
       "game": "Banished",
+      "link": "http://www.polygon.com/2014/3/28/5546614/banished-review-feast-or-famine",
       "score": "7.5"
     },
     {
       "game": "Bioshock Infinite Burial at Sea Episode Two",
+      "link": "http://www.polygon.com/2014/3/27/5555138/bioshock-infinite-burial-at-sea-episode-two-review-a-drop-in-the-ocean",
       "score": "7.0"
     },
     {
       "game": "Escape Goat 2",
+      "link": "http://www.polygon.com/2014/3/25/5518590/escape-goat-2-review-get-smart",
       "score": "8.0"
     },
     {
       "game": "Luftrausers",
+      "link": "http://www.polygon.com/2014/3/24/5543498/luftrausers-review-vintage-bomber",
       "score": "8.0"
     },
     {
       "game": "Infamous: Second Son",
+      "link": "http://www.polygon.com/2014/3/20/5527678/infamous-second-son-review-drain-you",
       "score": "8.5"
     },
     {
       "game": "Metal Gear Solid 5: Ground Zeroes",
+      "link": "http://www.polygon.com/2014/3/18/5519578/metal-gear-solid-5-ground-zeroes-review",
       "score": "5.5"
     },
     {
       "game": "Yoshi's New Island",
+      "link": "http://www.polygon.com/2014/3/13/5493546/yoshis-new-island-review-bringing-up-baby",
       "score": "7.5"
     },
     {
       "game": "Titanfall",
+      "link": "http://www.polygon.com/2014/3/10/5467906/titanfall-review",
       "score": "9.0"
     },
     {
       "game": "TowerFall Ascension",
+      "link": "http://www.polygon.com/2014/3/7/5482734/towerfall-ascension-review-bowstring-symphony",
       "score": "9.5"
     },
     {
       "game": "Basement Crawl",
+      "link": "http://www.polygon.com/2014/3/6/5458404/basement-crawl-review-cutting-room",
       "score": "2.0"
     },
     {
       "game": "The Walking Dead Season Two: Episode 2",
+      "link": "http://www.polygon.com/2014/3/4/5470372/the-walking-dead-season-2-episode-2-house-divided-review",
       "score": "9.0"
     },
     {
       "game": "South Park: The Stick of Truth",
+      "link": "http://www.polygon.com/2014/3/4/5464996/south-park-the-stick-of-truth-review",
       "score": "8.5"
     },
     {
       "game": "Castlevania: Lords of Shadow 2",
+      "link": "http://www.polygon.com/2014/2/25/5444178/castlevania-lords-of-shadow-2-review-bad-blood",
       "score": "5.0"
     },
     {
       "game": "Plants vs. Zombies: Garden Warfare",
+      "link": "http://www.polygon.com/2014/2/25/5443856/plants-vs-zombies-garden-warfare-review-turf-war",
       "score": "8.5"
     },
     {
       "game": "Danganronpa: Trigger Happy Havoc",
+      "link": "http://www.polygon.com/2014/2/24/5435266/danganronpa-trigger-happy-havoc-review-deadly-combination",
       "score": "8.0"
     },
     {
       "game": "Thief",
+      "link": "http://www.polygon.com/2014/2/24/5441360/thief-review",
       "score": "6.0"
     },
     {
       "game": "Earth Defense Force 2025",
+      "link": "http://www.polygon.com/2014/2/18/5424154/earth-defense-force-2025-review-kill-em-all",
       "score": "7.5"
-    },
-    {
-      "game": "Strider (2014)",
-      "score": "8.5"
-    },
-    {
-      "game": "Donkey Kong Country: Tropical Freeze",
-      "score": "8.5"
-    },
-    {
-      "game": "The Last of Us: Left Behind",
-      "score": "8.0"
-    },
-    {
-      "game": "Fable Anniversary",
-      "score": "5.0"
-    },
-    {
-      "game": "Strike Vector",
-      "score": "7.0"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/15"
@@ -1576,104 +1951,129 @@
 {
   "page": [
     {
+      "game": "Strider (2014)",
+      "link": "http://www.polygon.com/2014/2/18/5421140/strider-game-2014-capcom-review",
+      "score": "8.5"
+    },
+    {
+      "game": "Donkey Kong Country: Tropical Freeze",
+      "link": "http://www.polygon.com/2014/2/17/5417926/donkey-kong-country-tropical-freeze-review-summer-boy",
+      "score": "8.5"
+    },
+    {
+      "game": "The Last of Us: Left Behind",
+      "link": "http://www.polygon.com/2014/2/13/5406740/the-last-of-us-left-behind-review-friends-til-the-end",
+      "score": "8.0"
+    },
+    {
+      "game": "Fable Anniversary",
+      "link": "http://www.polygon.com/2014/2/12/5406176/fable-anniversary-review-cracked-frame",
+      "score": "5.0"
+    },
+    {
+      "game": "Strike Vector",
+      "link": "http://www.polygon.com/2014/2/12/5403840/strike-vector-review-danger-zone",
+      "score": "7.0"
+    },
+    {
       "game": "Lightning Returns: Final Fantasy 13",
+      "link": "http://www.polygon.com/2014/2/11/5398284/lightning-returns-final-fantasy-13-3-review",
       "score": "5.5"
     },
     {
       "game": "The Sun at Night",
+      "link": "http://www.polygon.com/2014/2/10/5375780/the-sun-at-night-review-lost-in-space",
       "score": "7.0"
     },
     {
       "game": "Jazzpunk",
+      "link": "http://www.polygon.com/2014/2/6/5384318/jazzpunk-review",
       "score": "8.0"
     },
     {
       "game": "The Wolf Among Us Episode Two: Smoke and Mirrors",
+      "link": "http://www.polygon.com/2014/2/4/5378354/the-wolf-among-us-episode-two-smoke-and-mirrors-review",
       "score": "8.5"
     },
     {
       "game": "The Castle Doctrine",
+      "link": "http://www.polygon.com/2014/1/31/5365340/the-castle-doctrine-review",
       "score": "5.0"
     },
     {
       "game": "Bravely Default",
+      "link": "http://www.polygon.com/2014/1/30/5353206/bravely-default-flying-fairy-review-headstrong",
       "score": "8.0"
     },
     {
       "game": "Sorcery Saga: Curse of the Great Curry God",
+      "link": "http://www.polygon.com/2014/1/23/5335064/sorcery-saga-curse-of-the-great-curry-god-review-heartburn",
       "score": "5.0"
     },
     {
       "game": "OlliOlli",
+      "link": "http://www.polygon.com/2014/1/21/5316602/olliolli-review",
       "score": "8.5"
     },
     {
       "game": "Nidhogg",
+      "link": "http://www.polygon.com/2014/1/17/5317828/nidhogg-review-riding-the-snake",
       "score": "8.0"
     },
     {
       "game": "Don't Starve",
+      "link": "http://www.polygon.com/2013/6/26/4439118/dont-starve-review-eat-to-live",
       "score": "8.5"
     },
     {
       "game": "The Banner Saga",
+      "link": "http://www.polygon.com/2014/1/14/5309206/the-banner-saga-review-planet-caravan",
       "score": "8.0"
     },
     {
       "game": "Dr. Luigi",
+      "link": "http://www.polygon.com/2014/1/13/5305788/dr-luigi-review-wii-u",
       "score": "7.0"
     },
     {
       "game": "Rune Factory 4",
+      "link": "http://www.polygon.com/2014/1/10/4822808/rune-factory-4-review-swords-to-ploughshares",
       "score": "8.0"
     },
     {
       "game": "NBA 2K14",
+      "link": "http://www.polygon.com/2013/10/1/4791876/nba-2k14-review-throw-it-down",
       "score": "5.0"
     },
     {
       "game": "Ys: Memories of Celceta",
+      "link": "http://www.polygon.com/2014/1/9/5292450/ys-memories-of-celceta-review",
       "score": "8.5"
     },
     {
       "game": "Warframe",
+      "link": "http://www.polygon.com/2014/1/8/5284752/warframe-review-unnamed-soldier",
       "score": "5.0"
     },
     {
       "game": "Mario Party: Island Tour",
+      "link": "http://www.polygon.com/2014/1/7/5281934/mario-party-island-tour-review-slumber-party",
       "score": "5.0"
     },
     {
       "game": "World of Warplanes",
+      "link": "http://www.polygon.com/2014/1/3/5271430/world-of-warplanes-review",
       "score": "5.0"
     },
     {
       "game": "Halo: Spartan Assault",
+      "link": "http://www.polygon.com/2014/1/2/5267974/halo-spartan-assault-review",
       "score": "4.0"
     },
     {
       "game": "Max: The Curse of Brotherhood",
+      "link": "http://www.polygon.com/2013/12/31/5258420/max-the-curse-of-brotherhood-review-the-mighty-pen",
       "score": "6.0"
-    },
-    {
-      "game": "Risk of Rain",
-      "score": "8.5"
-    },
-    {
-      "game": "NES Remix",
-      "score": "8.0"
-    },
-    {
-      "game": "Wii Fit U",
-      "score": "4.5"
-    },
-    {
-      "game": "Republique Episode 1: Exordium",
-      "score": "8.0"
-    },
-    {
-      "game": "The Walking Dead Season Two: Episode 1",
-      "score": "7.0"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/16"
@@ -1681,104 +2081,129 @@
 {
   "page": [
     {
+      "game": "Risk of Rain",
+      "link": "http://www.polygon.com/2013/12/24/5241358/risk-of-rain-review",
+      "score": "8.5"
+    },
+    {
+      "game": "NES Remix",
+      "link": "http://www.polygon.com/2013/12/23/5238280/nes-remix-review-8-bit-holiday",
+      "score": "8.0"
+    },
+    {
+      "game": "Wii Fit U",
+      "link": "http://www.polygon.com/2013/12/20/5229408/wii-fit-u-review-glass-joe",
+      "score": "4.5"
+    },
+    {
+      "game": "Republique Episode 1: Exordium",
+      "link": "http://www.polygon.com/2013/12/19/5225926/republique-exordium-review-connected",
+      "score": "8.0"
+    },
+    {
+      "game": "The Walking Dead Season Two: Episode 1",
+      "link": "http://www.polygon.com/2013/12/17/5218466/walking-dead-season-two-all-that-remains-episode-one-review",
+      "score": "7.0"
+    },
+    {
       "game": "Samurai Gunn",
+      "link": "http://www.polygon.com/2013/12/13/5208420/samurai-gunn-review",
       "score": "6.5"
     },
     {
       "game": "Doki-Doki Universe",
+      "link": "http://www.polygon.com/2013/12/12/5203276/doki-doki-universe-review-have-a-heart",
       "score": "8.5"
     },
     {
       "game": "Redshirt",
+      "link": "http://www.polygon.com/2013/12/12/5203130/redshirt-review-lower-decks",
       "score": "8.0"
     },
     {
       "game": "The Novelist",
+      "link": "http://www.polygon.com/2013/12/11/5201512/the-novelist-review-compromise",
       "score": "7.5"
     },
     {
       "game": "Killer Instinct (2013)",
+      "link": "http://www.polygon.com/2013/12/10/5198018/killer-instinct-review",
       "score": "7.0"
     },
     {
       "game": "Peggle 2",
+      "link": "http://www.polygon.com/2013/12/9/5190726/peggle-2-review",
       "score": "8.0"
     },
     {
       "game": "Gran Turismo 6",
+      "link": "http://www.polygon.com/2013/12/6/5179758/gran-turismo-6-review",
       "score": "9.0"
     },
     {
       "game": "Tiny Brains",
+      "link": "http://www.polygon.com/2013/12/3/5168350/tiny-brains-review-brainfart",
       "score": "5.0"
     },
     {
       "game": "Battlefield 4",
+      "link": "http://www.polygon.com/2013/10/29/5040656/battlefield-4-review",
       "score": "4.0"
     },
     {
       "game": "Batman: Arkham Origins",
+      "link": "http://www.polygon.com/2013/10/25/5026574/batman-arkham-origins-review-knightfall",
       "score": "7.0"
     },
     {
       "game": "Powerstar Golf",
+      "link": "http://www.polygon.com/2013/11/26/5148498/powerstar-golf-review",
       "score": "7.0"
     },
     {
       "game": "Fighter Within",
+      "link": "http://www.polygon.com/2013/11/26/5148730/fighter-within-review-low-blow",
       "score": "2.0"
     },
     {
       "game": "Assassin's Creed 4: Black Flag",
+      "link": "http://www.polygon.com/2013/10/29/4861080/assassins-creed-4-black-flag-review",
       "score": "7.5"
     },
     {
       "game": "LocoCycle",
+      "link": "http://www.polygon.com/2013/11/20/5126664/lococycle-review",
       "score": "4.0"
     },
     {
       "game": "Ryse: Son of Rome",
+      "link": "http://www.polygon.com/2013/11/21/5128888/ryse-son-of-rome-xbox-one-review",
       "score": "6.0"
     },
     {
       "game": "Forza Motorsport 5",
+      "link": "http://www.polygon.com/2013/11/20/5124990/forza-5-review",
       "score": "9.0"
     },
     {
       "game": "Tearaway",
+      "link": "http://www.polygon.com/2013/11/20/5120752/tearaway-review",
       "score": "9.5"
     },
     {
       "game": "Need for Speed Rivals",
+      "link": "http://www.polygon.com/2013/11/18/5116316/need-for-speed-rivals-review",
       "score": "8.5"
     },
     {
       "game": "Super Mario 3D World",
+      "link": "http://www.polygon.com/2013/11/19/5103156/super-mario-3d-world-silly-symphony",
       "score": "9.0"
     },
     {
       "game": "Crimson Dragon",
+      "link": "http://www.polygon.com/2013/11/18/5113012/crimson-dragon-review",
       "score": "4.0"
-    },
-    {
-      "game": "Zoo Tycoon",
-      "score": "8.0"
-    },
-    {
-      "game": "Dead Rising 3",
-      "score": "7.5"
-    },
-    {
-      "game": "The Legend of Zelda: A Link Between Worlds",
-      "score": "9.5"
-    },
-    {
-      "game": "Knack",
-      "score": "6.0"
-    },
-    {
-      "game": "Resogun",
-      "score": "8.5"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/17"
@@ -1786,104 +2211,129 @@
 {
   "page": [
     {
+      "game": "Zoo Tycoon",
+      "link": "http://www.polygon.com/2013/11/18/5113046/zoo-tycoon-review",
+      "score": "8.0"
+    },
+    {
+      "game": "Dead Rising 3",
+      "link": "http://www.polygon.com/2013/11/18/5112978/dead-rising-3-review",
+      "score": "7.5"
+    },
+    {
+      "game": "The Legend of Zelda: A Link Between Worlds",
+      "link": "http://www.polygon.com/2013/11/15/5109688/the-legend-of-zelda-a-link-between-worlds-review-as-a-picture",
+      "score": "9.5"
+    },
+    {
+      "game": "Knack",
+      "link": "http://www.polygon.com/2013/11/13/5098902/knack-review-ps4",
+      "score": "6.0"
+    },
+    {
+      "game": "Resogun",
+      "link": "http://www.polygon.com/2013/11/13/5099026/resogun-review-PS4",
+      "score": "8.5"
+    },
+    {
       "game": "Contrast",
+      "link": "http://www.polygon.com/2013/11/13/5099056/contrast-review-ps4",
       "score": "4.5"
     },
     {
       "game": "Killzone: Shadow Fall",
+      "link": "http://www.polygon.com/2013/11/13/5097534/killzone-shadow-fall-review-ps4",
       "score": "5.0"
     },
     {
       "game": "Ratchet and Clank: Into the Nexus",
+      "link": "http://www.polygon.com/2013/11/12/5096912/ratchet-clank-into-the-nexus",
       "score": "8.5"
     },
     {
       "game": "Call of Duty: Ghosts",
+      "link": "http://www.polygon.com/2013/11/5/5052646/call-of-duty-ghosts-review",
       "score": "7.0"
     },
     {
       "game": "Bioshock Infinite Burial at Sea Episode One",
+      "link": "http://www.polygon.com/2013/11/11/5092856/bioshock-infinite-burial-at-sea-episode-one-review",
       "score": "7.0"
     },
     {
       "game": "Mario & Sonic at the Sochi 2014 Olympic Winter Games",
+      "link": "http://www.polygon.com/2013/11/5/5065876/mario-and-sonic-at-the-sochi-2014-olympic-winter-games-review-thin-ice",
       "score": "6.0"
     },
     {
       "game": "Disgaea D2: A Brighter Darkness",
+      "link": "http://www.polygon.com/2013/11/1/5055754/disgaea-d2-a-brighter-darkness-review-busy-work",
       "score": "6.5"
     },
     {
       "game": "WWE 2K14",
+      "link": "http://www.polygon.com/2013/10/28/5037140/wwe-2k14-review",
       "score": "8.0"
     },
     {
       "game": "Batman: Arkham Origins Blackgate",
+      "link": "http://www.polygon.com/2013/10/25/5027306/batman-arkham-origins-blackgate-review-trust",
       "score": "8.0"
     },
     {
       "game": "Phoenix Wright: Ace Attorney - Dual Destinies",
+      "link": "http://www.polygon.com/2013/10/24/5025910/phoenix-wright-ace-attorney-dual-destinies-review-runaway-jury",
       "score": "8.0"
     },
     {
       "game": "Lego Marvel Super Heroes",
+      "link": "http://www.polygon.com/2013/10/22/4865308/lego-marvel-super-heroes-review-onward-and-upward",
       "score": "8.5"
     },
     {
       "game": "Skylanders Swap Force",
+      "link": "http://www.polygon.com/2013/10/18/4853348/skylanders-swap-force-review-toy-story",
       "score": "7.5"
     },
     {
       "game": "Deus Ex: Human Revolution Director's Cut",
+      "link": "http://www.polygon.com/2013/10/18/4851642/deus-ex-human-revolution-directors-cut-review-all-tomorrows-parties",
       "score": "9.0"
     },
     {
       "game": "Sonic: Lost World (Wii U)",
+      "link": "http://www.polygon.com/2013/10/18/4850092/sonic-lost-world-review-living-in-the-past",
       "score": "6.0"
     },
     {
       "game": "Sonic: Lost World (3DS)",
+      "link": "http://www.polygon.com/2013/10/18/4851506/sonic-lost-world-3ds-review",
       "score": "4.0"
     },
     {
       "game": "The Stanley Parable (2013)",
+      "link": "http://www.polygon.com/2013/10/17/4849998/stanley-parable-review",
       "score": "9.0"
     },
     {
       "game": "Eldritch",
+      "link": "http://www.polygon.com/2013/10/14/4835136/eldritch-review",
       "score": "9.0"
     },
     {
       "game": "Pokémon X/Pokémon Y",
+      "link": "http://www.polygon.com/2013/10/4/4800980/Pokemon-x-and-pokemon-y-review",
       "score": "9.5"
     },
     {
       "game": "Montague's Mount",
+      "link": "http://www.polygon.com/2013/10/10/4821916/montagues-mount-review",
       "score": "3.5"
     },
     {
       "game": "The Wolf Among Us Episode One: Faith",
+      "link": "http://www.polygon.com/2013/10/10/4824252/fables-the-wolf-among-us",
       "score": "8.0"
-    },
-    {
-      "game": "Shadow Warrior (2013)",
-      "score": "6.5"
-    },
-    {
-      "game": "Beyond: Two Souls",
-      "score": "8.0"
-    },
-    {
-      "game": "Rain",
-      "score": "8.5"
-    },
-    {
-      "game": "Scribblenauts Unmasked: A DC Comics Adventure",
-      "score": "8.0"
-    },
-    {
-      "game": "Marlow Briggs and the Mask of Death",
-      "score": "7.0"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/18"
@@ -1891,104 +2341,129 @@
 {
   "page": [
     {
+      "game": "Shadow Warrior (2013)",
+      "link": "http://www.polygon.com/2013/10/9/4818908/shadow-warrior-review",
+      "score": "6.5"
+    },
+    {
+      "game": "Beyond: Two Souls",
+      "link": "http://www.polygon.com/2013/10/8/4814738/beyond-two-souls-review",
+      "score": "8.0"
+    },
+    {
+      "game": "Rain",
+      "link": "http://www.polygon.com/2013/10/1/4788876/rain-review",
+      "score": "8.5"
+    },
+    {
+      "game": "Scribblenauts Unmasked: A DC Comics Adventure",
+      "link": "http://www.polygon.com/2013/9/30/4775680/scribblenauts-unmasked-a-dc-comics-adventure-review-words-with-friends",
+      "score": "8.0"
+    },
+    {
+      "game": "Marlow Briggs and the Mask of Death",
+      "link": "http://www.polygon.com/2013/9/27/4777228/marlow-briggs-and-the-mask-of-death-review",
+      "score": "7.0"
+    },
+    {
       "game": "Etrian Odyssey Untold: Millennium Girl",
+      "link": "http://www.polygon.com/2013/9/26/4774128/etrian-odyssey-untold-millennium-girl-review",
       "score": "6.0"
     },
     {
       "game": "FIFA 14",
+      "link": "http://www.polygon.com/2013/9/24/4763408/fifa-14-review",
       "score": "8.0"
     },
     {
       "game": "Foul Play",
+      "link": "http://www.polygon.com/2013/9/24/4747228/foul-play-review-standing-ovation",
       "score": "7.5"
     },
     {
       "game": "Diablo 3",
+      "link": "http://www.polygon.com/2012/10/5/3455160/diablo-3-review-angels-and-demons",
       "score": "10.0"
     },
     {
       "game": "The Legend of Zelda: The Wind Waker HD",
+      "link": "http://www.polygon.com/2013/9/18/4743554/the-legend-of-zelda-the-wind-waker-hd-review-sail-away",
       "score": "9.0"
     },
     {
       "game": "Rise of the Triad (2013)",
+      "link": "http://www.polygon.com/2013/9/11/4720256/rise-of-the-triad-review",
       "score": "7.0"
     },
     {
       "game": "Puppeteer",
+      "link": "http://www.polygon.com/2013/9/10/4717054/puppeteer-review",
       "score": "6.0"
     },
     {
       "game": "Tales of Xillia",
+      "link": "http://www.polygon.com/2013/9/9/4712840/tales-of-xillia-review",
       "score": "7.0"
     },
     {
       "game": "Grand Theft Auto 5",
+      "link": "http://www.polygon.com/2013/9/16/4720458/gta-5-review-grand-theft-auto",
       "score": "9.5"
     },
     {
       "game": "The Wonderful 101",
+      "link": "http://www.polygon.com/2013/9/10/4714292/the-wonderful-101-review",
       "score": "6.0"
     },
     {
       "game": "Amnesia: A Machine for Pigs",
+      "link": "http://www.polygon.com/2013/9/9/4709464/amnesia-machine-for-pigs-review",
       "score": "8.0"
     },
     {
       "game": "Memoria",
+      "link": "http://www.polygon.com/2013/9/5/4677586/memoria-review-unforgettable",
       "score": "8.0"
     },
     {
       "game": "Teenage Mutant Ninja Turtles: Out of the Shadows",
+      "link": "http://www.polygon.com/2013/9/4/4694604/teenage-mutant-ninja-turtles-out-of-the-shadows-review-shredded",
       "score": "1.0"
     },
     {
       "game": "Killzone: Mercenary",
+      "link": "http://www.polygon.com/2013/9/4/4695160/killzone-mercenary-review",
       "score": "6.0"
     },
     {
       "game": "Outlast",
+      "link": "http://www.polygon.com/2013/9/4/4691872/outlast-review-run-like-hell",
       "score": "7.5"
     },
     {
       "game": "Castle of Illusion Starring Mickey Mouse",
+      "link": "http://www.polygon.com/2013/9/3/4687826/castle-of-illusion-review-mouse-in-the-mirror",
       "score": "7.0"
     },
     {
       "game": "Lost Planet 3",
+      "link": "http://www.polygon.com/2013/8/27/4660766/lost-planet-3-review-snow-day",
       "score": "7.0"
     },
     {
       "game": "Killer is Dead",
+      "link": "http://www.polygon.com/2013/8/27/4662516/killer-is-dead-review",
       "score": "4.5"
     },
     {
       "game": "Rayman Legends",
+      "link": "http://www.polygon.com/2013/8/26/4658960/rayman-legends-review-eye-of-the-tiger",
       "score": "8.5"
     },
     {
       "game": "Madden NFL 25",
+      "link": "http://www.polygon.com/2013/8/23/4649386/madden-nfl-25-review",
       "score": "8.5"
-    },
-    {
-      "game": "Flashback",
-      "score": "5.0"
-    },
-    {
-      "game": "The Bureau: XCOM Declassified",
-      "score": "7.0"
-    },
-    {
-      "game": "Disney Infinity",
-      "score": "8.0"
-    },
-    {
-      "game": "Payday 2",
-      "score": "7.5"
-    },
-    {
-      "game": "Charlie Murder",
-      "score": "7.5"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/19"
@@ -1996,104 +2471,129 @@
 {
   "page": [
     {
+      "game": "Flashback",
+      "link": "http://www.polygon.com/2013/8/21/4641072/flashback-review-partial-recall",
+      "score": "5.0"
+    },
+    {
+      "game": "The Bureau: XCOM Declassified",
+      "link": "http://www.polygon.com/2013/8/19/4634240/the-bureau-xcom-declassified-review",
+      "score": "7.0"
+    },
+    {
+      "game": "Disney Infinity",
+      "link": "http://www.polygon.com/2013/8/18/4632882/disney-infinity-review",
+      "score": "8.0"
+    },
+    {
+      "game": "Payday 2",
+      "link": "http://www.polygon.com/2013/8/16/4628602/payday-2-review",
+      "score": "7.5"
+    },
+    {
+      "game": "Charlie Murder",
+      "link": "http://www.polygon.com/2013/8/16/4618102/charlie-murder-review",
+      "score": "7.5"
+    },
+    {
       "game": "Gone Home",
+      "link": "http://www.polygon.com/2013/8/15/4620172/gone-home-review-if-these-walls-could-talk",
       "score": "10.0"
     },
     {
       "game": "Saints Row 4",
+      "link": "http://www.polygon.com/2013/8/14/4600916/saints-row-iv-review",
       "score": "9.0"
     },
     {
       "game": "Tom Clancy's Splinter Cell: Blacklist",
+      "link": "http://www.polygon.com/2013/8/14/4619932/splinter-cell-blacklist-review",
       "score": "8.5"
     },
     {
       "game": "DuckTales Remastered",
+      "link": "http://www.polygon.com/2013/8/12/4608034/ducktales-remastered-review-money-pit",
       "score": "5.0"
     },
     {
       "game": "Papers, Please",
+      "link": "http://www.polygon.com/2013/8/9/4606420/papers-please-review-mundane-tyranny",
       "score": "8.0"
     },
     {
       "game": "Mario & Luigi: Dream Team",
+      "link": "http://www.polygon.com/2013/8/7/4596516/mario-luigi-dream-team-review",
       "score": "8.0"
     },
     {
       "game": "Brothers: A Tale of Two Sons",
+      "link": "http://www.polygon.com/2013/8/6/4550728/brothers-a-tale-of-two-sons-review",
       "score": "9.0"
     },
     {
       "game": "Attack of the Friday Monsters! A Tokyo Tale",
+      "link": "http://www.polygon.com/2013/8/1/4560410/attack-of-the-friday-monsters-a-tokyo-tale-review",
       "score": "8.0"
     },
     {
       "game": "Pikmin 3",
+      "link": "http://www.polygon.com/2013/7/31/4573322/pikmin-3-review-plant-a-seed",
       "score": "8.0"
     },
     {
       "game": "Dragon's Crown",
+      "link": "http://www.polygon.com/2013/7/31/4553958/dragons-crown-review-heavy-metal",
       "score": "6.5"
     },
     {
       "game": "Shadowrun Returns",
+      "link": "http://www.polygon.com/2013/7/25/4554730/shadowrun-returns-review-opportunity-cost",
       "score": "7.0"
     },
     {
       "game": "Deus Ex: The Fall",
+      "link": "http://www.polygon.com/2013/7/22/4547400/deus-ex-the-fall-review-shock-to-the-system",
       "score": "7.5"
     },
     {
       "game": "Time and Eternity",
+      "link": "http://www.polygon.com/2013/7/19/4539560/time-and-eternity-review-forever-alone",
       "score": "3.0"
     },
     {
       "game": "Neverwinter",
+      "link": "http://www.polygon.com/2013/7/16/4529768/neverwinter-review-new-dawn",
       "score": "8.0"
     },
     {
       "game": "Hotline Miami",
+      "link": "http://www.polygon.com/2012/10/25/3555478/hotline-miami-review",
       "score": "8.5"
     },
     {
       "game": "Dark",
+      "link": "http://www.polygon.com/2013/7/15/4525902/dark-review",
       "score": "3.0"
     },
     {
       "game": "NCAA Football 14",
+      "link": "http://www.polygon.com/2013/7/12/4515908/ncaa-football-14-review",
       "score": "8.0"
     },
     {
       "game": "Company of Heroes 2",
+      "link": "http://www.polygon.com/2013/7/11/4511408/company-of-heroes-2-review-chain-of-command",
       "score": "7.0"
     },
     {
       "game": "Shin Megami Tensei 4",
+      "link": "http://www.polygon.com/2013/7/11/4512914/shin-megami-tensei-4-review-sympathy-for-the-devil",
       "score": "8.0"
     },
     {
       "game": "New Super Luigi U",
+      "link": "http://www.polygon.com/2013/6/25/4464360/new-super-luigi-u-review-inferiority-complex",
       "score": "7.0"
-    },
-    {
-      "game": "The Swapper",
-      "score": "9.0"
-    },
-    {
-      "game": "Deadpool",
-      "score": "7.0"
-    },
-    {
-      "game": "The Incredible Adventures of Van Helsing",
-      "score": "6.0"
-    },
-    {
-      "game": "CastleStorm",
-      "score": "7.5"
-    },
-    {
-      "game": "Gunpoint",
-      "score": "9.0"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/20"
@@ -2101,103 +2601,128 @@
 {
   "page": [
     {
+      "game": "The Swapper",
+      "link": "http://www.polygon.com/2013/6/25/4463330/the-swapper-review-impossible-soul",
+      "score": "9.0"
+    },
+    {
+      "game": "Deadpool",
+      "link": "http://www.polygon.com/2013/6/25/4461026/deadpool-review-voices-in-my-head",
+      "score": "7.0"
+    },
+    {
+      "game": "The Incredible Adventures of Van Helsing",
+      "link": "http://www.polygon.com/2013/6/19/4446198/incredible-adventures-of-van-helsing",
+      "score": "6.0"
+    },
+    {
+      "game": "CastleStorm",
+      "link": "http://www.polygon.com/2013/6/19/4439372/castlestorm-review-hybrid-heaven",
+      "score": "7.5"
+    },
+    {
+      "game": "Gunpoint",
+      "link": "http://www.polygon.com/2013/6/18/4440890/gunpoint-review",
+      "score": "9.0"
+    },
+    {
       "game": "Zeno Clash 2",
+      "link": "http://www.polygon.com/2013/6/7/4407920/zeno-clash-2-review-weird-science",
       "score": "6.0"
     },
     {
       "game": "The Last of Us",
+      "link": "http://www.polygon.com/2013/6/5/4396286/the-last-of-us-review",
       "score": "8.0"
     },
     {
       "game": "Animal Crossing: New Leaf",
+      "link": "http://www.polygon.com/2013/6/4/4391996/animal-crossing-new-leaf-review",
       "score": "9.0"
     },
     {
       "game": "Remember Me",
+      "link": "http://www.polygon.com/2013/6/3/4389162/remember-me-review",
       "score": "8.0"
     },
     {
       "game": "Call of Juarez: Gunslinger",
+      "link": "http://www.polygon.com/2013/5/29/4377582/call-of-juarez-gunslinger-review",
       "score": "9.0"
     },
     {
       "game": "The Night of the Rabbit",
+      "link": "http://www.polygon.com/2013/5/28/4361374/the-night-of-the-rabbit-review-last-day-of-summer",
       "score": "8.0"
     },
     {
       "game": "Fuse",
+      "link": "http://www.polygon.com/2013/5/28/4370908/fuse-review",
       "score": "6.5"
     },
     {
       "game": "Resident Evil: Revelations",
+      "link": "http://www.polygon.com/2013/5/24/4361030/resident-evil-revelations-review-secret-weapon",
       "score": "7.5"
     },
     {
       "game": "Deadly Premonition: The Director's Cut",
+      "link": "http://www.polygon.com/2013/5/20/4331556/deadly-premonition-directors-cut-review",
       "score": "6.5"
     },
     {
       "game": "Donkey Kong Country Returns",
+      "link": "http://www.polygon.com/2013/5/17/4338520/donkey-kong-country-returns-3d-review-the-wild-side",
       "score": "9.0"
     },
     {
       "game": "Pandora's Tower",
+      "link": "http://www.polygon.com/2013/5/16/4338106/pandoras-tower-review",
       "score": "5.5"
     },
     {
       "game": "Metro: Last Light",
+      "link": "http://www.polygon.com/2013/5/13/4324792/metro-last-light-review",
       "score": "8.5"
     },
     {
       "game": "Mario and Donkey Kong: Minis on the Move",
+      "link": "http://www.polygon.com/2013/5/8/4310782/mario-and-donkey-kong-minis-on-the-move-review-small-wonder",
       "score": "9.0"
     },
     {
       "game": "StarDrive",
+      "link": "http://www.polygon.com/2013/5/7/4309688/stardrive-review",
       "score": "4.0"
     },
     {
       "game": "Papo & Yo",
+      "link": "http://www.polygon.com/2012/11/14/3554760/papo-yo-review-loves-labors-lost",
       "score": "6.5"
     },
     {
       "game": "Poker Night 2",
+      "link": "http://www.polygon.com/2013/5/2/4294214/poker-night-2-review-on-the-table",
       "score": "6.5"
     },
     {
       "game": "Thomas Was Alone",
+      "link": "http://www.polygon.com/2013/5/1/4291064/thomas-was-alone-review-woke-up-new",
       "score": "8.5"
     },
     {
       "game": "Far Cry 3: Blood Dragon",
+      "link": "http://www.polygon.com/2013/4/30/4283438/far-cry-3-blood-dragon-review",
       "score": "8.0"
     },
     {
       "game": "Soul Sacrifice",
+      "link": "http://www.polygon.com/2013/4/30/4283392/soul-sacrifice-review",
       "score": "6.5"
     },
     {
       "game": "Defiance",
-      "score": "6.5"
-    },
-    {
-      "game": "Star Trek",
-      "score": "3.0"
-    },
-    {
-      "game": "Monaco: What's Yours is Mine",
-      "score": "7.0"
-    },
-    {
-      "game": "Dragon's Dogma: Dark Arisen",
-      "score": "5.0"
-    },
-    {
-      "game": "Dead Island: Riptide",
-      "score": "5.5"
-    },
-    {
-      "game": "Terraria",
+      "link": "http://www.polygon.com/2013/4/16/4232258/defiance-review-great-expectations",
       "score": "6.5"
     }
   ],
@@ -2206,104 +2731,129 @@
 {
   "page": [
     {
+      "game": "Star Trek",
+      "link": "http://www.polygon.com/2013/4/25/4265680/star-trek-the-game-review",
+      "score": "3.0"
+    },
+    {
+      "game": "Monaco: What's Yours is Mine",
+      "link": "http://www.polygon.com/2013/4/24/4257546/monaco-whats-yours-is-mine-review",
+      "score": "7.0"
+    },
+    {
+      "game": "Dragon's Dogma: Dark Arisen",
+      "link": "http://www.polygon.com/2013/4/23/4257500/dragons-dogma-dark-arisen-review-beggars-bargain",
+      "score": "5.0"
+    },
+    {
+      "game": "Dead Island: Riptide",
+      "link": "http://www.polygon.com/2013/4/22/4250498/dead-island-riptide-review",
+      "score": "5.5"
+    },
+    {
+      "game": "Terraria",
+      "link": "http://www.polygon.com/2013/4/18/4239832/terraria-review-gold-mine-gutted",
+      "score": "6.5"
+    },
+    {
       "game": "Shin Megami Tensei: Devil Summoner Soul Hackers",
+      "link": "http://www.polygon.com/2013/4/16/4232726/shin-megami-tensei-devil-summoner-soul-hackers-review-dream-of-the-90s",
       "score": "7.5"
     },
     {
       "game": "Alien Spidy",
+      "link": "http://www.polygon.com/2013/4/10/4207750/alien-spidy-review-spider-in-sheeps-clothing",
       "score": "6.0"
     },
     {
       "game": "Sniper: Ghost Warrior 2",
+      "link": "http://www.polygon.com/2013/4/4/4184914/sniper-ghost-warrior-2-review-tunnel-vision",
       "score": "5.0"
     },
     {
       "game": "BattleBlock Theater",
+      "link": "http://www.polygon.com/2013/4/3/4177708/battleblock-theater-review-blocked-and-loaded",
       "score": "8.5"
     },
     {
       "game": "Army of Two: The Devil's Cartel",
+      "link": "http://www.polygon.com/2013/4/3/4177288/army-of-two-the-devils-cartel-review-hollow-point",
       "score": "5.0"
     },
     {
       "game": "SimCity (2013)",
+      "link": "http://www.polygon.com/2013/3/4/4051444/simcity-review",
       "score": "6.5"
     },
     {
       "game": "BioShock Infinite",
+      "link": "http://www.polygon.com/2013/3/25/4064448/bioshock-infinite-review-above-and-below",
       "score": "10.0"
     },
     {
       "game": "Luigi's Mansion: Dark Moon",
+      "link": "http://www.polygon.com/2013/3/21/4130360/luigis-mansion-dark-moon-review",
       "score": "7.0"
     },
     {
       "game": "Monster Hunter 3 Ultimate",
+      "link": "http://www.polygon.com/2013/3/20/4126278/monster-hunter-3-ultimate-review",
       "score": "7.5"
     },
     {
       "game": "The Walking Dead: Survival Instinct",
+      "link": "http://www.polygon.com/2013/3/19/4125248/the-walking-dead-survival-instinct-review",
       "score": "3.0"
     },
     {
       "game": "Anodyne",
+      "link": "http://www.polygon.com/2013/3/18/4100356/anodyne-review",
       "score": "8.0"
     },
     {
       "game": "Gears of War: Judgment",
+      "link": "http://www.polygon.com/2013/3/18/4116486/gears-of-war-judgment-review-apocalypse-now",
       "score": "8.0"
     },
     {
       "game": "MLB 13 The Show",
+      "link": "http://www.polygon.com/2013/3/15/4109676/mlb-13-the-show-review-come-together",
       "score": "8.5"
     },
     {
       "game": "Etrian Odyssey 4: Legends of the Titan",
+      "link": "http://www.polygon.com/2013/3/15/4109944/etrian-odyssey-4-legends-of-the-titan-review-our-retired-explorer",
       "score": "7.5"
     },
     {
       "game": "Lego City: Undercover",
+      "link": "http://www.polygon.com/2013/3/14/4102632/lego-city-undercover-review",
       "score": "7.0"
     },
     {
       "game": "Castlevania: Lords of Shadow - Mirror of Fate",
+      "link": "http://www.polygon.com/2013/3/13/4099664/castlevania-lords-of-shadow-mirror-of-fate-review",
       "score": "5.0"
     },
     {
       "game": "God of War: Ascension",
+      "link": "http://www.polygon.com/2013/3/7/4074216/god-of-war-ascension-review-bearing-gifts",
       "score": "7.0"
     },
     {
       "game": "Bit.Trip Presents Runner 2: Future Legend of Rhythm Alien",
+      "link": "http://www.polygon.com/2013/2/28/4039052/bit-trip-runner-2-review",
       "score": "8.5"
     },
     {
       "game": "Fist of the North Star: Ken's Rage 2",
+      "link": "http://www.polygon.com/2013/2/27/4037584/fist-of-the-north-star-kens-rage-2-review",
       "score": "5.0"
     },
     {
       "game": "Tomb Raider (2013)",
+      "link": "http://www.polygon.com/2013/2/25/4026668/tomb-raider-review",
       "score": "9.0"
-    },
-    {
-      "game": "Crysis 3",
-      "score": "7.0"
-    },
-    {
-      "game": "Metal Gear Rising: Revengeance",
-      "score": "9.0"
-    },
-    {
-      "game": "Unchained Blades",
-      "score": "6.0"
-    },
-    {
-      "game": "Aliens: Colonial Marines",
-      "score": "3.0"
-    },
-    {
-      "game": "Dead Space 3",
-      "score": "9.5"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/22"
@@ -2311,104 +2861,129 @@
 {
   "page": [
     {
+      "game": "Crysis 3",
+      "link": "http://www.polygon.com/2013/2/19/4002374/crysis-3-review-one-small-step",
+      "score": "7.0"
+    },
+    {
+      "game": "Metal Gear Rising: Revengeance",
+      "link": "http://www.polygon.com/2013/2/19/4002956/metal-gear-rising-revengeance-review",
+      "score": "9.0"
+    },
+    {
+      "game": "Unchained Blades",
+      "link": "http://www.polygon.com/2013/2/15/3990134/unchained-blades-review",
+      "score": "6.0"
+    },
+    {
+      "game": "Aliens: Colonial Marines",
+      "link": "http://www.polygon.com/2013/2/12/3978652/aliens-colonial-marines-review-the-worse-species",
+      "score": "3.0"
+    },
+    {
+      "game": "Dead Space 3",
+      "link": "http://www.polygon.com/2013/2/5/3938326/dead-space-3-review",
+      "score": "9.5"
+    },
+    {
       "game": "Sly Cooper: Thieves in Time",
+      "link": "http://www.polygon.com/2013/2/5/3955772/sly-cooper-thieves-in-time-review",
       "score": "6.0"
     },
     {
       "game": "Strike Suit Zero",
+      "link": "http://www.polygon.com/2013/2/1/3939088/strike-suit-zero-review-fight-or-flight",
       "score": "6.5"
     },
     {
       "game": "Antichamber",
+      "link": "http://www.polygon.com/2013/1/31/3936030/antichamber-review-mobius-trip",
       "score": "9.0"
     },
     {
       "game": "Fire Emblem: Awakening",
+      "link": "http://www.polygon.com/2013/1/30/3932954/fire-emblem-awakening-review-higher-ground",
       "score": "8.5"
     },
     {
       "game": "Skulls of the Shogun",
+      "link": "http://www.polygon.com/2013/1/30/3931472/skulls-of-the-shogun-review-dealing-with-death",
       "score": "8.0"
     },
     {
       "game": "Earth Defense Force 2017",
+      "link": "http://www.polygon.com/2013/1/24/3912960/earth-defense-force-2017-portable-review",
       "score": "7.0"
     },
     {
       "game": "LittleBigPlanet Karting",
+      "link": "http://www.polygon.com/2013/1/25/3916148/littlebigplanet-karting-review-backseat-driver",
       "score": "7.0"
     },
     {
       "game": "Ni no Kuni: Wrath of the White Witch",
+      "link": "http://www.polygon.com/2013/1/24/3908684/ni-no-kuni-wrath-of-the-white-witch-review",
       "score": "6.5"
     },
     {
       "game": "The Cave",
+      "link": "http://www.polygon.com/2013/1/22/3905084/the-cave-review-down-in-a-hole",
       "score": "6.0"
     },
     {
       "game": "Anarchy Reigns",
+      "link": "http://www.polygon.com/2013/1/14/3877148/anarchy-reigns-review-new-again",
       "score": "7.0"
     },
     {
       "game": "DmC: Devil May Cry",
+      "link": "http://www.polygon.com/2013/1/14/3866950/dmc-devil-may-cry-review-hell-to-pay",
       "score": "8.0"
     },
     {
       "game": "Call of Duty: Black Ops Declassified",
+      "link": "http://www.polygon.com/2013/1/9/3857398/call-of-duty-black-ops-declassified-review-future-schlock",
       "score": "2.0"
     },
     {
       "game": "Black Knight Sword",
+      "link": "http://www.polygon.com/2013/1/8/3852104/black-knight-sword-review-angel-of-death",
       "score": "6.0"
     },
     {
       "game": "Family Guy: Back to the Multiverse",
+      "link": "http://www.polygon.com/2013/1/2/3732714/family-guy-back-to-the-multiverse-review",
       "score": "3.0"
     },
     {
       "game": "Code of Princess",
+      "link": "http://www.polygon.com/2012/12/19/3782198/code-of-princess-review-holding-down-the-laughter",
       "score": "3.0"
     },
     {
       "game": "Tank! Tank! Tank!",
+      "link": "http://www.polygon.com/2012/12/18/3780864/tank-tank-tank-review-running-on-empty",
       "score": "3.5"
     },
     {
       "game": "Adventure Time: Hey Ice King! Why'd You Steal Our Garbage?!",
+      "link": "http://www.polygon.com/2012/12/14/3764760/adventure-time-hey-ice-king-whyd-you-steal-our-garbage-review-trash",
       "score": "6.0"
     },
     {
       "game": "Persona 4: Golden",
+      "link": "http://www.polygon.com/2012/12/11/3756766/persona-4-golden-review-a-little-help-from-my-friends",
       "score": "10.0"
     },
     {
       "game": "Ratchet and Clank: Full Frontal Assault",
+      "link": "http://www.polygon.com/2012/12/4/3728414/ratchet-clank-full-frontal-assault-review-dont-lose-touch",
       "score": "6.0"
     },
     {
       "game": "Sonic & All-Stars Racing Transformed",
+      "link": "http://www.polygon.com/2012/12/4/3724444/sonic-all-stars-racing-transformed-review",
       "score": "8.5"
-    },
-    {
-      "game": "Lego: the Lord of the Rings",
-      "score": "8.0"
-    },
-    {
-      "game": "Silent Hill: Book of Memories",
-      "score": "4.0"
-    },
-    {
-      "game": "Scribblenauts Unlimited",
-      "score": "6.0"
-    },
-    {
-      "game": "Far Cry 3",
-      "score": "9.0"
-    },
-    {
-      "game": "Epic Mickey: Power of Illusion",
-      "score": "6.0"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/23"
@@ -2416,104 +2991,129 @@
 {
   "page": [
     {
+      "game": "Lego: the Lord of the Rings",
+      "link": "http://www.polygon.com/2012/11/30/3712526/lego-lord-of-the-rings-review",
+      "score": "8.0"
+    },
+    {
+      "game": "Silent Hill: Book of Memories",
+      "link": "http://www.polygon.com/2012/11/23/3679204/silent-hill-book-of-memories-review-revisionist-history",
+      "score": "4.0"
+    },
+    {
+      "game": "Scribblenauts Unlimited",
+      "link": "http://www.polygon.com/2012/11/22/3679132/scribblenauts-unlimited-review-words-words-words",
+      "score": "6.0"
+    },
+    {
+      "game": "Far Cry 3",
+      "link": "http://www.polygon.com/2012/11/21/3676508/far-cry-3-review-human-nature",
+      "score": "9.0"
+    },
+    {
+      "game": "Epic Mickey: Power of Illusion",
+      "link": "http://www.polygon.com/2012/11/19/3668618/epic-mickey-power-of-illusion-review-pardon-the-interruption",
+      "score": "6.0"
+    },
+    {
       "game": "The Walking Dead: Episode 5",
+      "link": "http://www.polygon.com/2012/11/20/3667966/the-walking-dead-episode-five-review",
       "score": "9.0"
     },
     {
       "game": "Hitman: Absolution",
+      "link": "http://www.polygon.com/2012/11/18/3664176/hitman-absolution-review-the-man-comes-around",
       "score": "8.5"
     },
     {
       "game": "ZombiU",
+      "link": "http://www.polygon.com/2012/11/18/3661932/zombiu-review",
       "score": "8.0"
     },
     {
       "game": "WWE '13",
+      "link": "http://www.polygon.com/2012/11/16/3655780/wwe-13-review",
       "score": "8.0"
     },
     {
       "game": "New Super Mario Bros. U",
+      "link": "http://www.polygon.com/2012/11/15/3647880/new-super-mario-bros-u-review",
       "score": "8.5"
     },
     {
       "game": "Nintendo Land",
+      "link": "http://www.polygon.com/2012/11/15/3647012/nintendo-land-review-magic-kingdom",
       "score": "8.0"
     },
     {
       "game": "Cabela's Dangerous Hunts 2013",
+      "link": "http://www.polygon.com/2012/11/12/3624018/cabelas-dangerous-hunts-2013-review",
       "score": "6.5"
     },
     {
       "game": "Call of Duty: Black Ops 2",
+      "link": "http://www.polygon.com/2012/11/13/3635720/call-of-duty-black-ops-2-review-future-shock",
       "score": "8.0"
     },
     {
       "game": "Angry Birds Star Wars",
+      "link": "http://www.polygon.com/2012/11/8/3615374/angry-birds-star-wars-review-great-shot-kid",
       "score": "8.5"
     },
     {
       "game": "Paper Mario: Sticker Star",
+      "link": "http://www.polygon.com/2012/11/6/3611372/paper-mario-sticker-star-review",
       "score": "7.5"
     },
     {
       "game": "Assassin's Creed 3: Liberation",
+      "link": "http://www.polygon.com/2012/10/31/3582448/assassins-creed-3-liberation-review",
       "score": "6.0"
     },
     {
       "game": "Halo 4",
+      "link": "http://www.polygon.com/2012/11/1/3582870/halo-4-review",
       "score": "9.5"
     },
     {
       "game": "Need for Speed Most Wanted (2012)",
+      "link": "http://www.polygon.com/2012/10/30/3575034/need-for-speed-most-wanted-review",
       "score": "8.5"
     },
     {
       "game": "Assassin's Creed 3",
+      "link": "http://www.polygon.com/2012/10/30/3573522/assassins-creed-3-review",
       "score": "8.0"
     },
     {
       "game": "Skylanders Giants",
+      "link": "http://www.polygon.com/2012/10/26/3557776/skylanders-giants-review",
       "score": "8.0"
     },
     {
       "game": "007 Legends",
+      "link": "http://www.polygon.com/2012/10/25/3551080/007-legends-review",
       "score": "4.0"
     },
     {
       "game": "Medal of Honor Warfighter",
+      "link": "http://www.polygon.com/2012/10/24/3546850/medal-of-honor-warfighter-review-rules-of-engagement",
       "score": "4.5"
     },
     {
       "game": "New Little King's Story",
+      "link": "http://www.polygon.com/2012/10/24/3546926/new-little-kings-story-review",
       "score": "6.5"
     },
     {
       "game": "Starhawk",
+      "link": "http://www.polygon.com/2012/10/24/3550074/starhawk-review-on-wings-of-lead",
       "score": "6.5"
     },
     {
       "game": "The Witcher 2: Assassins of Kings (Enhanced Edition)",
+      "link": "http://www.polygon.com/2012/10/24/3550166/the-witcher-2-enhanced-edition-review-a-sign-of-promise",
       "score": "7.0"
-    },
-    {
-      "game": "Tom Clancy's Ghost Recon: Future Soldier",
-      "score": "7.0"
-    },
-    {
-      "game": "The Walking Dead: Episode 4",
-      "score": "8.5"
-    },
-    {
-      "game": "Worms: Revolution",
-      "score": "5.0"
-    },
-    {
-      "game": "Dance Central 3",
-      "score": "9.5"
-    },
-    {
-      "game": "NBA 2K13",
-      "score": "8.0"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/24"
@@ -2521,103 +3121,128 @@
 {
   "page": [
     {
+      "game": "Tom Clancy's Ghost Recon: Future Soldier",
+      "link": "http://www.polygon.com/2012/10/24/3549924/ghost-recon-future-soldier-review-eyes-forward",
+      "score": "7.0"
+    },
+    {
+      "game": "The Walking Dead: Episode 4",
+      "link": "http://www.polygon.com/2012/10/23/3545214/the-walking-dead-episode-4-around-every-corner-review-set-adrift",
+      "score": "8.5"
+    },
+    {
+      "game": "Worms: Revolution",
+      "link": "http://www.polygon.com/2012/10/16/3509142/worms-revolution-review-crawling-through-the-dirt",
+      "score": "5.0"
+    },
+    {
+      "game": "Dance Central 3",
+      "link": "http://www.polygon.com/2013/1/24/3727824/dance-central-3-review-like-everyones-watching",
+      "score": "9.5"
+    },
+    {
+      "game": "NBA 2K13",
+      "link": "http://www.polygon.com/xbox-360/2012/10/11/3488850/nba-2k13-review-blueprint-for-success",
+      "score": "8.0"
+    },
+    {
       "game": "Forza Horizon",
+      "link": "http://www.polygon.com/2012/10/24/3480380/forza-horizon",
       "score": "6.0"
     },
     {
       "game": "Retro City Rampage",
+      "link": "http://www.polygon.com/2013/1/10/3741002/retro-city-rampage-review-beg-borrow-steal",
       "score": "6.5"
     },
     {
       "game": "Fable: The Journey",
+      "link": "http://www.polygon.com/2012/10/9/3475854/fable-the-journey-is-tomorrow",
       "score": "4.5"
     },
     {
       "game": "Dishonored",
+      "link": "http://www.polygon.com/2012/10/8/3440792/Dishonored-review",
       "score": "9.0"
     },
     {
       "game": "XCOM: Enemy Unknown",
+      "link": "http://www.polygon.com/2013/1/24/3754534/xcom-enemy-unknown-review-blinded-by-science",
       "score": "8.5"
     },
     {
       "game": "Nights into Dreams...",
+      "link": "http://www.polygon.com/2013/1/24/3740602/nights-into-dreams-hd-review-troubled-sleep",
       "score": "5.5"
     },
     {
       "game": "Fire Pro Wrestling (2012)",
+      "link": "http://www.polygon.com/2013/1/24/3728180/fire-pro-wrestling-review-heel-turn",
       "score": "5.0"
     },
     {
       "game": "Pokémon Black 2/Pokémon White 2",
+      "link": "http://www.polygon.com/2013/1/24/3740762/pokemon-black-and-white-2-review-a-different-shade-of-grey",
       "score": "7.0"
     },
     {
       "game": "Resident Evil 6",
+      "link": "http://www.polygon.com/2013/1/24/3740928/resident-evil-6-review-biohazardous-waste",
       "score": "4.0"
     },
     {
       "game": "FIFA 13",
+      "link": "http://www.polygon.com/2013/1/24/3728024/fifa-13-review-loving-imperfection",
       "score": "9.0"
     },
     {
       "game": "Bad Piggies",
+      "link": "http://www.polygon.com/2013/1/24/3727560/bad-piggies-mobile-review-grand-theft-piglet",
       "score": "7.0"
     },
     {
       "game": "Torchlight 2",
+      "link": "http://www.polygon.com/2013/1/24/3754504/torchlight-2-review-following-the-light",
       "score": "8.5"
     },
     {
       "game": "Hell Yeah! Wrath of the Dead Rabbit",
+      "link": "http://www.polygon.com/2013/1/24/3739754/hell-yeah-wrath-of-the-dead-rabbit-review-burnout",
       "score": "6.0"
     },
     {
       "game": "FTL: Faster Than Light",
+      "link": "http://www.polygon.com/2013/1/24/3728224/ftl-faster-than-light-review-death-at-warp-speed",
       "score": "9.0"
     },
     {
       "game": "Rayman Jungle Run",
+      "link": "http://www.polygon.com/2013/1/24/3740884/rayman-jungle-run-ios-review-how-to-do-a-mobile-adaptation",
       "score": "8.0"
     },
     {
       "game": "Borderlands 2",
+      "link": "http://www.polygon.com/2013/1/24/3727684/borderlands-2-review-firing-range",
       "score": "7.5"
     },
     {
       "game": "Tokyo Jungle",
+      "link": "http://www.polygon.com/2013/1/24/3741260/tokyo-jungle-review-survival-of-the-fittest",
       "score": "8.0"
     },
     {
       "game": "Tekken Tag Tournament 2",
+      "link": "http://www.polygon.com/2013/1/24/3741086/tekken-tag-tournament-2-review-king-of-the-ring",
       "score": "8.0"
     },
     {
       "game": "LittleBigPlanet PS Vita",
+      "link": "http://www.polygon.com/2013/1/24/3740074/littlebigplanet-vita-review-the-world-on-a-string",
       "score": "9.0"
     },
     {
       "game": "Double Dragon Neon",
-      "score": "6.5"
-    },
-    {
-      "game": "NHL 13",
-      "score": "8.5"
-    },
-    {
-      "game": "The Walking Dead: Episode 3",
-      "score": "8.0"
-    },
-    {
-      "game": "McPixel",
-      "score": "8.0"
-    },
-    {
-      "game": "Persona 4 Arena",
-      "score": "8.0"
-    },
-    {
-      "game": "Vote!!!",
+      "link": "http://www.polygon.com/2013/1/24/3727974/double-dragon-neon-review-samurai-bro-down",
       "score": "6.5"
     }
   ],
@@ -2626,104 +3251,129 @@
 {
   "page": [
     {
+      "game": "NHL 13",
+      "link": "http://www.polygon.com/2013/1/24/3740168/nhl-13-review-get-smart",
+      "score": "8.5"
+    },
+    {
+      "game": "The Walking Dead: Episode 3",
+      "link": "http://www.polygon.com/2013/1/24/3741198/the-walking-dead-episode-3-long-road-ahead-review-it-goes-there",
+      "score": "8.0"
+    },
+    {
+      "game": "McPixel",
+      "link": "http://www.polygon.com/2013/1/24/3698198/mcpixel-ios-review-20-seconds-to-save-the-world",
+      "score": "8.0"
+    },
+    {
+      "game": "Persona 4 Arena",
+      "link": "http://www.polygon.com/2013/1/24/3554518/persona-4-arena-review-awakened-potential",
+      "score": "8.0"
+    },
+    {
+      "game": "Vote!!!",
+      "link": "http://www.polygon.com/2013/1/24/3710368/vote-ios-review-rock-it",
+      "score": "6.5"
+    },
+    {
       "game": "Rock Band Blitz",
+      "link": "http://www.polygon.com/2012/10/9/3478472/rock-band-blitz-review-feedback-loop",
       "score": "8.0"
     },
     {
       "game": "Madden NFL 13",
+      "link": "http://www.polygon.com/2012/10/23/3542972/madden-nfl-13-review-forward-progress",
       "score": "8.0"
     },
     {
       "game": "New Super Mario Bros. 2",
+      "link": "http://www.polygon.com/2012/11/14/3554678/new-super-mario-bros-2-review-a-vein-of-gold",
       "score": "7.0"
     },
     {
       "game": "Transformers: Fall of Cybertron",
+      "link": "http://www.polygon.com/2012/10/9/3478666/transformers-fall-of-cybertron-review-wheels-of-steel",
       "score": "9.0"
     },
     {
       "game": "Jack Lumber",
+      "link": "http://www.polygon.com/2013/1/24/3710474/jack-lumber-ios-review-axe-identally-in-love",
       "score": "8.0"
     },
     {
       "game": "Darksiders 2",
+      "link": "http://www.polygon.com/2012/10/2/3444244/darksiders-2-review-into-the-light",
       "score": "9.0"
     },
     {
       "game": "Sleeping Dogs",
+      "link": "http://www.polygon.com/2012/10/3/3451048/sleeping-dogs-review-stray-bullets",
       "score": "7.0"
     },
     {
       "game": "Dust: An Elysian Tail",
+      "link": "http://www.polygon.com/2012/11/14/3591504/dust-an-elysian-tail-review-something-old-something-new",
       "score": "8.0"
     },
     {
       "game": "Pitfall!",
+      "link": "http://www.polygon.com/2013/1/24/3710714/pitfall-ios-review-in-search-of-gold-prepare-to-spend",
       "score": "6.0"
     },
     {
       "game": "Sound Shapes",
+      "link": "http://www.polygon.com/2012/10/24/3521934/sound-shapes-review-pet-sounds",
       "score": "9.0"
     },
     {
       "game": "Commando Jack",
+      "link": "http://www.polygon.com/2013/1/24/3710656/commando-jack-ios-review-going-commando",
       "score": "5.0"
     },
     {
       "game": "Deadlight",
+      "link": "http://www.polygon.com/2012/11/14/3554836/deadlight-review-undead-flashback",
       "score": "7.0"
     },
     {
       "game": "Kingdom Hearts 3D: Dream Drop Distance",
+      "link": "http://www.polygon.com/2012/11/14/3559998/kingdom-hearts-3d-dream-drop-distance-review-dropping-the-dream",
       "score": "5.0"
     },
     {
       "game": "Wreckateer",
+      "link": "http://www.polygon.com/2013/1/24/3710414/wreckateer-review-under-siege",
       "score": "6.0"
     },
     {
       "game": "Fieldrunners 2",
+      "link": "http://www.polygon.com/2013/1/24/3698052/fieldrunners-2-ios-review-dont-walk",
       "score": "8.5"
     },
     {
       "game": "The Secret World",
+      "link": "http://www.polygon.com/2012/10/18/3523240/the-secret-world-review-deep-ones-and-zeros",
       "score": "6.5"
     },
     {
       "game": "Tony Hawk's Pro Skater HD",
+      "link": "http://www.polygon.com/2012/10/23/3544504/tony-hawks-pro-skater-hd-review-asphalt-cocktail",
       "score": "5.0"
     },
     {
       "game": "Heroes of Ruin",
+      "link": "http://www.polygon.com/2013/1/24/3698120/heroes-of-ruin-review-bounded-and-bare",
       "score": "4.0"
     },
     {
       "game": "Dyad",
+      "link": "http://www.polygon.com/2012/11/14/3559534/dyad-review-light-cycle",
       "score": "9.0"
     },
     {
       "game": "The Walking Dead: Episode 2",
+      "link": "http://www.polygon.com/2012/10/24/3549946/the-walking-dead-episode-two-review-couples-retreat",
       "score": "9.0"
-    },
-    {
-      "game": "Home",
-      "score": "8.0"
-    },
-    {
-      "game": "Lego Batman 2: DC Super Heroes",
-      "score": "7.5"
-    },
-    {
-      "game": "Theatrhythm Final Fantasy",
-      "score": "8.5"
-    },
-    {
-      "game": "Spelunky",
-      "score": "10.0"
-    },
-    {
-      "game": "Pokémon Conquest",
-      "score": "5.0"
     }
   ],
   "url": "http://www.polygon.com/games/reviewed/26"
@@ -2731,105 +3381,265 @@
 {
   "page": [
     {
+      "game": "Home",
+      "link": "http://www.polygon.com/2013/1/24/3673776/home-review-theres-no-place-like-hell",
+      "score": "8.0"
+    },
+    {
+      "game": "Lego Batman 2: DC Super Heroes",
+      "link": "http://www.polygon.com/2012/11/14/3560110/lego-batman-2-dc-super-heroes-review-dynamic-do-over",
+      "score": "7.5"
+    },
+    {
+      "game": "Theatrhythm Final Fantasy",
+      "link": "http://www.polygon.com/2012/11/14/3591466/theatrhythm-final-fantasy-review-never-ending-melody",
+      "score": "8.5"
+    },
+    {
+      "game": "Spelunky",
+      "link": "http://www.polygon.com/2012/10/19/3526568/spelunky-review-digging-deep",
+      "score": "10.0"
+    },
+    {
+      "game": "Pokémon Conquest",
+      "link": "http://www.polygon.com/2013/1/24/3698230/pokemon-conquest-review-an-army-of-one-at-a-time",
+      "score": "5.0"
+    },
+    {
       "game": "The Amazing Spider Man",
+      "link": "http://www.polygon.com/2012/10/23/3544634/the-amazing-spider-man-review-untangled-web",
       "score": "7.5"
     },
     {
       "game": "Spec Ops: The Line",
+      "link": "http://www.polygon.com/2012/10/9/3479482/spec-ops-the-line-review-devils-duty",
       "score": "8.0"
     },
     {
       "game": "TERA",
+      "link": "http://www.polygon.com/2013/1/24/3560572/tera-review-big-monsters-small-ambitions",
       "score": "6.0"
     },
     {
       "game": "Quantum Conundrum",
+      "link": "http://www.polygon.com/2012/11/14/3560332/quantum-conundrum-review-weighted-expectations",
       "score": "7.5"
     },
     {
       "game": "Steel Battalion: Heavy Armor",
+      "link": "http://www.polygon.com/2012/10/19/3526578/steel-battalion-heavy-armor-review-emergency-ejection",
       "score": "1.0"
     },
     {
       "game": "Sid Meier's Civilization 5",
+      "link": "http://www.polygon.com/2013/1/24/3697660/civilization-v-gods-kings-review-manifested-destiny",
       "score": "9.0"
     },
     {
       "game": "Silent Hill: Downpour",
+      "link": "http://www.polygon.com/2013/1/24/3698370/silent-hill-downpour-review-hung-out-to-dry",
       "score": "5.0"
     },
     {
       "game": "Lollipop Chainsaw",
+      "link": "http://www.polygon.com/2012/10/8/3474742/lollipop-chainsaw-review-evil-dead",
       "score": "6.5"
     },
     {
       "game": "Gravity Rush",
+      "link": "http://www.polygon.com/2012/10/19/3526310/gravity-rush-review-the-upside-of-down",
       "score": "7.0"
     },
     {
       "game": "Game of Thrones",
+      "link": "http://www.polygon.com/2013/1/24/3698078/game-of-thrones-review-stark-raving-bad",
       "score": "5.0"
     },
     {
       "game": "Dirt Showdown",
+      "link": "http://www.polygon.com/2013/1/24/3671758/dirt-showdown-review-skid-marks",
       "score": "6.0"
     },
     {
       "game": "Resistance: Burning Skies",
+      "link": "http://www.polygon.com/2012/11/14/3560468/resistance-burning-skies-review-burden-of-proof",
       "score": "6.5"
     },
     {
       "game": "Datura",
+      "link": "http://www.polygon.com/2012/11/14/3591650/datura-review-strange-days",
       "score": "6.5"
     },
     {
       "game": "Mario Tennis Open",
+      "link": "http://www.polygon.com/2013/1/24/3698170/mario-tennis-open-review-foot-fault",
       "score": "6.0"
     },
     {
       "game": "Max Payne 3",
+      "link": "http://www.polygon.com/2012/10/9/3480690/max-payne-3-review-bullet-time-machine",
       "score": "9.0"
     },
     {
       "game": "Minecraft",
+      "link": "http://www.polygon.com/2012/10/2/3443662/minecraft-xbox-360-edition-review-heart-shaped-blocks",
       "score": "7.0"
     },
     {
       "game": "Fable Heroes",
+      "link": "http://www.polygon.com/2013/1/24/3672084/fable-heroes-review-square-one",
       "score": "4.0"
     },
     {
       "game": "Bloodforge",
+      "link": "http://www.polygon.com/2013/1/24/3671670/bloodforge-review-the-fires-of-failure",
       "score": "2.0"
     },
     {
       "game": "Spellsword",
+      "link": "http://www.polygon.com/2013/1/24/3710798/spellsword-ios-review-holding-all-the-cards",
       "score": "7.0"
     },
     {
       "game": "Prototype 2",
+      "link": "http://www.polygon.com/2013/1/24/3781488/prototype-2-review-obscenity-evolved",
       "score": "7.0"
-    },
+    }
+  ],
+  "url": "http://www.polygon.com/games/reviewed/27"
+},
+{
+  "page": [
     {
       "game": "The Walking Dead: Episode 1",
+      "link": "http://www.polygon.com/2013/1/24/3741174/the-walking-dead-episode-one-review-a-running-start",
       "score": "9.0"
     },
     {
       "game": "Risen 2: Dark Waters",
+      "link": "http://www.polygon.com/2012/11/14/3592132/risen-2-dark-waters-review-playing-pirates",
       "score": "7.0"
     },
     {
       "game": "Trials Evolution",
+      "link": "http://www.polygon.com/2012/10/19/3525974/trials-evolution-review-success-through-repetition",
       "score": "9.0"
     },
     {
       "game": "Legend of Grimrock",
+      "link": "http://www.polygon.com/2013/1/24/3697184/legend-of-grimrock-review-the-depths-of-memory",
       "score": "6.5"
     },
     {
       "game": "Fez",
+      "link": "http://www.polygon.com/2012/10/12/3493670/fez-review-living-in-spin",
       "score": "8.0"
+    },
+    {
+      "game": "Diabolical Pitch",
+      "link": "http://www.polygon.com/2012/11/14/3555484/diabolical-pitch-review-striking-out-in-style",
+      "score": "4.0"
+    },
+    {
+      "game": "Kinect Star Wars",
+      "link": "http://www.polygon.com/2013/1/24/3697112/kinect-star-wars-review-this-is-not-the-game-youre-looking-for",
+      "score": "4.0"
+    },
+    {
+      "game": "South Park: Tenorman's Revenge",
+      "link": "http://www.polygon.com/2013/1/24/3698458/south-park-tenormans-revenge-review-poo-choo-express",
+      "score": "3.0"
+    },
+    {
+      "game": "Kid Icarus: Uprising",
+      "link": "http://www.polygon.com/2012/11/14/3559950/kid-icarus-uprising-review-on-the-wings-of-love",
+      "score": "9.0"
+    },
+    {
+      "game": "Ninja Gaiden 3",
+      "link": "http://www.polygon.com/2012/11/14/3550652/ninja-gaiden-3-review-missed-call",
+      "score": "5.0"
+    },
+    {
+      "game": "Resident Evil: Operation Raccoon City",
+      "link": "http://www.polygon.com/2012/11/14/3560384/resident-evil-operation-raccoon-city-review-fubar",
+      "score": "3.0"
+    },
+    {
+      "game": "Shoot Many Robots",
+      "link": "http://www.polygon.com/2013/1/24/3698330/shoot-many-robots-review-gun-nuts",
+      "score": "7.0"
+    },
+    {
+      "game": "Touch My Katamari",
+      "link": "http://www.polygon.com/2013/1/24/3699194/touch-my-katamari-review-slow-your-roll",
+      "score": "5.0"
+    },
+    {
+      "game": "I Am Alive",
+      "link": "http://www.polygon.com/2012/11/14/3559152/i-am-alive-review-better-off-dead",
+      "score": "4.0"
+    },
+    {
+      "game": "Mass Effect 3",
+      "link": "http://www.polygon.com/2012/10/2/3443570/mass-effect-3-review-the-sharp-edge-of-hope",
+      "score": "10.0"
+    },
+    {
+      "game": "Journey",
+      "link": "http://www.polygon.com/2012/10/2/3445636/journey-review-a-capital-venture",
+      "score": "10.0"
+    },
+    {
+      "game": "Asura's Wrath",
+      "link": "http://www.polygon.com/2013/1/24/3671060/asuras-wrath-review-limited-enragement",
+      "score": "7.0"
+    },
+    {
+      "game": "SSX (2012)",
+      "link": "http://www.polygon.com/2012/10/12/3493958/ssx-review-cold-comfort",
+      "score": "9.0"
+    },
+    {
+      "game": "Escape Plan",
+      "link": "http://www.polygon.com/2012/11/14/3559614/escape-plan-review-no-way-out",
+      "score": "6.0"
+    },
+    {
+      "game": "Shank 2",
+      "link": "http://www.polygon.com/2013/1/24/3698272/shank-2-review-the-thousand-cuts",
+      "score": "5.0"
+    },
+    {
+      "game": "Uncharted: Golden Abyss",
+      "link": "http://www.polygon.com/2012/10/19/3526150/uncharted-the-golden-abyss-review-of-trinkets-and-treasures",
+      "score": "7.0"
+    },
+    {
+      "game": "Tales from Space: Mutant Blobs Attack",
+      "link": "http://www.polygon.com/2013/1/24/3560514/tales-from-space-mutant-blobs-attack-review-secret-of-the-ooze",
+      "score": "9.0"
+    },
+    {
+      "game": "Alan Wake's American Nightmare",
+      "link": "http://www.polygon.com/2012/11/14/3559392/alan-wakes-american-nightmare-review-a-novella-approach",
+      "score": "7.0"
+    },
+    {
+      "game": "Kingdoms of Amalur: Reckoning",
+      "link": "http://www.polygon.com/2012/11/14/3560074/kingdoms-of-amalur-reckoning-review-fates-threadbare-web",
+      "score": "7.0"
+    },
+    {
+      "game": "Syndicate",
+      "link": "http://www.polygon.com/2012/11/14/3554262/syndicate-review-the-price-of-progress",
+      "score": "8.5"
     }
   ],
-  "url": "http://www.polygon.com/games/reviewed/27"
+  "url": "http://www.polygon.com/games/reviewed/28"
+},
+{
+  "value": null,
+  "url": "http://www.polygon.com/games/reviewed/29",
+  "errorInfo": "Error: pageFunction() did not finish in a timeout of 600000 milliseconds and was aborted.\n"
 }]
