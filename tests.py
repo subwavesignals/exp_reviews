@@ -342,5 +342,7 @@ class GenFakeDataTests(unittest.TestCase):
         file = open("static/data/test_user.txt")
         self.assertIsNotNone(file)
 
+
+
 if __name__ == "__main__":
     unittest.main()
