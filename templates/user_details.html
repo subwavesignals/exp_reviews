@@ -10,7 +10,7 @@
         {% for game in current_games %}
             <div class="currently-playing-item" id="main-{{ game.game_id }}">
                 <a href="/games/{{ game.game_id }}">{{ game.name }}</a>
-                <img src="{{ game.covers[0].url }}" style="width: 33%; height: 33%">
+                <img src="{{ game.cover.url }}" style="width: 33%; height: 33%">
                 {% if session.get("user_id") %}
                     {% if session["user_id"] == user.user_id %}
                         <a class="update-notes" id="{{ game.game_id }}" href="#">Update Notes</a>

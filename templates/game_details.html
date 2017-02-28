@@ -134,6 +134,7 @@
 
     <div class="row game-reviews">
         {% if reviews %}
+            <h2>Reviews</h2>
             {% if num_pages > 1 %}
                 <h2 class="paginated-header"></h2>
                 <div class="col-lg-4 col-md-6 col-xs-12 paginated-reviews"></div>
@@ -141,7 +142,6 @@
                     <a class="pagination" id="{{ index }}" href="/games/{{ game.game_id }}">{{ index }}</a>
                 {% endfor %}
             {% else %}
-                <h2>Reviews</h2>
                 {% for review in reviews %}
                     <div class="col-lg-4 col-md-6 col-xs-12">
                         <h4><a href="/users/{{ review.user.user_id }}">{{ review.user.username }}</a></h4>

@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ search["text"] }}{% endblock %}
+{% block title %}{{ search }}{% endblock %}
 
 {% block content %}
 
-<h1>Search Results for {{ search["text"] }}</h1>
+<h1>Search Results for {{ search }}</h1>
 <h3>Options</h3>
 <input type="checkbox" name="users" id="ck_users" checked="checked">Users
 <input type="checkbox" name="games" id="ck_games" checked="checked">Games
@@ -13,22 +13,22 @@
 <input type="checkbox" name="devs" id="ck_devs" checked="checked">Developers
 <input type="checkbox" name="platforms" id="ck_platforms" checked="checked">Platforms
 
-{% if search.get("results") %}
+{% if results %}
     <div class="result-list">
-    {% if search["results"]["users"] %}
+    {% if results["users"] %}
         <div class="users-list">
             <h3>Users</h3>
-            {% for item in search["results"]["users"] %}
+            {% for item in results["users"] %}
             <div class="result-item-users">
                 <a href="/users/{{ item[1] }}">{{ item[0] }}</a>
             </div>
         {% endfor %}
         </div>
     {% endif %}
-    {% if search["results"]["games"] %}
+    {% if results["games"] %}
         <div class="games-list">
             <h3>Games</h3>
-            {% for item in search["results"]["games"] %}
+            {% for item in results["games"] %}
             <div class="result-item-games">
                 <a href="/games/{{ item.game_id }}">{{ item.name }}</a>
                 {% if item.summary %}
@@ -38,10 +38,10 @@
         {% endfor %}
         </div>
     {% endif %}
-    {% if search["results"]["genres"] %}
+    {% if results["genres"] %}
         <div class="genres-list">
             <h3>Genres</h3>
-            {% for item in search["results"]["genres"] %}
+            {% for item in results["genres"] %}
             <div class="result-item-genres">
                 <a href="/genres/{{ item.genre_id }}">{{ item.genre }}</a>
                 {% if item.games %}
@@ -54,10 +54,10 @@
         {% endfor %}
         </div>
     {% endif %}
-    {% if search["results"]["franchises"] %}
+    {% if results["franchises"] %}
         <div class="franchises-list">
             <h3>Franchises</h3>
-            {% for item in search["results"]["franchises"] %}
+            {% for item in results["franchises"] %}
             <div class="result-item-franchises">
                 <a href="/franchises/{{ item.franchise_id }}">{{ item.name }}</a>
                 {% if item.games %}
@@ -70,10 +70,10 @@
         {% endfor %}
         </div>
     {% endif %}
-    {% if search["results"]["developers"] %}
+    {% if results["developers"] %}
         <div class="developers-list">
             <h3>Developers</h3>
-            {% for item in search["results"]["developers"] %}
+            {% for item in results["developers"] %}
             <div class="result-item-developers">
                 <a href="/developers/{{ item.developer_id }}">{{ item.name }}</a>
                 {% if item.games %}
@@ -86,10 +86,10 @@
         {% endfor %}
         </div>
     {% endif %}
-    {% if search["results"]["platforms"] %}
+    {% if results["platforms"] %}
         <div class="platforms-list">
             <h3>Platforms</h3>
-            {% for item in search["results"]["platforms"] %}
+            {% for item in results["platforms"] %}
             <div class="result-item-platforms">
                 <a href="/platforms/{{ item.platform_id }}">{{ item.name }}</a>
                 {% if item.games %}
@@ -104,7 +104,7 @@
     {% endif %}
     </div>
 {% else %}
-    <p>No results were found.</p>
+    <p>No results were found for {{ search }}.</p>
 {% endif %}
 
 <script type="text/javascript">
