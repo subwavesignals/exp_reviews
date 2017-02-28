@@ -64,9 +64,9 @@ def display_homepage():
 
     if session.get("user_id"):
         user = User.query.filter_by(user_id=session["user_id"]).first()
-        user_reviwed = {}
+        user_reviewed = {}
         for review in user.reviews:
-            user_reviwed[review.game_id] = review
+            user_reviewed[review.game_id] = review
         best_users = user.recommend()
         recommended_list = []
         if best_users:
@@ -84,11 +84,10 @@ def display_homepage():
         recommended_list = list(set(recommended_list))
         final_list = []
         for game in recommended_list:
-            if game.game_id not in user_reviwed:
+            if game.game_id not in user_reviewed:
                 # Ignored in test due to small sample size
                 final_list.append(game) # pragma: no cover
         recommended_list = final_list
-        print len(recommended_list)
 
     return render_template("index.html", 
                            recommended_list=recommended_list,
@@ -233,29 +232,30 @@ def display_results():
     results = {}
 
     results["users"] = db.session.query(User.username, User.user_id).filter(User.username.ilike("%" + search["text"] + "%")).all()
-    results["games"] = db.session.query(Game.name, Game.game_id).filter(Game.name.ilike("%" + search["text"] + "%")).all()
-    results["genres"] = db.session.query(Genre.genre, Genre.genre_id).filter(Genre.genre.ilike("%" + search["text"] + "%")).all()
-    results["franchises"] = db.session.query(Franchise.name, Franchise.franchise_id).filter(Franchise.name.ilike("%" + search["text"] + "%")).all()
-    results["developers"] = db.session.query(Developer.name, Developer.developer_id).filter(Developer.name.ilike("%" + search["text"] + "%")).all()
-    results["platforms"] = db.session.query(Platform.name, Platform.platform_id).filter(Platform.name.ilike("%" + search["text"] + "%")).all()
+    results["games"] = Game.query.filter(Game.name.ilike("%" + search["text"] + "%")).all()
+    results["genres"] = Genre.query.filter(Genre.genre.ilike("%" + search["text"] + "%")).all()
+    results["franchises"] = Franchise.query.filter(Franchise.name.ilike("%" + search["text"] + "%")).all()
+    results["developers"] = Developer.query.filter(Developer.name.ilike("%" + search["text"] + "%")).all()
+    results["platforms"] = Platform.query.filter(Platform.name.ilike("%" + search["text"] + "%")).all()
 
-    for key in results:
-        print results[key]
-        results[key] = load_search_results(results, key)
+    # for key in results:
+    #     results[key] = load_search_results(results, key)
 
-    search["results"] = results
+    search["results"] = {"users": results["users"], "games": results["games"], 
+                         "genres": results["genres"], "franchises": results["franchises"], 
+                         "developers": results["developers"], "platforms": results["platforms"]}
 
     return render_template("search.html", search=search)
 
 
-def load_search_results(results, key):
-    """Builds links for each search result item"""
+# def load_search_results(results, key):
+#     """Builds links for each search result item"""
 
-    for index, item in enumerate(results[key]):
-        item = (item[0], "/" + key + "/" + str(item[1]))
-        results[key][index] = item
+#     for index, item in enumerate(results[key]):
+#         item = (item[0], "/" + key + "/" + str(item[1]), item[2])
+#         results[key][index] = item
 
-    return results[key]
+#     return results[key]
 
 
 @app.route("/games/<game_id>")

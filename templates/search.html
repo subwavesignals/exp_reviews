@@ -5,18 +5,158 @@
 {% block content %}
 
 <h1>Search Results for {{ search["text"] }}</h1>
+<h3>Options</h3>
+<input type="checkbox" name="users" id="ck_users" checked="checked">Users
+<input type="checkbox" name="games" id="ck_games" checked="checked">Games
+<input type="checkbox" name="genres" id="ck_genres" checked="checked">Genres
+<input type="checkbox" name="frans" id="ck_frans" checked="checked">Franchises
+<input type="checkbox" name="devs" id="ck_devs" checked="checked">Developers
+<input type="checkbox" name="platforms" id="ck_platforms" checked="checked">Platforms
+
 {% if search.get("results") %}
     <div class="result-list">
-    {% for key in search["results"] %}
-        {% for item in search["results"][key] %}
-            <div class="result-item">
-                <a href="{{ item[1] }}">{{ item[0] }}</a>
+    {% if search["results"]["users"] %}
+        <div class="users-list">
+            <h3>Users</h3>
+            {% for item in search["results"]["users"] %}
+            <div class="result-item-users">
+                <a href="/users/{{ item[1] }}">{{ item[0] }}</a>
             </div>
         {% endfor %}
-    {% endfor %}
+        </div>
+    {% endif %}
+    {% if search["results"]["games"] %}
+        <div class="games-list">
+            <h3>Games</h3>
+            {% for item in search["results"]["games"] %}
+            <div class="result-item-games">
+                <a href="/games/{{ item.game_id }}">{{ item.name }}</a>
+                {% if item.summary %}
+                    <p>{{ item.summary }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+    {% if search["results"]["genres"] %}
+        <div class="genres-list">
+            <h3>Genres</h3>
+            {% for item in search["results"]["genres"] %}
+            <div class="result-item-genres">
+                <a href="/genres/{{ item.genre_id }}">{{ item.genre }}</a>
+                {% if item.games %}
+                    <br>
+                    {% for game in item.games %}
+                        <span>{{ game.name }} </span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+    {% if search["results"]["franchises"] %}
+        <div class="franchises-list">
+            <h3>Franchises</h3>
+            {% for item in search["results"]["franchises"] %}
+            <div class="result-item-franchises">
+                <a href="/franchises/{{ item.franchise_id }}">{{ item.name }}</a>
+                {% if item.games %}
+                    <br>
+                    {% for game in item.games %}
+                        <span>{{ game.name }} </span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+    {% if search["results"]["developers"] %}
+        <div class="developers-list">
+            <h3>Developers</h3>
+            {% for item in search["results"]["developers"] %}
+            <div class="result-item-developers">
+                <a href="/developers/{{ item.developer_id }}">{{ item.name }}</a>
+                {% if item.games %}
+                    <br>
+                    {% for game in item.games %}
+                        <span>{{ game.name }} </span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+    {% if search["results"]["platforms"] %}
+        <div class="platforms-list">
+            <h3>Platforms</h3>
+            {% for item in search["results"]["platforms"] %}
+            <div class="result-item-platforms">
+                <a href="/platforms/{{ item.platform_id }}">{{ item.name }}</a>
+                {% if item.games %}
+                    <br>
+                    {% for game in item.games %}
+                        <span>{{ game.name }} </span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
     </div>
 {% else %}
     <p>No results were found.</p>
 {% endif %}
+
+<script type="text/javascript">
+    
+    $("input#ck_users").change(function () {
+        if (this.checked) {
+            $("div.users-list").show()
+        } else {
+            $("div.users-list").hide()
+        }
+    });
+
+    $("input#ck_games").change(function () {
+        if (this.checked) {
+            $("div.games-list").show()
+        } else {
+            $("div.games-list").hide()
+        }
+    });
+
+    $("input#ck_genres").change(function () {
+        if (this.checked) {
+            $("div.genres-list").show()
+        } else {
+            $("div.genres-list").hide()
+        }
+    });
+
+    $("input#ck_devs").change(function () {
+        if (this.checked) {
+            $("div.developers-list").show()
+        } else {
+            $("div.developers-list").hide()
+        }
+    });
+
+    $("input#ck_frans").change(function () {
+        if (this.checked) {
+            $("div.franchises-list").show()
+        } else {
+            $("div.franchises-list").hide()
+        }
+    });
+
+    $("input#ck_platforms").change(function () {
+        if (this.checked) {
+            $("div.platforms-list").show()
+        } else {
+            $("div.platforms-list").hide()
+        }
+    });
+
+</script>
 
 {% endblock %}
