@@ -39,6 +39,7 @@ def get_recommended_list(user_id):
     for review in user.reviews:
         user_reviewed[review.game_id] = review
     best_users = user.recommend()
+    print best_users
     recommended_list = []
     if best_users:
         for other_user in best_users:
@@ -49,6 +50,7 @@ def get_recommended_list(user_id):
         # Ignored in test due to small sample size
         recommended_list = None # pragma: no cover
 
+    print recommended_list
     # Remove duplicates
     if recommended_list:
         recommended_list = list(set(recommended_list))
@@ -58,6 +60,7 @@ def get_recommended_list(user_id):
                 # Ignored in test due to small sample size
                 final_list.append(game) # pragma: no cover
         recommended_list = final_list
+
 
     return recommended_list
 
@@ -92,52 +95,52 @@ def get_chart_dict(averages):
         "datasets": [
             {
                 "label": "Men",
-                "backgroundColor": "rgba(179,181,198,0.2)",
-                "borderColor": "rgba(179,181,198,1)",
-                "pointBackgroundColor": "rgba(179,181,198,1)",
+                "backgroundColor": "rgba(91,162,163,0.2)",
+                "borderColor": "rgba(91,162,163,1)",
+                "pointBackgroundColor": "rgba(91,162,163,1)",
                 "pointBorderColor": "#fff",
                 "pointHoverBackgroundColor": "#fff",
-                "pointHoverBorderColor": "rgba(179,181,198,1)",
+                "pointHoverBorderColor": "rgba(91,162,163,1)",
                 "data": averages["m"]
             },
             {
                 "label": "Women",
-                "backgroundColor": "rgba(255,99,132,0.2)",
-                "borderColor": "rgba(255,99,132,1)",
-                "pointBackgroundColor": "rgba(255,99,132,1)",
+                "backgroundColor": "rgba(193,66,66,0.2)",
+                "borderColor": "rgba(193,66,66,1)",
+                "pointBackgroundColor": "rgba(193,66,66,1)",
                 "pointBorderColor": "#fff",
                 "pointHoverBackgroundColor": "#fff",
-                "pointHoverBorderColor": "rgba(255,99,132,1)",
+                "pointHoverBorderColor": "rgba(193,66,66,1)",
                 "data": averages["f"]
             },
             {
                 "label": "Transmen",
-                "backgroundColor": "rgba(179,181,198,0.2)",
-                "borderColor": "rgba(179,181,198,1)",
-                "pointBackgroundColor": "rgba(179,181,198,1)",
+                "backgroundColor": "rgba(149,89,175,0.2)",
+                "borderColor": "rgba(149,89,175,1)",
+                "pointBackgroundColor": "rgba(149,89,175,1)",
                 "pointBorderColor": "#fff",
                 "pointHoverBackgroundColor": "#fff",
-                "pointHoverBorderColor": "rgba(179,181,198,1)",
+                "pointHoverBorderColor": "rgba(149,89,175,1)",
                 "data": averages["tm"]
             },
             {
                 "label": "Transwomen",
-                "backgroundColor": "rgba(255,99,132,0.2)",
-                "borderColor": "rgba(255,99,132,1)",
-                "pointBackgroundColor": "rgba(255,99,132,1)",
+                "backgroundColor": "rgba(89,128,175,0.2)",
+                "borderColor": "rgba(89,128,175,1)",
+                "pointBackgroundColor": "rgba(89,128,175,1)",
                 "pointBorderColor": "#fff",
                 "pointHoverBackgroundColor": "#fff",
-                "pointHoverBorderColor": "rgba(255,99,132,1)",
+                "pointHoverBorderColor": "rgba(89,128,175,1)",
                 "data": averages["tw"]
             },
             {
                 "label": "Nonbinary",
-                "backgroundColor": "rgba(179,181,198,0.2)",
-                "borderColor": "rgba(179,181,198,1)",
-                "pointBackgroundColor": "rgba(179,181,198,1)",
+                "backgroundColor": "rgba(159,161,161,0.2)",
+                "borderColor": "rgba(159,161,161,1)",
+                "pointBackgroundColor": "rgba(159,161,161,1)",
                 "pointBorderColor": "#fff",
                 "pointHoverBackgroundColor": "#fff",
-                "pointHoverBorderColor": "rgba(179,181,198,1)",
+                "pointHoverBorderColor": "rgba(159,161,161,1)",
                 "data": averages["nb"]
             }
         ]

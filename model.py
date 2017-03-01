@@ -22,6 +22,7 @@ class User(db.Model):
     lname = db.Column(db.String(32))
     age = db.Column(db.Integer)
     gender = db.Column(db.String(5))
+    full_sort = db.Column(db.Boolean, default=True)
 
     def __repr__(self):
         """Provide helpful output when printed"""
@@ -42,11 +43,16 @@ class User(db.Model):
         min_age = self.age / 10 * 10
         max_age = min_age + 10
 
-        sim_users = db.session.query(Review.user_id, Review.game_id, Review.score).filter(User.user_id != self.user_id,
-                                              User.gender == self.gender,
-                                              User.age >= min_age,
-                                              User.age <= max_age,
-                                              Review.user_id == User.user_id).all()
+        if self.full_sort:
+            sim_users = (db.session.query(Review.user_id, Review.game_id, Review.score)
+                                          .filter(User.user_id != self.user_id,
+                                          User.gender == self.gender,
+                                          User.age >= min_age, User.age <= max_age,
+                                          Review.user_id == User.user_id).all())
+        else:
+            sim_users = (db.session.query(Review.user_id, Review.game_id, Review.score)
+                                          .filter(User.user_id != self.user_id,
+                                          Review.user_id == User.user_id).all())
 
         matched_reviews = {}
         for review in sim_users:

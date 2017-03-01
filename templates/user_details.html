@@ -3,9 +3,11 @@
 {% block title %}{{ user.fname }} {{ user.lname }}{% endblock %}
 
 {% block content %}
-<div class="currently-playing">
+
+<div class="container">
+{% if current_games %}
+    <div class="row currently-playing">
     <!-- Display in carousel so no pagination -->
-    {% if current_games %}
         <h2>Currently Playing</h2>
         {% for game in current_games %}
             <div class="currently-playing-item" id="main-{{ game.game_id }}">
@@ -36,13 +38,31 @@
                 {% endif %}
             </div>    
         {% endfor %}
-        <p id="fake-flash" style="display: none">Your notes have been updated.</p>
-    {% endif %}
-</div>
+        <p id="fake-flash-notes" style="display: none">Your notes have been updated.</p>
+    </div>
+{% endif %}
 
+{% if session.get("user_id") %}
+    {% if session["user_id"] == user.user_id %}
+    <div class="row change-sort-pref">
+        <h2>Change Recommendation Preferences</h2>
+        <form action="/users/{{ user.user_id }}" method="POST" class="sort-form">
+            <label>Compare using Age and Gender? </label>
+            {% if user.full_sort %}
+                <input type="checkbox" name="full_sort" class="sort_pref" checked="checked">
+            {% else %}
+                <input type="checkbox" name="full_sort" class="sort_pref">
+            {% endif %}
+            <input type="submit" name="submit">
+        </form> 
+        <p id="fake-flash-sort" style="display: none">Your preference has been updated.</p>
+    </div>
+    {% endif %}        
+{% endif %}
 
-<div class="row game-reviews">
-    {% if user.reviews %}
+{% if user.reviews %}
+    <div class="row game-reviews">
+        <h2>Reviews</h2>
         {% if num_pages > 1 %}
             <h2 class="paginated-header"></h2>
             <div class="col-lg-4 col-md-6 col-xs-12 paginated-reviews"></div>
@@ -61,13 +81,16 @@
                 </div>
             {% endfor %}
         {% endif %}
-    {% endif %}
+    </div>
+{% endif %}
+
 </div>
 
 <script type="text/javascript">
     var userId = "{{ user.user_id }}";
     var paginatedReviews = $("div.paginated-reviews");
     var paginatedHeader = $("div.paginated-header");
+    var isChecked;
 
     var urlIndex = 1;
 
@@ -129,9 +152,9 @@
     });
 
     var gameUpdated = function(results) {
-        $("p#fake-flash").toggle();
+        $("p#fake-flash-notes").toggle();
         setTimeout(function () {
-            $("p#fake-flash").toggle();
+            $("p#fake-flash-notes").toggle();
         }, 3000);
     };
 
@@ -140,11 +163,34 @@
         var gameId = $(this).attr("id");
         gameId = gameId.split("-")[1]
         $("div#div-" + gameId).toggle();
-        var formValues = {"user_id": "{{ user.user_id }}",
-                      "game_id": gameId,
+        var formValues = {"user_id": userId, "game_id": gameId,
                       "notes": $("#notes-" + gameId).val(),
                       "time_played": $("#time-" + gameId).val()};
         $.post("/update_notes", formValues, gameUpdated);
+    });
+
+    var flashUpdated = function(results) {
+        $("p#fake-flash-sort").toggle();
+        setTimeout(function () {
+            $("p#fake-flash-sort").toggle();
+        }, 3000);
+    };
+
+    $("input.sort_pref").change(function() {
+        if (this.checked) {
+            isChecked = "t"
+        } else {
+            isChecked = ""
+        }
+    });
+
+    $("form.sort-form").submit(function (evt) {
+        evt.preventDefault();
+        var formValues = {"isChecked": isChecked,
+                          "user_id": userId};
+        console.log(isChecked)
+        $.post("/update_sort_pref", formValues, flashUpdated);
+
     });
 
 

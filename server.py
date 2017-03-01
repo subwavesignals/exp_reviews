@@ -9,6 +9,7 @@ from sqlalchemy.sql import func
 import json
 from math import ceil
 from datetime import datetime
+import helpers
 
 from model import (User, Game, Review, CriticReview, Platform, Developer,
                    Genre, Franchise, CurrentGame, connect_to_db, db)
@@ -28,72 +29,28 @@ app.jinja_env.undefined = StrictUndefined
 def display_homepage():
     """Displays the homepage"""
 
-    all_user_reviews = db.session.query(func.avg(Review.score).label("avg_score"), Review.game_id).group_by(Review.game_id).order_by(func.avg(Review.score).desc())
-    user_reviews = all_user_reviews.limit(20).all()
-    all_critic_reviews = db.session.query(func.avg(CriticReview.score).label("avg_score"), CriticReview.game_id).group_by(CriticReview.game_id).order_by(func.avg(CriticReview.score).desc())
-    critic_reviews = all_critic_reviews.limit(20).all()
-    user_list = []
-    critic_list = []
+    user_reviews = (db.session.query(func.avg(Review.score).label("avg_score"), 
+                    Review.game_id).group_by(Review.game_id).order_by(func.avg(
+                    Review.score).desc()).limit(20).all())
+    critic_reviews = (db.session.query(func.avg(CriticReview.score).label("avg_score"), 
+                      CriticReview.game_id).group_by(CriticReview.game_id).order_by(
+                      func.avg(CriticReview.score).desc()).limit(20).all())
+    recent_reviews = (Review.query.order_by(Review.review_time.desc()).limit(20).all())
+    soon_list = (Game.query.filter(Game.release_date > datetime.now()).order_by(
+                 Game.release_date).limit(20).all())
 
-    for review in user_reviews:
-        game_id = review.game_id
-        game = Game.query.filter_by(game_id=game_id).first()
-        game.avg_user_score = float(review.avg_score)
-   
-        user_list.append(game)
-
-    for review in critic_reviews:
-        game_id = review.game_id
-        game = Game.query.filter_by(game_id=game_id).first()
-        game.avg_critic_score = float(review.avg_score)
-
-        critic_list.append(game)
-
-    recent_reviews = Review.query.order_by(Review.review_time.desc()).limit(20).all()
-    recent_list = []
-
-    for review in recent_reviews:
-        game_id = review.game_id
-        game = Game.query.filter_by(game_id=game_id).first()
-        avg_score = db.session.query(func.avg(Review.score)).filter(Review.game_id==game_id).first()
-        game.avg_user_score = float(avg_score[0])
-
-        recent_list.append(game)
-
-    soon_list = Game.query.filter(Game.release_date > datetime.now()).order_by(Game.release_date).limit(20).all()
+    user_list = helpers.assign_avg_score(user_reviews)
+    critic_list = helpers.assign_avg_score(critic_reviews)
+    recent_list = helpers.assign_avg_score(recent_reviews, recent=True)
 
     if session.get("user_id"):
-        user = User.query.filter_by(user_id=session["user_id"]).first()
-        user_reviewed = {}
-        for review in user.reviews:
-            user_reviewed[review.game_id] = review
-        best_users = user.recommend()
-        recommended_list = []
-        if best_users:
-            for other_user in best_users:
-                top_four = Review.query.filter_by(user_id=other_user).order_by(Review.score.desc()).limit(4).all()
-                recommended_list.extend(top_four)
-        else:
-            # Ignored in test due to small sample size
-            recommended_list = None # pragma: no cover
+        recommended_list = helpers.get_recommended_list(session["user_id"])
     else:
         recommended_list = None
 
-    # Remove duplicates
-    if recommended_list:
-        recommended_list = list(set(recommended_list))
-        final_list = []
-        for game in recommended_list:
-            if game.game_id not in user_reviewed:
-                # Ignored in test due to small sample size
-                final_list.append(game) # pragma: no cover
-        recommended_list = final_list
-
     return render_template("index.html", 
-                           recommended_list=recommended_list,
-                           user_list=user_list,
-                           critic_list=critic_list,
-                           recent_list=recent_list,
+                           recommended_list=recommended_list, user_list=user_list,
+                           critic_list=critic_list, recent_list=recent_list,
                            soon_list=soon_list)
 
 
@@ -106,13 +63,10 @@ def signup():
 
     else:
 
-        # Get form inputs
-        username = request.form.get("username")
-        email = request.form.get("email")
-        password = request.form.get("password")
-
         #Validation of username and email happens in the form, so add user
-        user = User(username=username, email=email, password=password)
+        user = User(username=request.form.get("username"),
+                    email=request.form.get("email"),
+                    password=request.form.get("password"))
 
         db.session.add(user)
         db.session.commit()
@@ -136,23 +90,16 @@ def create_profile():
 
     else:
 
-        # Get form inputs
-        fname = request.form.get("fname")
-        lname = request.form.get("lname")
-        age = request.form.get("age")
-        gender = request.form.get("gender")
-
         # Get user in process, add info to DB row
         user = User.query.filter_by(user_id=session["user_id"]).first()
-        user.fname = fname
-        user.lname = lname
-        user.age = age
-        user.gender = gender
+        user.fname = request.form.get("fname")
+        user.lname = request.form.get("lname")
+        user.age = request.form.get("age")
+        user.gender = request.form.get("gender")
         db.session.commit()
 
         flash("Your profile is complete!")
         return redirect("/")
-
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -185,7 +132,6 @@ def login():
 
             flash("Logged in as " + username)
             return redirect("/")
-
 
 
 @app.route("/logout")
@@ -227,35 +173,21 @@ def validate_email():
 def display_results():
     """Displays paginated results of user search"""
 
-    search = {}
-    search["text"] = request.args.get("search")
+    search = request.args.get("search")
     results = {}
 
-    results["users"] = db.session.query(User.username, User.user_id).filter(User.username.ilike("%" + search["text"] + "%")).all()
-    results["games"] = Game.query.filter(Game.name.ilike("%" + search["text"] + "%")).all()
-    results["genres"] = Genre.query.filter(Genre.genre.ilike("%" + search["text"] + "%")).all()
-    results["franchises"] = Franchise.query.filter(Franchise.name.ilike("%" + search["text"] + "%")).all()
-    results["developers"] = Developer.query.filter(Developer.name.ilike("%" + search["text"] + "%")).all()
-    results["platforms"] = Platform.query.filter(Platform.name.ilike("%" + search["text"] + "%")).all()
+    results["users"] = (db.session.query(User.username, User.user_id).filter(
+                        User.username.ilike("%" + search + "%")).all())
+    results["games"] = Game.query.filter(Game.name.ilike("%" + search + "%")).all()
+    results["genres"] = Genre.query.filter(Genre.genre.ilike("%" + search + "%")).all()
+    results["franchises"] = (Franchise.query.filter(Franchise.name.ilike("%" + 
+                             search + "%")).all())
+    results["developers"] = (Developer.query.filter(Developer.name.ilike("%" + 
+                             search + "%")).all())
+    results["platforms"] = (Platform.query.filter(Platform.name.ilike("%" + 
+                            search + "%")).all())
 
-    # for key in results:
-    #     results[key] = load_search_results(results, key)
-
-    search["results"] = {"users": results["users"], "games": results["games"], 
-                         "genres": results["genres"], "franchises": results["franchises"], 
-                         "developers": results["developers"], "platforms": results["platforms"]}
-
-    return render_template("search.html", search=search)
-
-
-# def load_search_results(results, key):
-#     """Builds links for each search result item"""
-
-#     for index, item in enumerate(results[key]):
-#         item = (item[0], "/" + key + "/" + str(item[1]), item[2])
-#         results[key][index] = item
-
-#     return results[key]
+    return render_template("search.html", search=search, results=results)
 
 
 @app.route("/games/<game_id>")
@@ -265,8 +197,10 @@ def display_game(game_id):
     game = Game.query.filter_by(game_id=game_id).first()
     reviews = Review.query.filter_by(game_id=game_id).all()
 
-    player_score = db.session.query(func.avg(Review.score)).filter_by(game_id=game_id).first()
-    critic_scores = db.session.query(CriticReview.name, CriticReview.score).filter_by(game_id=game_id).all()
+    player_score = (db.session.query(func.avg(Review.score))
+                    .filter_by(game_id=game_id).first())
+    critic_scores = (db.session.query(CriticReview.name, CriticReview.score)
+                     .filter_by(game_id=game_id).all())
 
     num_pages = int(ceil(float(len(reviews)) / 10))
 
@@ -274,8 +208,10 @@ def display_game(game_id):
 
     if session.get("user_id"):
         user_id = session["user_id"]
-        current_review = Review.query.filter_by(user_id=user_id, game_id=game_id).first()
-        added = CurrentGame.query.filter_by(user_id=user_id, game_id=game_id).first()
+        current_review = (Review.query.filter_by(user_id=user_id, 
+                          game_id=game_id).first())
+        added = (CurrentGame.query.filter_by(user_id=user_id,
+                 game_id=game_id).first())
     else:
         current_review = None
         added = None
@@ -290,20 +226,17 @@ def display_game(game_id):
 @app.route("/review/<game_id>", methods=["POST"])
 def add_update_review(game_id):
 
-    user_id = session["user_id"]
-    score = request.form.get("score")
-    comment = request.form.get("comment")
-
-    review = Review.query.filter_by(user_id=user_id, game_id=game_id).first()
+    review = Review.query.filter_by(user_id=session["user_id"], game_id=game_id).first()
 
     if review:
-        review.score = score
-        review.comment = comment
+        review.score = request.form.get("score")
+        review.comment = request.form.get("comment")
         review.review_time = datetime.now()
         flash("Your rating has been updated.")
     else:
-        review = Review(user_id=user_id, game_id=game_id, score=score,
-                        comment=comment)
+        review = Review(user_id=session["user_id"], game_id=game_id, 
+                        score=request.form.get("score"),
+                        comment=request.form.get("comment"))
         db.session.add(review)
         flash("Your rating has been added.")
 
@@ -321,14 +254,12 @@ def display_user(user_id):
 
     num_pages = int(ceil(float(len(reviews)) / 10))
 
-    current = CurrentGame.query.filter_by(user_id=user_id).all()
-    current_games = []
+    current_games = CurrentGame.query.filter_by(user_id=user_id).all()
 
-    for game in current:
+    for game in current_games:
         game_item = Game.query.filter_by(game_id=game.game_id).first()
-        game_item.notes = game.notes
-        game_item.time_played = game.time_played
-        current_games.append(game_item)
+        game.name = game_item.name
+        game.cover = game_item.covers[0]
 
     return render_template("user_details.html", user=user, reviews=reviews,
                            num_pages=num_pages, current_games=current_games)
@@ -477,20 +408,7 @@ def get_review_breakdown():
 
     user_review_join = db.session.query(User.age, User.gender, Review.score).join(Review).filter_by(game_id=game_id)
 
-    queries = {"m": user_review_join.filter(User.gender == "m"),
-               "f": user_review_join.filter(User.gender == "f"),
-               "tm": user_review_join.filter(User.gender == "tm"),
-               "tw": user_review_join.filter(User.gender == "tw"),
-               "nb": user_review_join.filter(User.gender == "nb_gf")}
-
-    datasets = {"m": [], "f": [], "tm": [], "tw":[], "nb": []}
-
-    for item in queries:
-        datasets[item].append(queries[item].filter(User.age <= 19).all())
-        datasets[item].append(queries[item].filter(User.age <= 29, User.age >19).all())
-        datasets[item].append(queries[item].filter(User.age <= 39, User.age >29).all())
-        datasets[item].append(queries[item].filter(User.age <= 49, User.age >39).all())
-        datasets[item].append(queries[item].filter(User.age <= 59, User.age >49).all())
+    datasets = helpers.sort_by_age_gender(user_review_join)
 
     averages = {"m": [], "f": [], "tm": [], "tw":[], "nb": []}
 
@@ -504,62 +422,24 @@ def get_review_breakdown():
             else:
                 averages[gender].append(0)
 
-    return jsonify({ 
-        "labels": ["10-19", "20-29", "30-39", "40-49", "50-59"],
-        "datasets": [
-            {
-                "label": "Men",
-                "backgroundColor": "rgba(179,181,198,0.2)",
-                "borderColor": "rgba(179,181,198,1)",
-                "pointBackgroundColor": "rgba(179,181,198,1)",
-                "pointBorderColor": "#fff",
-                "pointHoverBackgroundColor": "#fff",
-                "pointHoverBorderColor": "rgba(179,181,198,1)",
-                "data": averages["m"]
-            },
-            {
-                "label": "Women",
-                "backgroundColor": "rgba(255,99,132,0.2)",
-                "borderColor": "rgba(255,99,132,1)",
-                "pointBackgroundColor": "rgba(255,99,132,1)",
-                "pointBorderColor": "#fff",
-                "pointHoverBackgroundColor": "#fff",
-                "pointHoverBorderColor": "rgba(255,99,132,1)",
-                "data": averages["f"]
-            },
-            {
-                "label": "Transmen",
-                "backgroundColor": "rgba(179,181,198,0.2)",
-                "borderColor": "rgba(179,181,198,1)",
-                "pointBackgroundColor": "rgba(179,181,198,1)",
-                "pointBorderColor": "#fff",
-                "pointHoverBackgroundColor": "#fff",
-                "pointHoverBorderColor": "rgba(179,181,198,1)",
-                "data": averages["tm"]
-            },
-            {
-                "label": "Transwomen",
-                "backgroundColor": "rgba(255,99,132,0.2)",
-                "borderColor": "rgba(255,99,132,1)",
-                "pointBackgroundColor": "rgba(255,99,132,1)",
-                "pointBorderColor": "#fff",
-                "pointHoverBackgroundColor": "#fff",
-                "pointHoverBorderColor": "rgba(255,99,132,1)",
-                "data": averages["tw"]
-            },
-            {
-                "label": "Nonbinary",
-                "backgroundColor": "rgba(179,181,198,0.2)",
-                "borderColor": "rgba(179,181,198,1)",
-                "pointBackgroundColor": "rgba(179,181,198,1)",
-                "pointBorderColor": "#fff",
-                "pointHoverBackgroundColor": "#fff",
-                "pointHoverBorderColor": "rgba(179,181,198,1)",
-                "data": averages["nb"]
-            }
-        ]
-    })
+    results = helpers.get_chart_dict(averages)
 
+    return jsonify(results)
+
+
+@app.route("/update_sort_pref", methods=["POST"])
+def save_pref():
+
+    user_id = request.form.get("user_id")
+    full_sort = request.form.get("isChecked")
+    print full_sort
+
+    user = User.query.filter_by(user_id=user_id).first()
+    user.full_sort = bool(full_sort)
+
+    db.session.commit()
+
+    return jsonify("Done")
 
 
 ################################################################################

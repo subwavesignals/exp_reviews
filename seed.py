@@ -27,10 +27,11 @@ def load_users():
     # Read in fake user data
     for line in file:
         line = line.strip()
-        username, email, password, fname, lname, age, gender = line.split("|")
+        username, email, password, fname, lname, age, gender, full_sort = line.split("|")
 
         user = User(username=username, email=email, password=password,
-                    fname=fname, lname=lname, age=int(age), gender=gender)
+                    fname=fname, lname=lname, age=int(age), gender=gender,
+                    full_sort=bool(full_sort))
 
         db.session.add(user)
 
@@ -510,7 +511,7 @@ if __name__ == "__main__":
     # load_franchises()
     # load_games(games_list)
     # load_reviews()
-    load_critic_reviews()
+    # load_critic_reviews()
     # load_covers(games_list)
     # load_videos(games_list)
     # load_screenshots(games_list)
