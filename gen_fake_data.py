@@ -41,9 +41,10 @@ def fake_users():
             password = username + str(123)
             age = random.randrange(15, 50)
             gender = random.choice(genders)
+            full_sort = random.choice(["t", ""])
 
             line = "|".join([username, email, password, fname, lname, str(age), 
-                            gender])
+                            gender, str(full_sort)])
 
             file.write(line + "\n")
 
@@ -54,7 +55,7 @@ def fake_reviews(): # pragma: no cover
 
     connect_to_db(app)
 
-    review_list = Game.query.filter(Game.release_date < '2017-02-28 00:00:00').order_by(Game.release_date.desc()).limit(1000)
+    review_list = Game.query.filter(Game.release_date < '2017-02-28 00:00:00').order_by(Game.release_date.desc()).limit(2000)
 
     # Empties the file before each run
     with open("static/data/review_data.txt", "w"):
@@ -67,7 +68,7 @@ def fake_reviews(): # pragma: no cover
         offset = 0
         num_review = 0
         while num_review < 100:
-            game = random.choice(review_list[offset:offset + 10])
+            game = random.choice(review_list[offset:offset + 20])
             game_id = game.game_id
             score = score = random.randrange(50, 100)
             comment = random.choice(lorems)
@@ -76,7 +77,7 @@ def fake_reviews(): # pragma: no cover
             file.write(line + "\n")
 
             num_review += 1
-            offset += 10
+            offset += 20
 
         user_id += 1
         print user_id
