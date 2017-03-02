@@ -369,7 +369,7 @@ def example_data():
                  age=30, gender='nb_gf')
     review = Review(user_id=1, game_id=1, score=95, comment=None)
     review2 = Review(user_id=2, game_id=1, score=95, comment=None)
-    critic_review = CriticReview(game_id=1, critic_code='ign', score=100, name="IGN")
+    critic_review = CriticReview(game_id=1, critic_code='ign', score=100, name="IGN", link="fake")
     game = Game(game_id=1, name="Testo", release_date=datetime.datetime.now(), franchise_id=1)
     current_game = CurrentGame(user_id=1, game_id=1)
     cover = Cover(game_id=1, url="///testo.png", width=360, height=240)

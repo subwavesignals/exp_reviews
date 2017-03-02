@@ -334,15 +334,6 @@ class PullDataTests(unittest.TestCase):
         self.assertIsNotNone(pull_data.make_request(platformURL))
 
 
-class GenFakeDataTests(unittest.TestCase):
-    """Tests for gen_fake_data"""
-
-    def test_fake_users(self):
-        gen_fake_data.fake_users()
-        file = open("static/data/test_user.txt")
-        self.assertIsNotNone(file)
-
-
 
 if __name__ == "__main__":
     unittest.main()
