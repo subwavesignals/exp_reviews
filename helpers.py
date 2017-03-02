@@ -84,17 +84,16 @@ def sort_by_age_gender(users):
         datasets[item].append(queries[item].filter(User.age <= 29, User.age >19).all())
         datasets[item].append(queries[item].filter(User.age <= 39, User.age >29).all())
         datasets[item].append(queries[item].filter(User.age <= 49, User.age >39).all())
-        datasets[item].append(queries[item].filter(User.age <= 59, User.age >49).all())
 
     return datasets
 
 def get_chart_dict(averages):
 
     return { 
-        "labels": ["10-19", "20-29", "30-39", "40-49", "50-59"],
+        "labels": ["10-19", "20-29", "30-39", "40-49"],
         "datasets": [
             {
-                "label": "Men",
+                "label": "Cis Men",
                 "backgroundColor": "rgba(91,162,163,0.2)",
                 "borderColor": "rgba(91,162,163,1)",
                 "pointBackgroundColor": "rgba(91,162,163,1)",
@@ -104,7 +103,7 @@ def get_chart_dict(averages):
                 "data": averages["m"]
             },
             {
-                "label": "Women",
+                "label": "Cis Women",
                 "backgroundColor": "rgba(193,66,66,0.2)",
                 "borderColor": "rgba(193,66,66,1)",
                 "pointBackgroundColor": "rgba(193,66,66,1)",
@@ -114,7 +113,7 @@ def get_chart_dict(averages):
                 "data": averages["f"]
             },
             {
-                "label": "Transmen",
+                "label": "Trans Men",
                 "backgroundColor": "rgba(149,89,175,0.2)",
                 "borderColor": "rgba(149,89,175,1)",
                 "pointBackgroundColor": "rgba(149,89,175,1)",
@@ -124,7 +123,7 @@ def get_chart_dict(averages):
                 "data": averages["tm"]
             },
             {
-                "label": "Transwomen",
+                "label": "Trans Women",
                 "backgroundColor": "rgba(89,128,175,0.2)",
                 "borderColor": "rgba(89,128,175,1)",
                 "pointBackgroundColor": "rgba(89,128,175,1)",
