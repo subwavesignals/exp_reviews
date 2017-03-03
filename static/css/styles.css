@@ -1,18 +1,3 @@
 .carousel-control {
     width: 3%;
 };
-
-.carousel {
-    margin: 10px;
-    border: 2px solid black;
-};
-
-img {
-    padding: 5px;
-    border: 1px solid black;
-};
-
-span.pagination-link-holder {
-    padding: 10px;
-    border: 1px solid black;
-};
