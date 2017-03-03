@@ -4,93 +4,156 @@
 
 {% block content %}
 
-<div class="container">
-{% if current_games %}
-    <div class="row currently-playing">
-    <!-- Display in carousel so no pagination -->
-        <h2>Currently Playing</h2>
-        {% for game in current_games %}
-            <div class="currently-playing-item" id="main-{{ game.game_id }}">
-                <a href="/games/{{ game.game_id }}">{{ game.name }}</a>
-                <img src="{{ game.cover.url }}" style="width: 33%; height: 33%">
-                {% if session.get("user_id") %}
-                    {% if session["user_id"] == user.user_id %}
-                        <a class="update-notes" id="{{ game.game_id }}" href="#">Update Notes</a>
-                        <div class="currently-playing-notes" id="div-{{ game.game_id }}" style="display: none">
-                            <form action="/users/{{ user.user_id }}" method="POST" class="notes-form" id="form-{{ game.game_id }}">
-                                <label>Hours Played so Far:</label> 
-                                {% if game.time_played %}
-                                <input class="time" id="time-{{ game.game_id }}" type="number" name="time_played" value="{{ game.time_played }}">
-                                {% else %}
-                                <input class="time" id="time-{{ game.game_id }}" type="number" name="time_played" value="0">
-                                {% endif %}
-                                <input class="notes" id="notes-{{ game.game_id }}" type="textarea" name="notes" value="{{ game.notes }}">
-                                <input type="submit" name="submit" value="Update Notes">
-                            </form>
-                            <button type="button" class="finish-button" id="finish-game-{{ game.game_id }}">Finish Game</button>
-                            <div class="publish-review" id="publish-{{ game.game_id }}" style="display: none">
-                                <p>Final Score: </p>
-                                <input class="score" id="score-{{ game.game_id }}" type="number" name="score">
-                                <button type="button" class="publish-button" id="publish-review-{{ game.game_id }}">Publish</button>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endif %}
-            </div>    
-        {% endfor %}
-        <p id="fake-flash-notes" style="display: none">Your notes have been updated.</p>
-    </div>
-{% endif %}
+<div class="container-fluid">
 
-{% if session.get("user_id") %}
-    {% if session["user_id"] == user.user_id %}
-    <div class="row change-sort-pref">
-        <h2>Change Recommendation Preferences</h2>
-        <form action="/users/{{ user.user_id }}" method="POST" class="sort-form">
-            <label>Compare using Age and Gender? </label>
-            {% if user.full_sort %}
-                <input type="checkbox" name="full_sort" class="sort_pref" checked="checked">
-            {% else %}
-                <input type="checkbox" name="full_sort" class="sort_pref">
-            {% endif %}
-            <input type="submit" name="submit">
-        </form> 
-        <p id="fake-flash-sort" style="display: none">Your preference has been updated.</p>
-    </div>
-    {% endif %}        
-{% endif %}
+    <h1>{{ user.username }}</h1>
+    <h4>{{ user.fname }} {{ user.lname }}</h4>
 
-{% if user.reviews %}
-    <div class="row game-reviews">
-        <h2>Reviews</h2>
-        {% if num_pages > 1 %}
-            <h2 class="paginated-header"></h2>
-            <div class="col-lg-4 col-md-6 col-xs-12 paginated-reviews"></div>
-            {% for index in range(1, num_pages + 1) %}
-                <a class="pagination" id="{{ index }}" href="/users/{{ user.user_id }}">{{ index }}</a>
-            {% endfor %}
-        {% else %}
-            <h2>Reviews</h2>
-            {% for review in reviews %}
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <h4><a href="/games/{{ review.game.game_id }}">{{ review.user.username }}</a></h4>
-                    <strong>{{ review.score }}</strong>
-                    {% if review.comment %}
-                        <p>{{ review.comment }}</p>
-                    {% endif %}
-                </div>
-            {% endfor %}
+     <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+        {% if user.reviews %}
+        <li role="presentation" class="active"><a href="#reviews" aria-controls="reviews" role="tab" data-toggle="tab">Reviews</a></li>
         {% endif %}
+        {% if current_games %}
+        <li role="presentation"><a href="#current-games" aria-controls="current-games" role="tab" data-toggle="tab">Currently Playing</a></li>
+        {% endif %}
+        {% if session.get("user_id") %}
+            {% if session["user_id"] == user.user_id %}
+            <li role="presentation"><a href="#preferences" aria-controls="preferences" role="tab" data-toggle="tab">Preferences</a></li>
+            {% endif %}
+        {% endif %}
+    </ul>
+
+
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane" id="current-games">
+        {% if current_games %}
+        <h2>Currently Playing</h2>
+        <div id="current-games-carousel" class="carousel slide" data-ride="carousel">
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                {% for index in range((current_games|length / 4)|int + 1) %}
+                {% if index == 0 %}
+                    <div class="item active">
+                {% else %}
+                    <div class="item">
+                {% endif %}
+                <div class="row">
+                    {% for game in current_games[(index * 4):4 + (index * 4)] %}
+                        <div class="col-lg-6">
+                        <img src="{{ game.cover.url }}" style="width: 250px; height: 400px; display: block; margin: auto">
+                        <div class="carousel-caption">
+                            <h5><a href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
+                            {% if session.get("user_id") %}
+                            {% if session["user_id"] == user.user_id %}
+                                <h5><a class="update-notes" id="{{ game.game_id }}" href="#">Update Notes</a><h5>
+                                <div class="currently-playing-notes" id="div-{{ game.game_id }}" style="display: none">
+                                    <form action="/users/{{ user.user_id }}" method="POST" class="notes-form" id="form-{{ game.game_id }}">
+                                        <label>Hours Played so Far:</label> 
+                                        {% if game.time_played %}
+                                        <input class="time" id="time-{{ game.game_id }}" type="number" name="time_played" value="{{ game.time_played }}">
+                                        {% else %}
+                                        <input class="time" id="time-{{ game.game_id }}" type="number" name="time_played" value="0">
+                                        {% endif %}
+                                        <input class="notes" id="notes-{{ game.game_id }}" type="textarea" name="notes" value="{{ game.notes }}">
+                                        <input type="submit" name="submit" value="Update Notes">
+                                    </form>
+                                    <button type="button" class="finish-button" id="finish-game-{{ game.game_id }}">Finish Game</button>
+                                    <div class="publish-review" id="publish-{{ game.game_id }}" style="display: none">
+                                        <p>Final Score: </p>
+                                        <input class="score" id="score-{{ game.game_id }}" type="number" name="score">
+                                        <button type="button" class="publish-button" id="publish-review-{{ game.game_id }}">Publish</button>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        </div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                {% endfor %}
+                </div>
+
+            <!-- Controls -->
+                <a class="left carousel-control" href="#current-games-carousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#current-games-carousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+            </div>
+        </div>
+        <p id="fake-flash-notes" style="display: none">Your notes have been updated.</p>
+        {% endif %}
+        </div>
+
+
+            
+
+        <div role="tabpanel" class="tab-pane" id="preferences">
+        {% if session.get("user_id") %}
+            {% if session["user_id"] == user.user_id %}
+            <div class="row change-sort-pref">
+                <h2>Change Recommendation Preferences</h2>
+                <form action="/users/{{ user.user_id }}" method="POST" class="sort-form">
+                    <label>Compare using Age and Gender? </label>
+                    {% if user.full_sort %}
+                        <input type="checkbox" name="full_sort" class="sort_pref" checked="checked">
+                    {% else %}
+                        <input type="checkbox" name="full_sort" class="sort_pref">
+                    {% endif %}
+                    <input type="submit" name="submit">
+                </form> 
+                <p id="fake-flash-sort" style="display: none">Your preference has been updated.</p>
+            </div>
+            {% endif %}        
+        {% endif %}
+        </div>
+
+
+
+        <div role="tabpanel" class="tab-pane active" id="reviews">
+            {% if user.reviews %}
+            <div class="row game-reviews">
+                <div class="col-xs-12">
+                    <h2>Reviews</h2>
+                    {% if num_pages > 1 %}
+                        <h2 class="paginated-header"></h2>
+                        <div class="paginated-reviews"></div>
+                    {% else %}
+                        {% for review in user.reviews %}
+                            <div class="col-lg-4 col-md-6 col-xs-12">
+                                <h4><a href="/users/{{ user.user_id }}">{{ user.username }}</a></h4>
+                                <strong>{{ review.score }}</strong>
+                                {% if review.comment %}
+                                    <p>{{ review.comment }}</p>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div> 
+            </div>
+            <div class="row">
+                <div class="col-xs-12 pagination-links"></div>
+            </div>
+            {% endif %}
+        </div>
+
     </div>
-{% endif %}
 
 </div>
 
 <script type="text/javascript">
     var userId = "{{ user.user_id }}";
     var paginatedReviews = $("div.paginated-reviews");
-    var paginatedHeader = $("div.paginated-header");
+    var paginationLinks = $("div.pagination-links");
     var isChecked;
+
+    var numPages = parseInt("{{ num_pages }}");
 
     var urlIndex = 1;
 
@@ -114,14 +177,11 @@
         paginatedReviews.html(paginatedHTML);
     };
 
-    $("a.pagination").on("click", function (evt) {
-        evt.preventDefault();
-        var index = $(this).attr("id");
-        urlIndex = parseInt(index) ;
+    $(document).ready(function () {
         getReviews();
+        setLinks();
+        setListeners();
     });
-
-    $(document).ready(getReviews());
 
     var removeGame = function(results) {
         $("div#main-" + results["game_id"]).toggle()
@@ -192,6 +252,48 @@
         $.post("/update_sort_pref", formValues, flashUpdated);
 
     });
+
+    var setLinks = function () {
+        var values;
+        if (numPages >= 5){
+            if (urlIndex == 1 || urlIndex == 2){
+                values = range(1,5);
+            } else if (urlIndex == numPages || urlIndex == numPages - 1){
+                values = range(numPages - 4, numPages);
+            } else {
+                values = range(urlIndex - 2, urlIndex + 2);
+            }
+        } else {
+            values = range(1, numPages)
+        }
+        var links = "";
+        for (value of values) {
+        links = links + "<span class='pagination-link-holder'><a " + 
+                "class='pagination-link' id=" + value + " href='#'>" + value + 
+                "</a></span>";
+        }
+        paginationLinks.empty();
+        paginationLinks.html(links);
+        setListeners();
+    };
+
+    var setListeners = function () {
+        $("a.pagination-link").on("click", function (evt) {
+            evt.preventDefault();
+            var index = $(this).attr("id");
+            urlIndex = parseInt(index);
+            setLinks();
+            getReviews();
+        });
+    };
+
+    function range(start, end) {
+        var foo = [];
+        for (var i = start; i <= end; i++) {
+            foo.push(i);
+        }
+        return foo;
+    }
 
 
 </script>
