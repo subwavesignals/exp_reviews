@@ -33,7 +33,7 @@
                         {% if review.game.covers|length >= 1 %}
                             <img src="{{ review.game.covers[0].url }}" style="width: 250px; height: 400px; display: block; margin: auto">
                         {% else %}
-                            <img src="/static/img/mysterious_wall_chicken.png" style="width: 250px; height: 400px; display: block; margin: auto">
+                            <img src="/static/img/jumbotron.jpg" style="width: 250px; height: 400px; display: block; margin: auto">
                         {% endif %}
                         <div class="carousel-caption">
                             <h5><a class="game-title" href="/games/{{ review.game.game_id }}">{{ review.game.name }}</a></h5>
@@ -76,7 +76,7 @@
                         {% if game.covers|length >= 1 %}
                             <img src="{{ game.covers[0].url }}" style="width: 250px; height: 400px; display: block; margin: auto">
                         {% else %}
-                            <img src="/static/img/mysterious_wall_chicken.png" style="width: 250px; height: 400px; display: block; margin: auto">
+                            <img src="/static/img/jumbotron.jpg" style="width: 250px; height: 400px; display: block; margin: auto">
                         {% endif %}
                         <div class="carousel-caption">
                             <h5><a class="game-title" href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
@@ -119,11 +119,11 @@
                         {% if game.covers|length >= 1 %}
                             <img src="{{ game.covers[0].url }}" style="width: 250px; height: 400px; display: block; margin: auto">
                         {% else %}
-                            <img src="/static/img/mysterious_wall_chicken.png" style="width: 250px; height: 400px; display: block; margin: auto">
+                            <img src="/static/img/jumbotron.jpg" style="width: 250px; height: 400px; display: block; margin: auto">
                         {% endif %}
                         <div class="carousel-caption">
                             <h5><a class="game-title" href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
-                            <h3>{{ "%.1f" % game.avg_score }}</h3>
+                            <h3>{{ "%.1f" % (game.avg_score/10) }}/10</h3>
                         </div>
                     </div>  
                     {% endfor %}
@@ -162,7 +162,7 @@
                         {% if game.covers|length >= 1 %}
                             <img src="{{ game.covers[0].url }}" style="width: 250px; height: 400px; display: block; margin: auto">
                         {% else %}
-                            <img src="/static/img/mysterious_wall_chicken.png" style="width: 250px; height: 400px; display: block; margin: auto">
+                            <img src="/static/img/jumbotron.jpg" style="width: 250px; height: 400px; display: block; margin: auto">
                         {% endif %}
                         <div class="carousel-caption">
                             <h5><a class="game-title" href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
@@ -206,7 +206,7 @@
                         {% if game.covers|length >= 1 %}
                             <img src="{{ game.covers[0].url }}" style="width: 250px; height: 400px; display: block; margin: auto">
                         {% else %}
-                            <img src="/static/img/mysterious_wall_chicken.png" style="width: 250px; height: 400px; display: block; margin: auto">
+                            <img src="/static/img/jumbotron.jpg" style="width: 250px; height: 400px; display: block; margin: auto">
                         {% endif %}
                         <div class="carousel-caption">
                             <h5><a class="game-title" href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
