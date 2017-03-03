@@ -14,11 +14,6 @@ class SeleniumTests(unittest.TestCase):
     def tearDown(self):
         self.browser.quit()
 
-    def wait_for_page_load(self, timeout=30):
-        old_page = self.find_element_by_tag_name('html')
-        yield
-        WebDriverWait(self, timeout).until(staleness_of(old_page))
-
     # def test_index(self):
     #     """Tests for index.html"""
 
@@ -28,12 +23,11 @@ class SeleniumTests(unittest.TestCase):
     def test_homelink(self):
 
         self.browser.get(HOME_URL + '/users/1')
-        self.browser.wait_for_page_load(15)
         homelink = self.browser.find_element_by_class_name("navbar-brand")
 
         homelink.click()
 
-        self.browser.wait_for_page_load(15)
+        self.browser.implicitly_wait(5)
         self.assertEqual(self.browser.title, 'EXP Reviews')
 
     def test_login(self):
@@ -48,7 +42,7 @@ class SeleniumTests(unittest.TestCase):
         password.send_keys("booleanbear")
         btn.click()
 
-        self.browser.wait_for_page_load(15)
+        self.browser.implicitly_wait(5)
         self.assertIn(self.browser.page_source, "Logged in")
         self.assertEqual(self.browser.title, 'EXP Reviews')
 
