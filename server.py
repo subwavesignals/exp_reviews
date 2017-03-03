@@ -199,8 +199,8 @@ def display_game(game_id):
 
     player_score = (db.session.query(func.avg(Review.score))
                     .filter_by(game_id=game_id).first())
-    critic_scores = (db.session.query(CriticReview.name, CriticReview.score)
-                     .filter_by(game_id=game_id).all())
+    critic_scores = (db.session.query(CriticReview.name, CriticReview.score,
+                     CriticReview.link).filter_by(game_id=game_id).all())
 
     num_pages = int(ceil(float(len(reviews)) / 10))
 

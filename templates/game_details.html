@@ -9,7 +9,7 @@
         <div class="col-lg-3">
             <h1>{{ game.name }}</h1>
             {% if game.covers|length >= 1 %}
-                <img src="{{ game.covers[0].url }}" style="width: 250px; height: 400px;">
+                <img src="{{ game.covers[0].url }}" style="width:100%">
             {% else %}
                 <img src="/static/img/mysterious_wall_chicken.png" style="width: 250px; height: 400px;">
             {% endif %}
@@ -18,15 +18,34 @@
                 <p id="fake-flash" style="display: none">Added to your list.</p>
             {% endif %}
         </div>
-        <div class="col-lg-5">
+        <div class="col-lg-4">
             {% if game.summary %}
                 <h3>Summary</h3>
-                <p>{{ game.summary }}</p>
+                <div class="summary-toggle" height="140px;">
+                    {% if game.summary|length < 450 %}
+                    <span class="summary-toggle full">{{ game.summary }}</span>
+                    {% else %}
+                    <span class="summary-toggle full" style="display: none">{{ game.summary }}</span>
+                    <span class="summary-toggle short">{{ game.summary[:450 ] }}...    </span>
+                        <a href="#" class="toggle" id="summary-toggle">Show More</a>
+                    {% endif %}
+                </div>
             {% endif %}
             {% if game.storyline %}
                 <h3>Storyline</h3>
-                <p>{{ game.storyline }}</p>
+                <div class="storyline-toggle" style="height: 140px;"">
+                    {% if game.storyline|length < 450 %}
+                    <span class="storyline-toggle full">{{ game.storyline }}</span>
+                    {% else %}
+                    <span class="storyline-toggle full" style="display: none">{{ game.storyline }}</span>
+                    <span class="storyline-toggle short">{{ game.storyline[:450] }}... </span>
+                        <a href="#" class="toggle" id="storyline-toggle">Show More</a>
+                    {% endif %}
+                </div>
             {% endif %}
+        </div>
+        <div class="col-lg-2">
+            <h3>About:</h3>
             {% if game.developers %}
                 <h5>Developers: </h5>
                 {% for dev in game.developers %}
@@ -50,7 +69,7 @@
                 {% endfor %}
             {% endif %}
         </div>
-        <div class="col-lg-5">
+        <div class="col-lg-3">
             {% if player_score[0] %}
             <div class="row">
                 <div class="col-lg-8">
@@ -66,7 +85,7 @@
                 <div class="col-lg-8">
                     <h3>Critic Scores: </h3>
                         {% for review in critic_scores %}
-                            <h4>{{ review[0] }}: {{ review[1] / 10 }}/10</h4>
+                            <h4>{{ review[0] }}: <a href="{{ review[2] }}">{{ review[1] / 10 }}/10</a></h4>
                         {% endfor %}
                 </div>
                 <div class="col-lg-4">
@@ -88,6 +107,7 @@
                     <h4>Add a Review:</h4>
                     <form action="/review/{{ game.game_id }}" method="POST">
                         <label>Score: </label><input type="number" min="0" max="100" name="score">
+                        <br>
                         <label>Comments: </label><input type="textarea" name="comment">
                         <input type="submit" name="submit" value="Review">
                     </form>
@@ -215,9 +235,6 @@
                     {% if num_pages > 1 %}
                         <h2 class="paginated-header"></h2>
                         <div class="paginated-reviews"></div>
-                        {% for index in range(1, num_pages + 1) %}
-                            <a class="pagination" id="{{ index }}" href="/games/{{ game.game_id }}">{{ index }}</a>
-                        {% endfor %}
                     {% else %}
                         {% for review in reviews %}
                             <div class="col-lg-4 col-md-6 col-xs-12">
@@ -231,6 +248,9 @@
                     {% endif %}
                 </div> 
             </div>
+            <div class="row">
+                <div class="col-xs-12 pagination-links"></div>
+            </div>
             {% endif %}
         </div>
 
@@ -241,8 +261,62 @@
 <script type="text/javascript">
     var gameId = "{{ game.game_id }}";
     var paginatedReviews = $("div.paginated-reviews");
+    var paginationLinks = $("div.pagination-links")
+    var numPages = parseInt("{{ num_pages }}");
 
     var urlIndex = 1;
+
+    $(document).ready(function () {
+        getReviews();
+        setLinks();
+        setListeners();
+    });
+
+    var setListeners = function () {
+        $("a.pagination-link").on("click", function (evt) {
+            evt.preventDefault();
+            var index = $(this).attr("id");
+            urlIndex = parseInt(index);
+            setLinks();
+            getReviews();
+        });
+    };
+
+    $("a.toggle").on("click", function (evt) {
+        evt.preventDefault();
+        var toggle = $(this).attr("id");
+        $("span.full." + toggle).toggle();
+        $("span.short." + toggle).toggle();
+        if ($(this).text() == "Show More") {
+            $(this).text("Show Less");
+        } else {
+            $(this).text("Show More");
+        }
+    });
+
+    var setLinks = function () {
+        var values;
+        if (numPages >= 5){
+            if (urlIndex == 1 || urlIndex == 2){
+                values = range(1,5);
+            } else if (urlIndex == numPages || urlIndex == numPages - 1){
+                values = range(numPages - 4, numPages);
+            } else {
+                values = range(urlIndex - 2, urlIndex + 2);
+            }
+        } else {
+            values = range(1, numPages)
+        }
+        var links = "";
+        for (value of values) {
+        links = links + "<span class='pagination-link-holder'><a " + 
+                "class='pagination-link' id=" + value + " href='#'>" + value + 
+                "</a></span>";
+        }
+        paginationLinks.empty();
+        paginationLinks.html(links);
+        setListeners();
+    };
 
     var getReviews = function (){
         var maxReview = urlIndex * 10;
@@ -266,15 +340,6 @@
         }
         paginatedReviews.html(paginatedHTML);
     };
-
-    $("a.pagination").on("click", function (evt) {
-        evt.preventDefault();
-        var index = $(this).attr("id");
-        urlIndex = parseInt(index) ;
-        getReviews();
-    });
-
-    $(document).ready(getReviews());
 
     var gameAdded = function(results) {
         $("p#fake-flash").toggle();
@@ -308,6 +373,18 @@
             }
         }); 
     });
+
+    $("div.carousel").carousel({
+        "interval": false
+    });
+
+    function range(start, end) {
+        var foo = [];
+        for (var i = start; i <= end; i++) {
+            foo.push(i);
+        }
+        return foo;
+    }
 
 </script>
 
