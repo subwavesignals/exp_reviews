@@ -206,6 +206,11 @@ def display_game(game_id):
 
     videos = game.videos
 
+    critic_avg = 0
+    for review in critic_scores:
+        critic_avg += review[1]
+    critic_avg = critic_avg / len(critic_scores)
+
     if session.get("user_id"):
         user_id = session["user_id"]
         current_review = (Review.query.filter_by(user_id=user_id, 
@@ -220,7 +225,7 @@ def display_game(game_id):
     return render_template("game_details.html", game=game, reviews=reviews,
                            player_score=player_score, critic_scores=critic_scores,
                            num_pages=num_pages, current_review=current_review,
-                           added=added, videos=videos)
+                           added=added, videos=videos, critic_avg=critic_avg)
 
 
 @app.route("/review/<game_id>", methods=["POST"])
