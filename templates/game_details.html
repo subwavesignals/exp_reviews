@@ -73,10 +73,15 @@
             {% if player_score[0] %}
             <div class="row">
                 <div class="col-lg-8">
-                    <h3>Player Score: {{ "%.1f" % player_score[0] }}</h3>
+                    <h3>Player Score:</h3> 
+                    <h4>{{ "%.1f" % player_score[0] }}</h4>
                 </div>
                 <div class="col-lg-4">
-                    <!-- rotten tomatoes style image here -->
+                    {% if player_score[0] >= 65 %}
+                        <img src="/static/img/greenbottle.png" style="height: 50px; width: auto">
+                    {% else %}
+                        <img src="/static/img/brokenbottle.jpg" style="height: 50px; width: auto">
+                    {% endif %}
                 </div>
             </div>
             {% endif %}
@@ -89,7 +94,11 @@
                         {% endfor %}
                 </div>
                 <div class="col-lg-4">
-                    <!-- rotten tomatoes style image here -->
+                    {% if critic_avg >= 65 %}
+                        <img src="/static/img/greenbottle.png" style="height: 50px; width: auto">
+                    {% else %}
+                        <img src="/static/img/brokenbottle.jpg" style="height: 50px; width: auto">
+                    {% endif %}
                 </div>
             </div>
             {% endif %}
