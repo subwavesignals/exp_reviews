@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<div class="container-fluid">
+<div class="container user">
 
     <h1>{{ user.username }}</h1>
     <h4>{{ user.fname }} {{ user.lname }}</h4>
@@ -123,15 +123,17 @@
                     <h2>Reviews</h2>
                     {% if num_pages > 1 %}
                         <h2 class="paginated-header"></h2>
-                        <div class="paginated-reviews"></div>
+                        <div class="row paginated-reviews"></div>
                     {% else %}
                         {% for review in user.reviews %}
-                            <div class="col-lg-4 col-md-6 col-xs-12">
+                            <div class="col-lg-4 col-md-6 col-xs-12 review">
+                                <div class="review-inner">
                                 <h4><a href="/users/{{ user.user_id }}">{{ user.username }}</a></h4>
                                 <strong>{{ review.score }}</strong>
                                 {% if review.comment %}
                                     <p>{{ review.comment }}</p>
                                 {% endif %}
+                                </div>
                             </div>
                         {% endfor %}
                     {% endif %}
@@ -158,7 +160,7 @@
     var urlIndex = 1;
 
     var getReviews = function (){
-        var maxReview = urlIndex * 10;
+        var maxReview = urlIndex * 9;
         var data = {"userId": userId, "maxReview": maxReview};
 
         $.get("/get_user_reviews.json", data, setPaginatedReviews);
@@ -167,12 +169,15 @@
     var setPaginatedReviews = function (results) {
         paginatedHTML = "";
         for (var i = 0; i < results.length; i++){
-            paginatedHTML = (paginatedHTML + "<div class='col-lg-4 col-md-6 col-xs-12'><h4><a href='/games/" + results[i]['game_id'] + "'>" +
+            paginatedHTML = (paginatedHTML + "<div class='col-lg-4 col-md-6 col-xs-12 review'><div class='review-inner'><h4><a href='/games/" + results[i]['game_id'] + "'>" +
                 results[i]['name'] + "</a></h4><strong>" + results[i]['score'] + "</strong>");
             if (results[i]["comment"]){
                 paginatedHTML = paginatedHTML + "<p>" + results[i]["comment"] + "</p>";
             }
-            paginatedHTML = paginatedHTML + "</div>";
+            paginatedHTML = paginatedHTML + "</div></div>";
+            if ((i + 1) % 3 == 0) {
+                paginatedHTML = paginatedHTML + "<div class='clearfix visible-lg-block'></div>";
+            }
         }
         paginatedReviews.html(paginatedHTML);
     };

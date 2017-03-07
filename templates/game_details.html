@@ -4,47 +4,49 @@
 
 {% block content %}
 
-<div class="container-fluid">
-    <div class="row">
+<div class="container game">
+    <div class="row game-details">
         <div class="col-lg-3">
-            <h1>{{ game.name }}</h1>
+            <h1 class="game-name">{{ game.name }}</h1>
             {% if game.covers|length >= 1 %}
                 <img src="{{ game.covers[0].url }}" style="width:100%">
             {% else %}
-                <img src="/static/img/mysterious_wall_chicken.png" style="width: 250px; height: 400px;">
+                <img src="/static/img/tilebackground.jpg" style="width: 250px; height: 350px;">
             {% endif %}
             {% if session.get("user_id") and not added %}
-                <button type="button" id="add-game">Add Game +</button>
-                <p id="fake-flash" style="display: none">Added to your list.</p>
+                <div class="add-button">
+                    <button type="button" id="add-game">Add Game +</button>
+                    <p id="fake-flash" style="display: none">Added to your list.</p>
+                </div>
             {% endif %}
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 game-summary-storyline">
             {% if game.summary %}
                 <h3>Summary</h3>
-                <div class="summary-toggle" height="140px;">
-                    {% if game.summary|length < 450 %}
+                <div class="summary-toggle" height: 120>
+                    {% if game.summary|length < 300 %}
                     <span class="summary-toggle full">{{ game.summary }}</span>
                     {% else %}
                     <span class="summary-toggle full" style="display: none">{{ game.summary }}</span>
-                    <span class="summary-toggle short">{{ game.summary[:450 ] }}...    </span>
+                    <span class="summary-toggle short">{{ game.summary[:300 ] }}...    </span>
                         <a href="#" class="toggle" id="summary-toggle">Show More</a>
                     {% endif %}
                 </div>
             {% endif %}
             {% if game.storyline %}
                 <h3>Storyline</h3>
-                <div class="storyline-toggle" style="height: 140px;"">
-                    {% if game.storyline|length < 450 %}
+                <div class="storyline-toggle" style="height: 120px;"">
+                    {% if game.storyline|length < 300 %}
                     <span class="storyline-toggle full">{{ game.storyline }}</span>
                     {% else %}
                     <span class="storyline-toggle full" style="display: none">{{ game.storyline }}</span>
-                    <span class="storyline-toggle short">{{ game.storyline[:450] }}... </span>
+                    <span class="storyline-toggle short">{{ game.storyline[:300] }}... </span>
                         <a href="#" class="toggle" id="storyline-toggle">Show More</a>
                     {% endif %}
                 </div>
             {% endif %}
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-2 game-about">
             <h3>About:</h3>
             {% if game.developers %}
                 <h5>Developers: </h5>
@@ -69,18 +71,18 @@
                 {% endfor %}
             {% endif %}
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-3 game-scores">
             {% if player_score[0] %}
             <div class="row">
                 <div class="col-lg-8">
-                    <h3>Player Score:</h3> 
+                    <h3>Players:</h3> 
                     <h4>{{ "%.1f" % player_score[0] }}</h4>
                 </div>
                 <div class="col-lg-4">
                     {% if player_score[0] >= 65 %}
-                        <img src="/static/img/greenbottle.png" style="height: 50px; width: auto">
+                        <img class="score-icon" src="/static/img/greenbottle.png" style="height: 50px; width: auto">
                     {% else %}
-                        <img src="/static/img/brokenbottle.jpg" style="height: 50px; width: auto">
+                        <img class="score-icon" src="/static/img/brokenbottle.jpg" style="height: 50px; width: auto">
                     {% endif %}
                 </div>
             </div>
@@ -88,16 +90,16 @@
             {% if critic_scores %}
             <div class="row">
                 <div class="col-lg-8">
-                    <h3>Critic Scores: </h3>
+                    <h3>Critics: </h3>
                         {% for review in critic_scores %}
-                            <h4>{{ review[0] }}: <a href="{{ review[2] }}">{{ review[1] / 10 }}/10</a></h4>
+                            <h4>{{ review[0] }}: <a href="{{ review[2] }}" target="_blank">{{ review[1] / 10 }}/10</a></h4>
                         {% endfor %}
                 </div>
                 <div class="col-lg-4">
                     {% if critic_avg >= 65 %}
-                        <img src="/static/img/greenbottle.png" style="height: 50px; width: auto">
+                        <img class="score-icon" src="/static/img/greenbottle.png" style="height: 50px; width: auto">
                     {% else %}
-                        <img src="/static/img/brokenbottle.jpg" style="height: 50px; width: auto">
+                        <img class="score-icon" src="/static/img/brokenbottle.jpg" style="height: 50px; width: auto">
                     {% endif %}
                 </div>
             </div>
@@ -108,8 +110,8 @@
                 {% if current_review %}
                     <h4>Edit your Review:</h4>
                     <form action="/review/{{ game.game_id }}" method="POST">
-                        <label>Score: </label><input type="number" name="score" min="0" max="100" value="{{ current_review.score }}">
-                        <label>Comments: </label><input type="textarea" name="comment" value="{{ current_review.comment }}">
+                        <label>Score: </label> <input type="number" name="score" min="0" max="100" value="{{ current_review.score }}">
+                        <label>Comments: </label> <input type="textarea" name="comment" value="{{ current_review.comment }}">
                         <input type="submit" name="submit" value="Update">
                     </form>
                 {% else %}
@@ -126,6 +128,8 @@
             {% endif %}
         </div>
     </div> <!-- End main info div -->
+
+    <hr>
 
      <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
@@ -188,17 +192,17 @@
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                {% for index in range((videos|length / 4)|int + 1) %}
+                {% for index in range((videos|length / 2)|int + 1) %}
                 {% if index == 0 %}
                     <div class="item active">
                 {% else %}
                     <div class="item">
                 {% endif %}
-                    {% for video in videos[(index * 4):4 + (index * 4)] %}
+                    {% for video in videos[(index * 2):2 + (index * 2)] %}
                         <iframe
                             src="http://www.youtube.com/embed/{{ video.slug }}"
                             height="300"
-                            width="400"
+                            width="550"
                             frameborder="0"
                             scrolling=no
                             allowfullscreen=true>
@@ -246,12 +250,14 @@
                         <div class="paginated-reviews"></div>
                     {% else %}
                         {% for review in reviews %}
-                            <div class="col-lg-4 col-md-6 col-xs-12">
+                            <div class="col-lg-4 col-md-6 col-xs-12 review">
+                                <div class="review-inner">
                                 <h4><a href="/users/{{ review.user.user_id }}">{{ review.user.username }}</a></h4>
                                 <strong>{{ review.score }}</strong>
                                 {% if review.comment %}
                                     <p>{{ review.comment }}</p>
                                 {% endif %}
+                                </div>
                             </div>
                         {% endfor %}
                     {% endif %}
@@ -328,7 +334,7 @@
     };
 
     var getReviews = function (){
-        var maxReview = urlIndex * 10;
+        var maxReview = urlIndex * 9;
         var data = {"gameId": gameId, "maxReview": maxReview};
 
         $.get("/get_game_reviews.json", data, setPaginatedReviews);
@@ -338,14 +344,17 @@
         paginatedHTML = "";
         for (var i = 0; i < results.length; i++){
             paginatedHTML = (paginatedHTML + "<div class='col-lg-4 col-md-6 " + 
-                "col-xs-12'><h4><a href='/users/" + results[i]['user_id'] + "'>" +
+                "col-xs-12 review'><div class='review-inner'><h4><a href='/users/" + results[i]['user_id'] + "'>" +
                 results[i]['username'] + "</a></h4><strong>" + results[i]['score'] +
                 "</strong>");
             if (results[i]["comment"]){
                 paginatedHTML = paginatedHTML + "<p>" + results[i]["comment"] + 
                 "</p>";
             }
-            paginatedHTML = paginatedHTML + "</div>";
+            paginatedHTML = paginatedHTML + "</div></div>";
+            if ((i + 1) % 3 == 0) {
+                paginatedHTML = paginatedHTML + "<div class='clearfix visible-lg-block'></div>";
+            }
         }
         paginatedReviews.html(paginatedHTML);
     };
