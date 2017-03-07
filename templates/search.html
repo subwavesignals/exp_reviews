@@ -3,15 +3,17 @@
 {% block title %}{{ search }}{% endblock %}
 
 {% block content %}
-
+<div class="container">
+<div class="row results">
+<div class="col-xs-12">
 <h1>Search Results for {{ search }}</h1>
 <h3>Options</h3>
-<input type="checkbox" name="users" id="ck_users" checked="checked">Users
-<input type="checkbox" name="games" id="ck_games" checked="checked">Games
-<input type="checkbox" name="genres" id="ck_genres" checked="checked">Genres
-<input type="checkbox" name="frans" id="ck_frans" checked="checked">Franchises
-<input type="checkbox" name="devs" id="ck_devs" checked="checked">Developers
-<input type="checkbox" name="platforms" id="ck_platforms" checked="checked">Platforms
+<input type="checkbox" name="users" id="ck_users" checked><label>Users</label>
+<input type="checkbox" name="games" id="ck_games" checked><label>Games</label>
+<input type="checkbox" name="genres" id="ck_genres" checked><label>Genres</label>
+<input type="checkbox" name="frans" id="ck_franchises" checked><label>Franchises</label>
+<input type="checkbox" name="devs" id="ck_developers" checked><label>Developers</label>
+<input type="checkbox" name="platforms" id="ck_platforms" checked><label>Platforms</label>
 
 {% if results %}
     <div class="result-list">
@@ -32,7 +34,11 @@
             <div class="result-item-games">
                 <a href="/games/{{ item.game_id }}">{{ item.name }}</a>
                 {% if item.summary %}
-                    <p>{{ item.summary }}</p>
+                    {% if item.summary|length > 750 %}
+                        <p>{{ item.summary[:750] }}...</p>
+                    {% else %}
+                        <p>{{ item.summary }}</p>
+                    {% endif %}
                 {% endif %}
             </div>
         {% endfor %}
@@ -106,54 +112,57 @@
 {% else %}
     <p>No results were found for {{ search }}.</p>
 {% endif %}
+</div>
+</div>
+</div>
 
 <script type="text/javascript">
-    
+
     $("input#ck_users").change(function () {
         if (this.checked) {
-            $("div.users-list").show()
+            $("div.users-list").show();
         } else {
-            $("div.users-list").hide()
+            $("div.users-list").hide();
         }
     });
 
     $("input#ck_games").change(function () {
         if (this.checked) {
-            $("div.games-list").show()
+            $("div.games-list").show();
         } else {
-            $("div.games-list").hide()
+            $("div.games-list").hide();
         }
     });
 
     $("input#ck_genres").change(function () {
         if (this.checked) {
-            $("div.genres-list").show()
+            $("div.genres-list").show();
         } else {
-            $("div.genres-list").hide()
+            $("div.genres-list").hide();
         }
     });
 
-    $("input#ck_devs").change(function () {
+    $("input#ck_developers").change(function () {
         if (this.checked) {
-            $("div.developers-list").show()
+            $("div.developers-list").show();
         } else {
-            $("div.developers-list").hide()
+            $("div.developers-list").hide();
         }
     });
 
-    $("input#ck_frans").change(function () {
+    $("input#ck_franchises").change(function () {
         if (this.checked) {
-            $("div.franchises-list").show()
+            $("div.franchises-list").show();
         } else {
-            $("div.franchises-list").hide()
+            $("div.franchises-list").hide();
         }
     });
 
     $("input#ck_platforms").change(function () {
         if (this.checked) {
-            $("div.platforms-list").show()
+            $("div.platforms-list").show();
         } else {
-            $("div.platforms-list").hide()
+            $("div.platforms-list").hide();
         }
     });
 

@@ -4,18 +4,21 @@
 
 {% block content %}
 
-<div class=container-fluid>
-    <div class="jumbotron" id="homepage-header" style="background-image: url('/static/img/tilebackground.jpg'); background-repeat: repeat-x; background-size: auto 200px; height: 200px;">
-        <h1 style="text-align: center;">EXP Reviews</h1>
+<div class=container-fluid style="background-image: url('/static/img/xbone.jpeg'); background-size: cover; filter: blur(2px);">
+    <div class="row" id="header-row" style="background: rgba(0, 248, 75, 0.4);"">
+    <div class="col-xs-12" id="homepage-header" style="height: 400px">
+        <h1 id="title">EXP Reviews</h1>
+    </div>
     </div>
 </div>
 <!-- End homepage jumbotron -->
 
-<div class="container-fluid">
+<div class="container">
 
     {% if session.get("user_id") and recommended_list%}
-    <div class="row">
-    <h3>Recommended for You</h3>
+    <div class="row section">
+    <div class="col-xs-12">
+    <h3 class="homepage-section-header">Recommended for You</h3>
     <div id="recommended-carousel" class="carousel slide" data-ride="carousel">
 
         <!-- Wrapper for slides -->
@@ -30,9 +33,9 @@
                     {% for review in recommended_list[(4 * index):(4 * index) + 4] %}
                         <div class="col-xs-3">
                         {% if review.game.covers|length >= 1 %}
-                            <img src="{{ review.game.covers[0].url }}" style="width: 250px; height: 400px; display: block; margin: auto">
+                            <img src="{{ review.game.covers[0].url }}" style="width: 250px; height: 350px; display: block; margin: auto">
                         {% else %}
-                            <img src="/static/img/tilebackground.jpg" style="width: 250px; height: 400px; display: block; margin: auto">
+                            <img src="/static/img/tilebackground.jpg" style="width: 250px; height: 350px; display: block; margin: auto">
                         {% endif %}
                         <div class="carousel-caption">
                             <h5><a class="game-title" href="/games/{{ review.game.game_id }}">{{ review.game.name }}</a></h5>
@@ -55,10 +58,14 @@
         </a>
     </div> <!-- End Rec Carousel -->
     </div>
+    </div>
     {% endif %}
 
-    <div class="row">
-    <h3>Popular with Our Users</h3>
+    <hr>
+
+    <div class="row section">
+    <div class="col-xs-12">
+    <h3 class="homepage-section-header">Popular with Our Users</h3>
     <div id="user-carousel" class="carousel slide" data-ride="carousel">
 
         <!-- Wrapper for slides -->
@@ -73,9 +80,9 @@
                     {% for game in user_list[(4 * index):(4 * index) + 4] %}
                         <div class="col-xs-3">
                         {% if game.covers|length >= 1 %}
-                            <img src="{{ game.covers[0].url }}" style="width: 250px; height: 400px; display: block; margin: auto">
+                            <img src="{{ game.covers[0].url }}" style="width: 250px; height: 350px; display: block; margin: auto">
                         {% else %}
-                            <img src="/static/img/tilebackground.jpg" style="width: 250px; height: 400px; display: block; margin: auto">
+                            <img src="/static/img/tilebackground.jpg" style="width: 250px; height: 350px; display: block; margin: auto">
                         {% endif %}
                         <div class="carousel-caption">
                             <h5><a class="game-title" href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
@@ -99,9 +106,13 @@
         </a>
     </div> <!-- End Popular Users Carousel -->
     </div>
+    </div>
 
-    <div class="row">
-    <h3>Popular with Critics</h3>
+    <hr>
+
+    <div class="row section">
+    <div class="col-xs-12">
+    <h3 class="homepage-section-header">Popular with Critics</h3>
     <div id="critic-carousel" class="carousel slide" data-ride="carousel">
 
         <!-- Wrapper for slides -->
@@ -116,9 +127,9 @@
                     {% for game in critic_list[(4 * index):(4 * index) + 4] %}
                         <div class="col-xs-3">
                         {% if game.covers|length >= 1 %}
-                            <img src="{{ game.covers[0].url }}" style="width: 250px; height: 400px; display: block; margin: auto">
+                            <img src="{{ game.covers[0].url }}" style="width: 250px; height: 350px; display: block; margin: auto">
                         {% else %}
-                            <img src="/static/img/tilebackground.jpg" style="width: 250px; height: 400px; display: block; margin: auto">
+                            <img src="/static/img/tilebackground.jpg" style="width: 250px; height: 350px; display: block; margin: auto">
                         {% endif %}
                         <div class="carousel-caption">
                             <h5><a class="game-title" href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
@@ -142,9 +153,13 @@
         </a>
     </div> <!-- End Popular Critics Carousel -->
     </div>
+    </div>
 
-    <div class="row">
-    <h3>Recently Reviewed</h3>
+    <hr>
+
+    <div class="row section">
+    <div class="col-xs-12">
+    <h3 class="homepage-section-header">Recently Reviewed</h3>
     <div id="recent-carousel" class="carousel slide" data-ride="carousel">
 
         <!-- Wrapper for slides -->
@@ -159,9 +174,9 @@
                     {% for game in recent_list[(4 * index):(4 * index) + 4] %}
                         <div class="col-xs-3">
                         {% if game.covers|length >= 1 %}
-                            <img src="{{ game.covers[0].url }}" style="width: 250px; height: 400px; display: block; margin: auto">
+                            <img src="{{ game.covers[0].url }}" style="width: 250px; height: 350px; display: block; margin: auto">
                         {% else %}
-                            <img src="/static/img/tilebackground.jpg" style="width: 250px; height: 400px; display: block; margin: auto">
+                            <img src="/static/img/tilebackground.jpg" style="width: 250px; height: 350px; display: block; margin: auto">
                         {% endif %}
                         <div class="carousel-caption">
                             <h5><a class="game-title" href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
@@ -185,10 +200,13 @@
         </a>
     </div> <!-- End Recently Reviewed Carousel -->
     </div>
+    </div>
 
+    <hr>
 
-    <div class="row">
-    <h3>Coming Soon</h3>
+    <div class="row section">
+    <div class="col-xs-12">
+    <h3 class="homepage-section-header">Coming Soon</h3>
     <div id="soon-carousel" class="carousel slide" data-ride="carousel">
 
         <!-- Wrapper for slides -->
@@ -203,9 +221,9 @@
                     {% for game in soon_list[(4 * index):(4 * index) + 4] %}
                         <div class="col-xs-3">
                         {% if game.covers|length >= 1 %}
-                            <img src="{{ game.covers[0].url }}" style="width: 250px; height: 400px; display: block; margin: auto">
+                            <img src="{{ game.covers[0].url }}" style="width: 250px; height: 350px; display: block; margin: auto">
                         {% else %}
-                            <img src="/static/img/tilebackground.jpg" style="width: 250px; height: 400px; display: block; margin: auto">
+                            <img src="/static/img/tilebackground.jpg" style="width: 250px; height: 350px; display: block; margin: auto">
                         {% endif %}
                         <div class="carousel-caption">
                             <h5><a class="game-title" href="/games/{{ game.game_id }}">{{ game.name }}</a></h5>
@@ -228,6 +246,7 @@
             <span class="sr-only">Next</span>
         </a>
     </div> <!-- End Coming Soon Carousel -->
+    </div>
     </div>
 
 </div>
