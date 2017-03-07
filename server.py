@@ -202,14 +202,15 @@ def display_game(game_id):
     critic_scores = (db.session.query(CriticReview.name, CriticReview.score,
                      CriticReview.link).filter_by(game_id=game_id).all())
 
-    num_pages = int(ceil(float(len(reviews)) / 10))
+    num_pages = int(ceil(float(len(reviews)) / 9))
 
     videos = game.videos
 
     critic_avg = 0
     for review in critic_scores:
         critic_avg += review[1]
-    critic_avg = critic_avg / len(critic_scores)
+    if len(critic_scores) >= 1:
+        critic_avg = critic_avg / len(critic_scores)
 
     if session.get("user_id"):
         user_id = session["user_id"]
@@ -257,7 +258,7 @@ def display_user(user_id):
     user = User.query.filter_by(user_id=user_id).first()
     reviews = Review.query.filter_by(user_id=user_id).all()
 
-    num_pages = int(ceil(float(len(reviews)) / 10))
+    num_pages = int(ceil(float(len(reviews)) / 9))
 
     current_games = CurrentGame.query.filter_by(user_id=user_id).all()
 
@@ -313,7 +314,7 @@ def get_game_reviews():
     game_id = int(request.args.get("gameId"))
     max_reviews = int(request.args.get("maxReview"))
 
-    reviews = Review.query.filter_by(game_id=game_id).offset(max_reviews - 10).limit(10).all()
+    reviews = Review.query.filter_by(game_id=game_id).offset(max_reviews - 9).limit(9).all()
 
     cleaned_reviews = []
     for review in reviews:
@@ -332,7 +333,7 @@ def get_user_reviews():
     user_id = int(request.args.get("userId"))
     max_reviews = int(request.args.get("maxReview"))
 
-    reviews = Review.query.filter_by(user_id=user_id).offset(max_reviews - 10).limit(10).all()
+    reviews = Review.query.filter_by(user_id=user_id).offset(max_reviews - 9).limit(9).all()
 
     cleaned_reviews = []
     for review in reviews:
