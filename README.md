@@ -1,7 +1,5 @@
 # exp_reviews
 
-[![Build Status](https://github.com/subwavesignals/exp_reviews?branch=master)](https://github.com/subwavesignals/exp_reviews)
-
 EXP Reviews is a site for video game reviews akin to Rotten Tomatoes.
 
 ## Table of Contents
